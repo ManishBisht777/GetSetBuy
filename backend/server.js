@@ -4,13 +4,12 @@ const connecttodatabase = require("./config/db");
 
 //handling uncaught execption
 
-process.on("uncaughtException",(err)=>{
-    console.log(`Error : ${err.message}`)
-    console.log(`Shuttin down server due to uncaught execption`);
+process.on("uncaughtException", (err) => {
+  console.log(`Error : ${err.message}`);
+  console.log(`Shuttin down server due to uncaught execption`);
 
-    process.exit(1);
-})
-
+  process.exit(1);
+});
 
 // config
 dotenv.config({ path: "backend/config/config.env" });
