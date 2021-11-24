@@ -58,6 +58,12 @@ const productschema = new mongoose.Schema({
       },
     },
   ],
+
+  user: {
+    type: mongoose.Schema.ObjectId,
+    require: true,
+    ref: "user",
+  },
   createdat: {
     type: Date,
     default: Date.now,

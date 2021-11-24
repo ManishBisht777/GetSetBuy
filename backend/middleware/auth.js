@@ -15,3 +15,12 @@ exports.isauthenticated = catchasyncerror(async (req, res, next) => {
   req.user = await User.findById(decoded.id);
   next();
 });
+
+exports.authorizedrole = (...roles) => {
+  return (req, res, next) => {
+    if (!roles.includes(req.user.role)) {
+      return next(new Errorhandler("not allowed to view this", 401));
+    }
+    next();
+  };
+};

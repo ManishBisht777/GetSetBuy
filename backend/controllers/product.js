@@ -6,6 +6,8 @@ const Apifeatures = require("../utils/features");
 // create product <---admin only --->
 
 exports.createProduct = catchasyncerror(async (req, res, next) => {
+  req.body.user = req.user.id;
+
   const product = await Product.create(req.body);
   res.status(201).json({
     success: true,
@@ -17,14 +19,17 @@ exports.createProduct = catchasyncerror(async (req, res, next) => {
 
 exports.getallproducts = catchasyncerror(async (req, res, next) => {
   const resultperpage = 1;
-  const productcount=await Product.countDocuments();
-  const apifeature = new Apifeatures(Product.find(), req.query).search().filter().panigation(resultperpage)
+  const productcount = await Product.countDocuments();
+  const apifeature = new Apifeatures(Product.find(), req.query)
+    .search()
+    .filter()
+    .panigation(resultperpage);
 
   const products = await apifeature.query;
   res.status(200).json({
     success: true,
     products,
-    productcount
+    productcount,
   });
 });
 
