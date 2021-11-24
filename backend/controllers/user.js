@@ -26,16 +26,15 @@ exports.registeruser = catchasyncerror(async (req, res, next) => {
 exports.loginuser = catchasyncerror(async (req, res, next) => {
   const { email, password } = req.body;
 
-  console.log(email, password);
   // check for email and password
 
   if (!email || !password) {
     return next(new Errorhandler("Please enter Email and password", 400));
   }
 
+  console.log(email, password);
   const user = await User.findOne({ email }).select("+password");
 
-  console.log(user);
   // if user-email not found
   if (!user) {
     return next(
@@ -45,13 +44,23 @@ exports.loginuser = catchasyncerror(async (req, res, next) => {
 
   const isPasswordMatched = await user.comparepassword(password);
 
-  console.log(isPasswordMatched);
-  console.log("hello");
   // if password misatched
   if (!isPasswordMatched) {
-    return next(new Errorhandler("Invalid email or password", 401));
+    return await next(new Errorhandler("Invalid email or password", 401));
   }
-  console.log("hello");
 
   sendtoken(user, 200, res);
+});
+
+// logout a user
+
+exports.logoutuser = catchasyncerror(async (req, res, next) => {
+  res.cookie("token", null, {
+    expires: new Date(Date.now()),
+    httponly: true,
+  });
+  res.status(200).json({
+    success: true,
+    message: "logged out",
+  });
 });
