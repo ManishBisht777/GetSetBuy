@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const validator = require("validator");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const crypto = require("crypto");
 
 const { Schema } = mongoose;
 
@@ -54,8 +55,27 @@ userSchema.methods.getJWTtoken = function () {
   });
 };
 
+// compare password
+
 userSchema.methods.comparepassword = async function (enteredpassword) {
   return await bcrypt.compare(enteredpassword, this.password);
+};
+
+// reset password facility
+
+userSchema.methods.getresetpasswordtoken = function () {
+  //generating token
+  const resettoken = crypto.randomBytes(20).toString("hex");
+
+  // hashing and saving resetpasswordtoken to userschema
+  this.resetpasswordtoken = crypto
+    .createHash("sha256")
+    .update(resettoken)
+    .digest("hex");
+
+  this.resetpasswordexpire = Date.now() + 15 * 60 * 1000;
+
+  return resettoken;
 };
 
 const User = mongoose.model("user", userSchema);
