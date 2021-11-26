@@ -34,7 +34,6 @@ exports.loginuser = catchasyncerror(async (req, res, next) => {
     return next(new Errorhandler("Please enter Email and password", 400));
   }
 
-  console.log(email, password);
   const user = await User.findOne({ email }).select("+password");
 
   // if user-email not found
@@ -172,6 +171,8 @@ exports.updatepassword = catchasyncerror(async (req, res, next) => {
   sendtoken(user, 200, res);
 });
 
+// update user profile
+
 exports.updateuser = catchasyncerror(async (req, res, next) => {
   const newdata = {
     name: req.body.name,
@@ -187,5 +188,80 @@ exports.updateuser = catchasyncerror(async (req, res, next) => {
   res.status(200).json({
     success: true,
     user,
+  });
+});
+
+// get all user
+exports.getalluser = catchasyncerror(async (req, res, next) => {
+  const usercount = await User.countDocuments();
+  const users = await User.find();
+
+  res.status(200).json({
+    success: true,
+    usercount,
+    users,
+  });
+});
+
+// get single user
+
+exports.getsingleuser = catchasyncerror(async (req, res, next) => {
+  const user = await User.findById(req.params.id);
+
+  if (!user) {
+    return next(
+      new errorhandler(`User does not exist with Id: ${req.params.id}`)
+    );
+  }
+
+  res.status(200).json({
+    success: true,
+    user,
+  });
+});
+
+// update role
+
+exports.updaterole = catchasyncerror(async (req, res, next) => {
+  const newdata = {
+    name: req.body.name,
+    email: req.body.email,
+    role: req.body.role,
+  };
+
+  const user = await User.findByIdAndUpdate(req.params.id, newdata, {
+    runValidators: true,
+    new: true,
+    useFindAndModify: false,
+  });
+
+  if (!user) {
+    return next(
+      new errorhandler(`User does not exist with Id: ${req.params.id}`, 400)
+    );
+  }
+
+  res.status(200).json({
+    success: true,
+    user,
+  });
+});
+
+// delete user
+
+exports.deleteuser = catchasyncerror(async (req, res, next) => {
+  const user = await User.findById(req.params.id);
+
+  if (!user) {
+    return next(
+      new errorhandler(`User does not exist with Id: ${req.params.id}`, 400)
+    );
+  }
+
+  await user.remove();
+
+  res.status(200).json({
+    success: true,
+    message: "User Deleted Successfully",
   });
 });
