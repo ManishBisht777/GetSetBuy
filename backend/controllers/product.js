@@ -18,7 +18,7 @@ exports.createProduct = catchasyncerror(async (req, res, next) => {
 // get all products
 
 exports.getallproducts = catchasyncerror(async (req, res, next) => {
-  const resultperpage = 1;
+  const resultperpage = 10;
   const productcount = await Product.countDocuments();
   const apifeature = new Apifeatures(Product.find(), req.query)
     .search()
@@ -80,5 +80,50 @@ exports.deleteproduct = catchasyncerror(async (req, res, next) => {
   await Product.deleteOne();
   res.status(200).json({
     sucess: true,
+  });
+});
+
+// create review or update review
+exports.createreview = catchasyncerror(async (req, res, next) => {
+  const { rating, comment, productid } = req.body;
+
+  const review = {
+    user: req.user._id,
+    name: req.user.name,
+    rating: Number(rating),
+    comment,
+  };
+
+  const product = await Product.findById(productid);
+
+  console.log(product);
+  const isreviewed = product.reviews.find(
+    (rev) => rev.user.toString() === req.user._id.toString()
+  );
+
+  if (isreviewed) {
+    product.reviews.forEach((rev) => {
+      if (rev.user.toString() === req.user._id.toString()) {
+        rev.rating = rating;
+        rev.comment = comment;
+      }
+    });
+  } else {
+    product.reviews.push(review);
+    product.noofrewiew = product.reviews.length;
+  }
+
+  let avg = 0;
+
+  product.reviews.forEach((rev) => {
+    avg += rev.rating;
+  });
+
+  product.ratings = avg / product.reviews.length;
+
+  await product.save({ validateBeforeSave: false });
+
+  res.status(200).json({
+    success: true,
   });
 });
