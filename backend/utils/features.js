@@ -35,13 +35,12 @@ class Apifeatures {
     return this;
   }
 
-  panigation(resultperpage)
-  {
-    const currpage=Number(this.querystr.page) || 1;
+  panigation(resultperpage) {
+    const currpage = Number(this.querystr.page) || 1;
 
-    const skip= resultperpage * (currpage-1);
+    const skip = resultperpage * (currpage - 1);
 
-    this.query=this.query.limit(resultperpage).skip(skip);
+    this.query = this.query.limit(resultperpage).skip(skip);
 
     return this;
   }
