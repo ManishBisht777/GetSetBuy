@@ -1,0 +1,86 @@
+footer {
+  background: #111;
+  padding: 15px 23px;
+  color: #fff;
+  text-align: center;
+  position: relative;
+  width: 100%;
+}
+footer span a {
+  color: crimson;
+  text-decoration: none;
+}
+
+.foot {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.foot1 {
+  margin: 30px;
+}
+.foot2 {
+  margin: 30px;
+}
+.foot2 .text {
+  font-size: 30px;
+}
+
+.foot2 .field {
+  margin: 10px;
+}
+footer ul li {
+  list-style: none;
+  margin: 4px;
+}
+.foot1 ul {
+  margin-top: 20px;
+}
+.foot1 ul li {
+  margin: 10px;
+}
+.foot1 ul li a {
+  color: rgb(231, 208, 79);
+}
+
+footer input {
+  background: transparent;
+  border: none;
+  color: #fff;
+}
+footer span a:hover {
+  text-decoration: underline 2px solid white;
+  transition: 0.3s;
+}
+
+footer button {
+  background: #97d9e1;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 10px;
+  margin-top: 40px;
+  border: 1px solid #97d9e1;
+  letter-spacing: 1px;
+}
+
+footer button a {
+  text-decoration: none;
+  color: #000;
+}
+
+footer button:hover {
+  transition: 0.3s;
+  cursor: pointer;
+  background: transparent;
+  color: #fff;
+}
+
+.foot3 ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+}
+ion-icon {
+  cursor: pointer;
+}

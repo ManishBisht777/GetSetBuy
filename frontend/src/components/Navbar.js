@@ -30,13 +30,7 @@ function Navbar() {
             </a>
             <span className="tooltip">User</span>
           </li>
-          <li>
-            <a href="/">
-              <i className="bx bx-chat"></i>
-              <span className="links_name">Messages</span>
-            </a>
-            <span className="tooltip">Messages</span>
-          </li>
+
           <li>
             <a href="/">
               <i className="bx bx-pie-chart-alt-2"></i>
@@ -83,9 +77,6 @@ function Navbar() {
           </li>
         </ul>
       </div>
-      <section className="home-section">
-        <div className="text">Dashboard</div>
-      </section>
     </div>
   );
 }
