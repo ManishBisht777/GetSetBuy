@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import Product from "../../product/Product";
 import MetaData from "../MetaData";
-
 function Home() {
   return (
     <Wrap>

@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import Card from "./Card";
+import { getproduct } from "../../actions/productAction";
+import { useDispatch, useSelector } from "react-redux";
 
 const product = {
   name: "white shirt",
@@ -14,19 +16,21 @@ const product = {
 };
 
 function Product() {
+  const dispatch = useDispatch();
+
+  const { loading, error, products, productcount } = useSelector(
+    (state) => state.products
+  );
+
+  useEffect(() => {
+    dispatch(getproduct());
+  }, [dispatch]);
+
   return (
     <Wrap>
       <h3>products</h3>
       <Productcontainer>
-        <Card product={product} />
-        <Card product={product} />
-        <Card product={product} />
-        <Card product={product} />
-        <Card product={product} />
-        <Card product={product} />
-        <Card product={product} />
-        <Card product={product} />
-        <Card product={product} />
+        {products && products.map((product) => <Card product={product} />)}
       </Productcontainer>
     </Wrap>
   );
