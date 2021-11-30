@@ -4,17 +4,6 @@ import Card from "./Card";
 import { getproduct } from "../../actions/productAction";
 import { useDispatch, useSelector } from "react-redux";
 
-const product = {
-  name: "white shirt",
-  images: [
-    {
-      url: "https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/4F39B7E16726ECF419DD7C49E011DD95099AA20A962B0B10AA1881A70661CE45/scale?width=1440&aspectRatio=1.78&format=jpeg",
-    },
-  ],
-  price: 1234,
-  id: "12345678",
-};
-
 function Product() {
   const dispatch = useDispatch();
 
@@ -27,12 +16,21 @@ function Product() {
   }, [dispatch]);
 
   return (
-    <Wrap>
-      <h3>products</h3>
-      <Productcontainer>
-        {products && products.map((product) => <Card product={product} />)}
-      </Productcontainer>
-    </Wrap>
+    <div className="">
+      {loading ? (
+        "loading"
+      ) : (
+        <Wrap>
+          <h3>products</h3>
+          <Productcontainer>
+            {products &&
+              products.map((product) => (
+                <Card product={product} key={product._id} />
+              ))}
+          </Productcontainer>
+        </Wrap>
+      )}
+    </div>
   );
 }
 const Wrap = styled.div`

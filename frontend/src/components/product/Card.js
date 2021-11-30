@@ -7,13 +7,13 @@ function Card({ product }) {
     edit: false,
     color: "gray",
     activeColor: "black",
-    value: 3.5,
+    value: product.rating,
     size: window.innerWidth < 600 ? 20 : 25,
     isHalf: true,
   };
 
   return (
-    <Link to="/">
+    <Link to={product._id}>
       <Productcard>
         <Productimg className="product-img">
           <img src={product.images[0].url} alt="" />
@@ -22,6 +22,7 @@ function Card({ product }) {
           <h2>{product.name}</h2>
           <div className="rating">
             <Reactstars {...options}></Reactstars>
+            <span>{product.noofrewiew}</span>
           </div>
           <p>{product.price}</p>
         </div>

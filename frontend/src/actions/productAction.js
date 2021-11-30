@@ -15,10 +15,12 @@ export const getproduct = () => async (dispatch) => {
 
     const { data } = await axios.get("/api/products");
 
-    dispatch({
-      type: ALL_PRODUCT_SUCCESS,
-      payload: data,
-    });
+    if (data) {
+      dispatch({
+        type: ALL_PRODUCT_SUCCESS,
+        payload: data,
+      });
+    }
   } catch (error) {
     dispatch({
       type: ALL_PRODUCT_FAIL,
