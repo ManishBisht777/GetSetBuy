@@ -3,17 +3,22 @@ import styled from "styled-components";
 import Card from "./Card";
 import { getproduct } from "../../actions/productAction";
 import { useDispatch, useSelector } from "react-redux";
+import { useAlert } from "react-alert";
 
 function Product() {
   const dispatch = useDispatch();
 
+  const alert = useAlert();
   const { loading, error, products, productcount } = useSelector(
     (state) => state.products
   );
 
   useEffect(() => {
+    if (error) {
+      return alert.error(error);
+    }
     dispatch(getproduct());
-  }, [dispatch]);
+  }, [dispatch, error]);
 
   return (
     <div className="">
