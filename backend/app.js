@@ -5,6 +5,8 @@ const cookieparser = require("cookie-parser");
 
 app.use(express.json());
 app.use(cookieparser());
+const cors = require("cors");
+app.use(cors({ origin: true }));
 
 // route imports
 const product = require("./routes/productroutes");

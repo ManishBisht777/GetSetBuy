@@ -18,7 +18,7 @@ function Product() {
       return alert.error(error);
     }
     dispatch(getproduct());
-  }, [dispatch, error]);
+  }, [dispatch, error, alert]);
 
   return (
     <div className="">

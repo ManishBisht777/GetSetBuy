@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Product from "../../product/Product";
 import MetaData from "../MetaData";
-function Home() {
+const Home = () => {
   return (
     <Wrap>
       <MetaData title="Ecommerce" />
@@ -12,7 +12,7 @@ function Home() {
       <Product />
     </Wrap>
   );
-}
+};
 
 const Wrap = styled.div``;
 

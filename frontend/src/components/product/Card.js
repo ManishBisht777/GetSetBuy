@@ -2,7 +2,8 @@ import React from "react";
 import Reactstars from "react-rating-stars-component";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-function Card({ product }) {
+
+const Card = ({ product }) => {
   const options = {
     edit: false,
     color: "gray",
@@ -13,7 +14,7 @@ function Card({ product }) {
   };
 
   return (
-    <Link to={product._id}>
+    <Link to={`/product/${product._id}`}>
       <Productcard>
         <Productimg className="product-img">
           <img src={product.images[0].url} alt="" />
@@ -30,7 +31,7 @@ function Card({ product }) {
       </Productcard>
     </Link>
   );
-}
+};
 
 const Productcard = styled.div`
   margin: 10px;
