@@ -26,6 +26,11 @@ const Productdetails = () => {
             return <img key={i} src={item.url} alt="1" />;
           })}
       </div>
+      <h3>{product.name}</h3>
+      <p>{product.price}</p>
+      <p>{product.description}</p>
+      <p>{product.reviews}</p>
+      <p>{product.noofreview} review</p>
     </div>
   );
 };
