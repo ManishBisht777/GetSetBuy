@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
-import styled from "styled-components";
 import Card from "./Card";
 import { getproduct } from "../../actions/productAction";
 import { useDispatch, useSelector } from "react-redux";
 import { useAlert } from "react-alert";
+import "./card.css";
 
 function Product() {
   const dispatch = useDispatch();
@@ -25,32 +25,18 @@ function Product() {
       {loading ? (
         "loading"
       ) : (
-        <Wrap>
-          <h3>products</h3>
-          <Productcontainer>
+        <div className="product-container">
+          <h3>Top Products</h3>
+          <div className="products">
             {products &&
               products.map((product) => (
                 <Card product={product} key={product._id} />
               ))}
-          </Productcontainer>
-        </Wrap>
+          </div>
+        </div>
       )}
     </div>
   );
 }
-const Wrap = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
-
-const Productcontainer = styled.div`
-  display: flex;
-  width: 100%;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-`;
 
 export default Product;

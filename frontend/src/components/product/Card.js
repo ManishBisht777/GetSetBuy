@@ -1,44 +1,33 @@
 import React from "react";
 import Reactstars from "react-rating-stars-component";
 import { Link } from "react-router-dom";
-import styled from "styled-components";
 
 const Card = ({ product }) => {
   const options = {
     edit: false,
-    color: "gray",
-    activeColor: "black",
+    color: "black",
+    activeColor: "yellow",
     value: product.ratings,
     size: window.innerWidth < 600 ? 20 : 25,
     isHalf: true,
   };
 
   return (
-    <Link to={`/product/${product._id}`}>
-      <Productcard>
-        <Productimg className="product-img">
-          <img src={product.images[0].url} alt="" />
-        </Productimg>
-        <div className="product-card-info">
-          <h2>{product.name}</h2>
-          <div className="rating">
-            <Reactstars {...options}></Reactstars>
-            <span>{product.noofrewiew}</span>
-          </div>
-          <p>{product.price}</p>
+    <Link className="product-card" to={`/product/${product._id}`}>
+      <div className="product-img">
+        <img src={product.images[0].url} alt="" />
+      </div>
+      <div className="product-card-info">
+        <h2>{product.name}</h2>
+        <div className="rating">
+          <Reactstars {...options}></Reactstars>
+          <div className="noofreview">{product.noofrewiew} Reviews</div>
         </div>
-        <ion-icon className="addtocart" name="add-outline"></ion-icon>
-      </Productcard>
+        <p>{product.price}</p>
+      </div>
+      <i className="bx bx-cart addtocart"></i>
     </Link>
   );
 };
 
-const Productcard = styled.div`
-  margin: 10px;
-`;
-const Productimg = styled.div`
-  img {
-    width: 250px;
-  }
-`;
 export default Card;
