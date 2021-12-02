@@ -26,7 +26,7 @@ function Product() {
         "loading"
       ) : (
         <div className="product-container">
-          <h3>Top Products</h3>
+          <h3>Featured Products</h3>
           <div className="products">
             {products &&
               products.map((product) => (

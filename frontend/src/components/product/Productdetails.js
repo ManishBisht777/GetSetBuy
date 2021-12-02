@@ -1,9 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import Carousel from "react-material-ui-carousel";
 import { getproductdetails } from "../../actions/productAction";
 import { useParams } from "react-router-dom";
-import styled from "styled-components";
 
 const Productdetails = () => {
   const dispatch = useDispatch();
