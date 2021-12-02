@@ -29,8 +29,20 @@ const Productdetails = () => {
       <h3>{product.name}</h3>
       <p>{product.price}</p>
       <p>{product.description}</p>
-      <p>{product.reviews}</p>
-      <p>{product.noofreview} review</p>
+      <p>{product.noofrewiew} review</p>
+
+      <div>
+        {product.reviews && product.reviews[0] ? (
+          <div className="reviews">
+            {product.reviews &&
+              product.reviews.map((review) => (
+                <p key={review._id}>{review.comment}</p>
+              ))}
+          </div>
+        ) : (
+          <p className="noReviews">No Reviews Yet</p>
+        )}
+      </div>
     </div>
   );
 };

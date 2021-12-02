@@ -8,7 +8,7 @@ const Card = ({ product }) => {
     edit: false,
     color: "gray",
     activeColor: "black",
-    value: product.rating,
+    value: product.ratings,
     size: window.innerWidth < 600 ? 20 : 25,
     isHalf: true,
   };
