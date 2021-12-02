@@ -12,25 +12,28 @@ import axios from "axios";
 
 axios.defaults.baseURL = "http://192.168.0.102:5000";
 
-export const getproduct = () => async (dispatch) => {
-  try {
-    dispatch({ type: ALL_PRODUCT_REQUEST });
+export const getproduct =
+  (keyword = "") =>
+  async (dispatch) => {
+    try {
+      dispatch({ type: ALL_PRODUCT_REQUEST });
 
-    const { data } = await axios.get("/api/products");
+      let link = `/api/products?keyword=${keyword}`;
+      const { data } = await axios.get(link);
 
-    if (data) {
+      if (data) {
+        dispatch({
+          type: ALL_PRODUCT_SUCCESS,
+          payload: data,
+        });
+      }
+    } catch (error) {
       dispatch({
-        type: ALL_PRODUCT_SUCCESS,
-        payload: data,
+        type: ALL_PRODUCT_FAIL,
+        payload: error.response.data.message,
       });
     }
-  } catch (error) {
-    dispatch({
-      type: ALL_PRODUCT_FAIL,
-      payload: error.response.data.message,
-    });
-  }
-};
+  };
 
 export const getproductdetails = (id) => async (dispatch) => {
   try {

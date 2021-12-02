@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { clearerror, getproduct } from "../../actions/productAction";
 import { useAlert } from "react-alert";
 import Card from "./Card";
+import { useParams } from "react-router-dom";
 
 const Products = () => {
   const dispatch = useDispatch();
@@ -11,9 +12,11 @@ const Products = () => {
     (state) => state.products
   );
 
+  const { keyword } = useParams();
+
   useEffect(() => {
-    dispatch(getproduct());
-  }, [dispatch, error, alert]);
+    dispatch(getproduct(keyword));
+  }, [dispatch, error, alert, keyword]);
 
   return (
     <div className="">
