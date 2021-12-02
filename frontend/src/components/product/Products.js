@@ -6,6 +6,7 @@ import Card from "./Card";
 import Pagination from "react-js-pagination";
 import { useParams } from "react-router-dom";
 import "./product.css";
+
 const Products = () => {
   const dispatch = useDispatch();
   const alert = useAlert();
@@ -17,11 +18,16 @@ const Products = () => {
   const [currentpage, setcurrentpage] = useState(1);
 
   const { keyword } = useParams();
+
   const setCurrentPageNo = (e) => {
     setcurrentpage(e);
   };
 
   useEffect(() => {
+    if (error) {
+      alert.error(error);
+      dispatch(clearerror);
+    }
     dispatch(getproduct(keyword, currentpage));
   }, [dispatch, error, alert, keyword, currentpage]);
 
