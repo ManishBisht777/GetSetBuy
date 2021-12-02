@@ -9,9 +9,7 @@ function Product() {
   const dispatch = useDispatch();
 
   const alert = useAlert();
-  const { loading, error, products, productcount } = useSelector(
-    (state) => state.products
-  );
+  const { loading, error, products } = useSelector((state) => state.products);
 
   useEffect(() => {
     if (error) {
