@@ -28,7 +28,7 @@
 }
 .page-link {
   text-decoration: none;
-  font: 300 1.4vmax "Roboto";
+  font: 300 0.9vmax "Roboto";
   color: rgb(80, 80, 80);
   transition: all 0.3s;
 }

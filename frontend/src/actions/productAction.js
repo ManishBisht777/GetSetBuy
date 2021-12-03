@@ -13,12 +13,12 @@ import axios from "axios";
 axios.defaults.baseURL = "http://192.168.0.102:5000";
 
 export const getproduct =
-  (keyword = "", currentpage = 1) =>
+  (keyword = "", currentpage = 1, price = [0, 25000]) =>
   async (dispatch) => {
     try {
       dispatch({ type: ALL_PRODUCT_REQUEST });
 
-      let link = `/api/products?keyword=${keyword}&page=${currentpage}`;
+      let link = `/api/products?keyword=${keyword}&page=${currentpage}&price[gte]=${price[0]}&price[lte]=${price[1]}`;
       const { data } = await axios.get(link);
 
       if (data) {
