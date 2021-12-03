@@ -33,6 +33,7 @@ const Products = () => {
   const [currentpage, setcurrentpage] = useState(1);
   const [price, setprice] = useState([0, 25000]);
   const [category, setCategory] = useState("");
+  const [ratings, setratings] = useState(0);
 
   const { keyword } = useParams();
 
@@ -49,8 +50,8 @@ const Products = () => {
       alert.error(error);
       dispatch(clearerror);
     }
-    dispatch(getproduct(keyword, currentpage, price, category));
-  }, [dispatch, error, alert, keyword, currentpage, price, category]);
+    dispatch(getproduct(keyword, currentpage, price, category, ratings));
+  }, [dispatch, error, alert, keyword, currentpage, price, category, ratings]);
 
   let count = filterproductscount;
 
@@ -94,6 +95,16 @@ const Products = () => {
               ))}
             </ul>
             <fieldset>Rating Above</fieldset>
+            <Slider
+              value={ratings}
+              onChange={(e, newRating) => {
+                setratings(newRating);
+              }}
+              aria-labelledby="continuous-slider"
+              valueLabelDisplay="auto"
+              min={0}
+              max={5}
+            />
           </div>
 
           {resultperpage < count && (
