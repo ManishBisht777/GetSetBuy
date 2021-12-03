@@ -5,9 +5,19 @@ import { useAlert } from "react-alert";
 import Card from "./Card";
 import Pagination from "react-js-pagination";
 import { useParams } from "react-router-dom";
-import Slider from "@material-ui/core/Slider";
 import "./product.css";
+
 const Products = () => {
+  const categories = [
+    "laptop",
+    "footwear",
+    "bottom",
+    "tops",
+    "attire",
+    "camera",
+    "smartPhones",
+  ];
+
   const dispatch = useDispatch();
   const alert = useAlert();
   const {
@@ -21,6 +31,7 @@ const Products = () => {
 
   const [currentpage, setcurrentpage] = useState(1);
   const [price, setprice] = useState([0, 25000]);
+  const [category, setCategory] = useState("");
 
   const { keyword } = useParams();
 
@@ -37,8 +48,8 @@ const Products = () => {
       alert.error(error);
       dispatch(clearerror);
     }
-    dispatch(getproduct(keyword, currentpage, price));
-  }, [dispatch, error, alert, keyword, currentpage, price]);
+    dispatch(getproduct(keyword, currentpage, price, category));
+  }, [dispatch, error, alert, keyword, currentpage, price, category]);
 
   let count = filterproductscount;
 
@@ -66,6 +77,20 @@ const Products = () => {
               min={0}
               max={25000}
             /> */}
+            <h3>category</h3>
+            <ul className="categoryBox">
+              {categories.map((category) => (
+                <li
+                  className="category-link"
+                  key={category}
+                  onClick={() => {
+                    setCategory(category);
+                  }}
+                >
+                  {category}
+                </li>
+              ))}
+            </ul>
           </div>
 
           {resultperpage < count && (
@@ -73,7 +98,7 @@ const Products = () => {
               <Pagination
                 activePage={currentpage}
                 itemsCountPerPage={resultperpage}
-                totalItemsCount={count}
+                totalItemsCount={productCount}
                 onChange={setCurrentPageNo}
                 nextPageText="Next"
                 prevPageText="Prev"

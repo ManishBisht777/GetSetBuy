@@ -48,3 +48,7 @@
 .pageLinkActive {
   color: white;
 }
+
+.filterBox {
+  z-index: 100000;
+}
