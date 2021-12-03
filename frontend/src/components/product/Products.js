@@ -10,9 +10,14 @@ import "./product.css";
 const Products = () => {
   const dispatch = useDispatch();
   const alert = useAlert();
-  const { loading, error, products, productCount, resultperpage } = useSelector(
-    (state) => state.products
-  );
+  const {
+    loading,
+    error,
+    products,
+    productCount,
+    resultperpage,
+    filterproductscount,
+  } = useSelector((state) => state.products);
 
   const [currentpage, setcurrentpage] = useState(1);
   const [price, setprice] = useState([0, 25000]);
@@ -34,6 +39,8 @@ const Products = () => {
     }
     dispatch(getproduct(keyword, currentpage, price));
   }, [dispatch, error, alert, keyword, currentpage, price]);
+
+  let count = filterproductscount;
 
   return (
     <div className="">
@@ -61,12 +68,12 @@ const Products = () => {
             /> */}
           </div>
 
-          {resultperpage < productCount && (
+          {resultperpage < count && (
             <div className="paginationBox">
               <Pagination
                 activePage={currentpage}
                 itemsCountPerPage={resultperpage}
-                totalItemsCount={productCount}
+                totalItemsCount={count}
                 onChange={setCurrentPageNo}
                 nextPageText="Next"
                 prevPageText="Prev"
