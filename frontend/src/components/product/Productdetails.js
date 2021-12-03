@@ -2,9 +2,11 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getproductdetails } from "../../actions/productAction";
 import { useParams } from "react-router-dom";
+import { useAlert } from "react-alert";
 
 const Productdetails = () => {
   const dispatch = useDispatch();
+  const alert = useAlert();
 
   const { id } = useParams();
 
@@ -13,6 +15,10 @@ const Productdetails = () => {
   );
 
   useEffect(() => {
+    if (error) {
+      alert.error(error);
+      dispatch(clearerror);
+    }
     dispatch(getproductdetails(id));
   }, [dispatch, id, loading, error]);
 
