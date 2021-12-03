@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getproductdetails } from "../../actions/productAction";
+import { clearerror, getproductdetails } from "../../actions/productAction";
 import { useParams } from "react-router-dom";
 import { useAlert } from "react-alert";
 
@@ -24,6 +24,7 @@ const Productdetails = () => {
 
   return (
     <div>
+      <metadata TITLE="Product Details" />
       <div>
         {product.images &&
           product.images.map((item, i) => {

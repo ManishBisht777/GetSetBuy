@@ -1,0 +1,171 @@
+.conatiner {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.308);
+  background-image: url("https://images.unsplash.com/photo-1519681393784-d120267933ba?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1124&q=100");
+  background-blend-mode: darken;
+  background-position: center;
+  background-size: cover;
+}
+.box {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 450px;
+  width: 800px;
+  backdrop-filter: blur(7px) saturate(180%);
+  background-color: rgba(17, 25, 40, 0.75);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.125);
+  overflow: hidden;
+}
+
+.same {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 50%;
+  height: 100%;
+}
+
+.same h2 {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 10px;
+  color: rgb(206, 206, 206);
+}
+
+.same button {
+  cursor: pointer;
+  background: purple;
+  padding: 10px 20px;
+  border: none;
+  font-size: 16px;
+  color: #fff;
+  letter-spacing: 1px;
+}
+.form {
+  position: absolute;
+  top: -45px;
+  left: 0;
+  height: 120%;
+  width: 50%;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  transition: 0.3s;
+  overflow: hidden;
+  border-radius: 5px;
+  background: linear-gradient(
+    34deg,
+    rgba(97, 67, 133, 1) 0%,
+    rgba(81, 99, 149, 1) 100%
+  );
+}
+
+.active {
+  left: 50%;
+  transition: 0.3s;
+}
+
+.active2 {
+  left: -100%;
+}
+.form .signinform {
+  transition-delay: 0.5s;
+}
+
+.form .signupform {
+  left: 110%;
+}
+.active .signupform {
+  left: 90px;
+}
+.form .signiupform {
+  left: 100%;
+}
+.form .signiupform .active2 {
+  left: 0;
+}
+.sameform {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sameform .active {
+  left: -100%;
+}
+.sameform form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.sameform form h3 {
+  font-size: 1.5rem;
+  color: rgb(255, 255, 255);
+  margin-bottom: 20px;
+  font-weight: 500;
+  border-bottom: 3px solid #d1a900;
+}
+
+form input {
+  width: 100%;
+  padding: 10px;
+  outline: none;
+  font-size: 16px;
+  margin-bottom: 20px;
+  background: #0d1725;
+  border: none;
+  color: #fff;
+  border-radius: 5px;
+}
+form input[type="submit"] {
+  background: #d1a900;
+  color: rgb(255, 255, 255);
+  border-radius: 5px;
+  border: 2px solid #d1a900;
+  cursor: pointer;
+  width: 130px;
+}
+form input[type="submit"]:hover {
+  background: black;
+  transition: 0.3s;
+}
+a.forgot {
+  color: #928a8a;
+}
+@media (max-width: 800px) {
+  .box {
+    max-width: 400px;
+  }
+  .form {
+    width: 100%;
+    height: 90%;
+  }
+  .signup {
+    position: absolute;
+    bottom: 15px;
+    width: 100%;
+  }
+  .signin {
+    position: absolute;
+    top: 15px;
+    width: 100%;
+  }
+  .active {
+    left: 0;
+    top: 100px;
+  }
+}

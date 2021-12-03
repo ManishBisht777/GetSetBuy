@@ -61,6 +61,7 @@ const Products = () => {
         "loading"
       ) : (
         <div className="product-container">
+          <metadata TITLE="All Product" />
           <h3>Products</h3>
           <div className="products">
             {products &&

@@ -6,6 +6,7 @@ import Home from "./components/layout/home/Home";
 import Productdetails from "./components/product/Productdetails";
 import Products from "./components/product/Products";
 import Search from "./components/product/Search";
+import LoginSignup from "./components/user/LoginSignup";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route exact path="/products" element={<Products />} />
         <Route exact path="/products/:keyword" element={<Products />} />
         <Route exact path="/search" element={<Search />} />
+        <Route exact path="/auth" element={<LoginSignup />} />
       </Routes>
       <Footer />
     </Router>
