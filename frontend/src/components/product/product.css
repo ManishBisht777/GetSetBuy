@@ -50,5 +50,24 @@
 }
 
 .filterBox {
+  width: 10vmax;
+  position: absolute;
+  top: 10vmax;
+  left: 4vmax;
   z-index: 100000;
+}
+
+.categoryBox {
+  padding: 0%;
+}
+.category-link {
+  list-style: none;
+  color: rgba(204, 204, 204, 0.61);
+  font-size: 15px;
+  margin: 0.4vmax;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+.category-link:hover {
+  color: rgb(49, 49, 49);
 }

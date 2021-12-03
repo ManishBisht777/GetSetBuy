@@ -5,6 +5,7 @@ import { useAlert } from "react-alert";
 import Card from "./Card";
 import Pagination from "react-js-pagination";
 import { useParams } from "react-router-dom";
+import { Slider } from "@mui/material";
 import "./product.css";
 
 const Products = () => {
@@ -68,16 +69,17 @@ const Products = () => {
           </div>
 
           <div className="filterBox">
-            <h3>Price</h3>
-            {/* <Slider
+            <h2>Price</h2>
+            <Slider
               value={price}
               onChange={priceHandler}
               valueLabelDisplay="auto"
               aria-labelledby="range-slider"
               min={0}
               max={25000}
-            /> */}
-            <h3>category</h3>
+              dragging="MuiSlider-dragging"
+            />
+            <h2>category</h2>
             <ul className="categoryBox">
               {categories.map((category) => (
                 <li
@@ -91,6 +93,7 @@ const Products = () => {
                 </li>
               ))}
             </ul>
+            <fieldset>Rating Above</fieldset>
           </div>
 
           {resultperpage < count && (
