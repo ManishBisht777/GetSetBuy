@@ -13,7 +13,7 @@ import axios from "axios";
 axios.defaults.baseURL = "http://192.168.0.102:5000";
 
 export const getproduct =
-  (keyword = "", currentpage = 1, price = [0, 25000]) =>
+  (keyword = "", currentpage = 1, price = [0, 2500]) =>
   async (dispatch) => {
     try {
       dispatch({ type: ALL_PRODUCT_REQUEST });

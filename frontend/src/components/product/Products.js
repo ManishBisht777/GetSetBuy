@@ -15,7 +15,7 @@ const Products = () => {
   );
 
   const [currentpage, setcurrentpage] = useState(1);
-  const [price, setprice] = useState(0, 25000);
+  const [price, setprice] = useState([0, 25000]);
 
   const { keyword } = useParams();
 
