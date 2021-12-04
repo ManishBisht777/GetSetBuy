@@ -6,7 +6,7 @@ const LoginSignup = () => {
     <div className="conatiner">
       <div className="box">
         <div className="same signin">
-          <h2>Already Have An Account ?</h2>
+          <h2>Already Have An Account?</h2>
           <button className="signinbtn" type="submit">
             Signin
           </button>
