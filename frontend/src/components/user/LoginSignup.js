@@ -59,7 +59,6 @@ const LoginSignup = () => {
     } else {
       setuser({ ...user, [e.target.name]: e.target.value });
     }
-    console.log(user);
   };
 
   useEffect(() => {
@@ -70,7 +69,7 @@ const LoginSignup = () => {
     if (isauthenticated) {
       navigate("/account");
     }
-  }, [alert, error, clearerror, dispatch, navigate, isauthenticated]);
+  }, [alert, error, dispatch, navigate, isauthenticated]);
 
   return loading ? (
     "loading"
