@@ -31,7 +31,7 @@ const LoginSignup = () => {
   const { name, email, password } = user;
 
   const [avatar, setavatar] = useState();
-  const [preview, setpreview] = useState("/cat3.png");
+  const [preview, setpreview] = useState("");
 
   const registerSubmit = (e) => {
     e.preventDefault();
@@ -59,6 +59,7 @@ const LoginSignup = () => {
     } else {
       setuser({ ...user, [e.target.name]: e.target.value });
     }
+    console.log(user);
   };
 
   useEffect(() => {
@@ -117,7 +118,7 @@ const LoginSignup = () => {
             <form action="" onSubmit={registerSubmit}>
               <h3>Signup</h3>
               <input
-                name="Name"
+                name="name"
                 type="text"
                 placeholder="UserName"
                 onChange={registerDataChange}
@@ -134,21 +135,22 @@ const LoginSignup = () => {
                 placeholder="Password"
                 onChange={registerDataChange}
               />
-              <input
+              {/* <input
                 name="cpassword"
                 type="password"
                 placeholder="Confirm Password"
-              />
+              /> */}
               <div className="avatar">
                 <img src={preview} alt="" />
-                <input type="file" placeholder="avatar" />
+                <input
+                  name="avatar"
+                  accept="image/*"
+                  type="file"
+                  placeholder="avatar"
+                  onChange={registerDataChange}
+                />
               </div>
-              <input
-                type="submit"
-                type="submit"
-                value="Register"
-                onChange={registerDataChange}
-              />
+              <input type="submit" type="submit" value="Register" />
             </form>
           </div>
         </div>
