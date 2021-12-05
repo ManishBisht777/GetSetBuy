@@ -7,6 +7,7 @@ import { useAlert } from "react-alert";
 
 const LoginSignup = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const { error, loading, isauthenticated } = useSelector(
     (state) => state.user
@@ -60,7 +61,6 @@ const LoginSignup = () => {
     }
   };
 
-  const navigate = useNavigate();
   useEffect(() => {
     if (error) {
       alert.error(error);
