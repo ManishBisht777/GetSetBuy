@@ -6,9 +6,12 @@ import {
   productReducer,
 } from "./reducer/ProductReducer";
 
+import { userreducer } from "./reducer/Userreducer";
+
 const reducer = combineReducers({
   products: productReducer,
   productdetails: productdetailsReducer,
+  user: userreducer,
 });
 const initialstate = [];
 const middleware = [thunk];

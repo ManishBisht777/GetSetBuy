@@ -1,8 +1,40 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./loginsignup.css";
+import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { login, clearerror } from "../../actions/userAction";
+import { useAlert } from "react-alert";
 
 const LoginSignup = () => {
-  return (
+  const dispatch = useDispatch();
+
+  const { error, loading, isauthenticated } = useSelector(
+    (state) => state.user
+  );
+
+  const alert = useAlert();
+  const [loginemail, setloginemail] = useState("");
+  const [loginpassword, setloginpassword] = useState("");
+
+  const loginsubmit = (e) => {
+    e.preventDefault();
+    dispatch(login(loginemail, loginpassword));
+  };
+
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (error) {
+      alert.error(error);
+      dispatch(clearerror);
+    }
+    if (isauthenticated) {
+      navigate("/account");
+    }
+  }, [alert, error, clearerror, dispatch, navigate, isauthenticated]);
+
+  return loading ? (
+    "loading"
+  ) : (
     <div className="conatiner">
       <div className="box">
         <div className="same signin">
@@ -21,9 +53,22 @@ const LoginSignup = () => {
           <div className="sameform signinform">
             <form action="">
               <h3>SignIn</h3>
-              <input type="text" placeholder="UserName" />
-              <input type="password" placeholder="Password" />
-              <input type="submit" type="submit" value="Login" />
+              <input
+                type="text"
+                placeholder="UserName"
+                onChange={(e) => setloginemail(e.target.value)}
+              />
+              <input
+                type="password"
+                placeholder="Password"
+                onChange={(e) => setloginpassword(e.target.value)}
+              />
+              <input
+                type="submit"
+                type="submit"
+                value="Login"
+                onClick={loginsubmit}
+              />
               <a href="#" className="forgot">
                 Forgot Password?
               </a>
