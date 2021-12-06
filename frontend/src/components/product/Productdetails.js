@@ -20,7 +20,7 @@ const Productdetails = () => {
       dispatch(clearerror);
     }
     dispatch(getproductdetails(id));
-  }, [dispatch, id, loading, error, getproductdetails]);
+  }, [dispatch, id, loading, error, alert]);
 
   return (
     <div>

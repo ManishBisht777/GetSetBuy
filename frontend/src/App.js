@@ -7,25 +7,25 @@ import Productdetails from "./components/product/Productdetails";
 import Products from "./components/product/Products";
 import Search from "./components/product/Search";
 import LoginSignup from "./components/user/LoginSignup";
-import store from "./store";
-import { useEffect } from "react";
-import { loaduser } from "./actions/userAction";
-import { useSelector } from "react-redux";
-import Useroptions from "./components/layout/Useroptions";
+// import store from "./store";
+// import { useEffect } from "react";
+// import { loaduser } from "./actions/userAction";
+// import { useSelector } from "react-redux";
+// import Useroptions from "./components/layout/Useroptions";
 
 function App() {
-  const { isauthenticated, user } = useSelector((state) => state.user);
+  // const { isauthenticated, user } = useSelector((state) => state.user);
 
-  useEffect(() => {
-    store.dispatch(loaduser());
-  }, []);
+  // useEffect(() => {
+  //   store.dispatch(loaduser());
+  // }, []);
 
   return (
     <Router>
       <Navbar />
       {
         // isauthenticated &&
-        <Useroptions user={user} />
+        // <Useroptions />
       }
       <Routes>
         <Route exact path="/" element={<Home />} />

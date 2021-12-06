@@ -102,13 +102,8 @@ const LoginSignup = () => {
                 placeholder="Password"
                 onChange={(e) => setloginpassword(e.target.value)}
               />
-              <input
-                type="submit"
-                type="submit"
-                value="Login"
-                onClick={loginsubmit}
-              />
-              <a href="#" className="forgot">
+              <input type="submit" value="Login" onClick={loginsubmit} />
+              <a href="/" className="forgot">
                 Forgot Password?
               </a>
             </form>
@@ -149,7 +144,7 @@ const LoginSignup = () => {
                   onChange={registerDataChange}
                 />
               </div>
-              <input type="submit" type="submit" value="Register" />
+              <input type="submit"  value="Register" />
             </form>
           </div>
         </div>

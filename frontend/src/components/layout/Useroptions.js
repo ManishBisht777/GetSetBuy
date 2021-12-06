@@ -1,7 +1,7 @@
 import { React, useState } from "react";
 import { SpeedDial, SpeedDialAction } from "@material-ui/lab";
 import Backdrop from "@material-ui/core/Backdrop";
-import DashboardIcon from "@material-ui/icons/Dashboard";
+// import DashboardIcon from "@material-ui/icons/Dashboard";
 import PersonIcon from "@material-ui/icons/Person";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import ListAltIcon from "@material-ui/icons/ListAlt";
@@ -11,7 +11,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { Navigate } from "react-router";
 import { logout } from "../../actions/userAction";
 
-const Useroptions = ({ user }) => {
+const Useroptions = () => {
+  const { user } = useSelector((state) => state.user);
+
   const [open, setOpen] = useState(false);
   const alert = useAlert();
   const options = [
@@ -55,7 +57,8 @@ const Useroptions = ({ user }) => {
         icon={
           <img
             className="speedDialIcon"
-            src={user.avatar.url ? user.avatar.url : "/Profile.png"}
+            src="./cat3.png"
+            // {user.avatar.url ? user.avatar.url : "/Profile.png"}
             alt="Profile"
           />
         }
