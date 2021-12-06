@@ -8,7 +8,14 @@ const sendtoken = (user, statusCode, res) => {
       Date.now() + process.env.COOKIE_EXPIRES * 24 * 60 * 60 * 1000
     ),
     httpOnly: true,
+    secure: true,
+    sameSite: "Lax",
   };
+
+  if (typeof window !== "undefined") {
+    localStorage.setItem("token", token);
+  }
+
   res.status(statusCode).cookie("token", token, options).json({
     success: true,
     user,

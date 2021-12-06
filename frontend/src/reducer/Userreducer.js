@@ -5,6 +5,9 @@ import {
   REGISTER_USER_SUCCESS,
   REGISTER_USER_REQUEST,
   REGISTER_USER_FAIL,
+  LOAD_USER_SUCCESS,
+  LOAD_USER_REQUEST,
+  LOAD_USER_FAIL,
 } from "../constants/UserConstant";
 
 import { CLEAR_ERROR } from "../constants/UserConstant";
@@ -13,12 +16,14 @@ export const userreducer = (state = { user: {} }, action) => {
   switch (action.type) {
     case USER_LOGIN_REQUEST:
     case REGISTER_USER_REQUEST:
+    case LOAD_USER_REQUEST:
       return {
         loading: true,
         isauthenticated: false,
       };
     case USER_LOGIN_SUCCESS:
     case REGISTER_USER_SUCCESS:
+    case LOAD_USER_SUCCESS:
       return {
         ...state,
         loading: false,
@@ -29,6 +34,14 @@ export const userreducer = (state = { user: {} }, action) => {
     case REGISTER_USER_FAIL:
       return {
         ...state,
+        loading: false,
+        isauthenticated: false,
+        user: null,
+        error: action.payload,
+      };
+
+    case LOAD_USER_FAIL:
+      return {
         loading: false,
         isauthenticated: false,
         user: null,

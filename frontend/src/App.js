@@ -7,8 +7,15 @@ import Productdetails from "./components/product/Productdetails";
 import Products from "./components/product/Products";
 import Search from "./components/product/Search";
 import LoginSignup from "./components/user/LoginSignup";
+import store from "./store";
+import { useEffect } from "react";
+import { loaduser } from "./actions/userAction";
 
 function App() {
+  useEffect(() => {
+    store.dispatch(loaduser());
+  }, []);
+
   return (
     <Router>
       <Navbar />

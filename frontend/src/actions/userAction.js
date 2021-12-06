@@ -5,6 +5,9 @@ import {
   REGISTER_USER_SUCCESS,
   REGISTER_USER_REQUEST,
   REGISTER_USER_FAIL,
+  LOAD_USER_SUCCESS,
+  LOAD_USER_REQUEST,
+  LOAD_USER_FAIL,
 } from "../constants/UserConstant";
 
 import { CLEAR_ERROR } from "../constants/UserConstant";
@@ -12,6 +15,7 @@ import axios from "axios";
 axios.defaults.baseURL = "http://192.168.0.102:5000";
 axios.defaults.withCredentials = true;
 
+//login
 export const login = (email, password) => async (dispatch) => {
   try {
     dispatch({ type: USER_LOGIN_REQUEST });
@@ -26,6 +30,7 @@ export const login = (email, password) => async (dispatch) => {
   }
 };
 
+// register
 export const register = (userdata) => async (dispatch) => {
   try {
     dispatch({ type: REGISTER_USER_REQUEST });
@@ -42,6 +47,21 @@ export const register = (userdata) => async (dispatch) => {
     });
   }
 };
+
+//load user
+export const loaduser = () => async (dispatch) => {
+  try {
+    dispatch({ type: LOAD_USER_REQUEST });
+
+    const { data } = await axios.get("api/me");
+
+    dispatch({ type: LOAD_USER_SUCCESS, payload: data.user });
+  } catch (error) {
+    dispatch({ type: LOAD_USER_FAIL, payload: error.response.data.message });
+  }
+};
+
+//clear error
 
 export const clearerror = () => async (dispatch) => {
   dispatch({
