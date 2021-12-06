@@ -12,6 +12,7 @@
   "dependencies": {
     "@material-ui/core": "^4.12.3",
     "@material-ui/icons": "^4.11.2",
+    "@material-ui/lab": "^4.0.0-alpha.60",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "cloudinary": "^1.27.1",

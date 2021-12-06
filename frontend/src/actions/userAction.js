@@ -8,6 +8,8 @@ import {
   LOAD_USER_SUCCESS,
   LOAD_USER_REQUEST,
   LOAD_USER_FAIL,
+  LOGOUT_SUCCESS,
+  LOGOUT_FAIL,
 } from "../constants/UserConstant";
 
 import { CLEAR_ERROR } from "../constants/UserConstant";
@@ -22,11 +24,15 @@ export const login = (email, password) => async (dispatch) => {
 
     const config = { headers: { "Content-type": "application/json" } };
 
-    const { data } = await axios.post("api/login", { email, password }, config);
+    const { data } = await axios.post(
+      "/api/login",
+      { email, password },
+      config
+    );
 
     dispatch({ type: USER_LOGIN_SUCCESS, payload: data.user });
   } catch (error) {
-    dispatch({ type: USER_LOGIN_FAIL, payload: error.response.data.message });
+    // dispatch({ type: USER_LOGIN_FAIL, payload: error.response.data.message });
   }
 };
 
@@ -37,7 +43,7 @@ export const register = (userdata) => async (dispatch) => {
 
     const config = { headers: { "Content-type": "multipart/form-data" } };
 
-    const { data } = await axios.post("api/register", userdata, config);
+    const { data } = await axios.post("/api/register", userdata, config);
 
     dispatch({ type: REGISTER_USER_SUCCESS, payload: data.user });
   } catch (error) {
@@ -53,11 +59,22 @@ export const loaduser = () => async (dispatch) => {
   try {
     dispatch({ type: LOAD_USER_REQUEST });
 
-    const { data } = await axios.get("api/me");
+    const { data } = await axios.get("/api/me");
 
     dispatch({ type: LOAD_USER_SUCCESS, payload: data.user });
   } catch (error) {
     dispatch({ type: LOAD_USER_FAIL, payload: error.response.data.message });
+  }
+};
+
+//logout user
+export const logout = () => async (dispatch) => {
+  try {
+    await axios.get("/api/logout");
+
+    dispatch({ type: LOGOUT_SUCCESS });
+  } catch (error) {
+    dispatch({ type: LOGOUT_FAIL, payload: error.response.data.message });
   }
 };
 
