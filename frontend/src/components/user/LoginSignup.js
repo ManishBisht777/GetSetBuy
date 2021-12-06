@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { login, clearerror, register } from "../../actions/userAction";
 import { useAlert } from "react-alert";
-
 const LoginSignup = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -144,7 +143,7 @@ const LoginSignup = () => {
                   onChange={registerDataChange}
                 />
               </div>
-              <input type="submit"  value="Register" />
+              <input type="submit" value="Register" />
             </form>
           </div>
         </div>

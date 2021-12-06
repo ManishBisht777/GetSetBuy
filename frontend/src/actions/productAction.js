@@ -11,6 +11,7 @@ import {
 import axios from "axios";
 
 axios.defaults.baseURL = "http://192.168.0.102:5000";
+axios.defaults.withCredentials = true;
 
 export const getproduct =
   (keyword = "", currentpage = 1, price = [0, 2500], category, ratings = 0) =>

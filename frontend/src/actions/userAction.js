@@ -15,14 +15,17 @@ import {
 import { CLEAR_ERROR } from "../constants/UserConstant";
 import axios from "axios";
 axios.defaults.baseURL = "http://192.168.0.102:5000";
-axios.defaults.withCredentials = true;
 
 //login
 export const login = (email, password) => async (dispatch) => {
   try {
     dispatch({ type: USER_LOGIN_REQUEST });
 
-    const config = { headers: { "Content-type": "application/json" } };
+    const config = {
+      headers: { "Content-type": "application/json" },
+      credentials: "include",
+      mode: "same-origin",
+    };
 
     const { data } = await axios.post(
       "/api/login",
@@ -59,7 +62,9 @@ export const loaduser = () => async (dispatch) => {
   try {
     dispatch({ type: LOAD_USER_REQUEST });
 
-    const { data } = await axios.get("/api/me");
+    const { data } = await axios.get("/api/me", {
+      credentials: "include",
+    });
 
     dispatch({ type: LOAD_USER_SUCCESS, payload: data.user });
   } catch (error) {
