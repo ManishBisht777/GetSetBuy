@@ -69,6 +69,7 @@ const Updateprofile = () => {
         <form action="" onSubmit={updateprofileaction}>
           <h3>Signup</h3>
           <input
+            // todo replace placeholder={user.value} to value={user.value}
             name="name"
             type="text"
             placeholder={user.name}
