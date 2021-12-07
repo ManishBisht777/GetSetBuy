@@ -13,15 +13,6 @@ const LoginSignup = () => {
     (state) => state.user
   );
 
-  useEffect(() => {
-    const script = document.createElement("script");
-
-    script.src = "./loginjs.js";
-    script.async = true;
-
-    document.body.appendChild(script);
-  }, []);
-
   const alert = useAlert();
   const [loginemail, setloginemail] = useState("");
   const [loginpassword, setloginpassword] = useState("");

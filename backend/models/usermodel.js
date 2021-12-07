@@ -36,6 +36,10 @@ const userSchema = new Schema({
     type: String,
     default: "user",
   },
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
   resetpasswordtoken: String,
   resetpasswordexpire: Date,
 });

@@ -1,7 +1,7 @@
 import { React } from "react";
 import { useAlert } from "react-alert";
 import { useDispatch, useSelector } from "react-redux";
-import { Navigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 import { logout } from "../../actions/userAction";
 
 const Useroptions = () => {
@@ -9,14 +9,15 @@ const Useroptions = () => {
   const alert = useAlert();
   const dispatch = useDispatch();
 
+  const navigate = useNavigate();
   function orders() {
-    Navigate("/orders");
+    navigate("/orders");
   }
   function account() {
-    Navigate("/account");
+    navigate("/account");
   }
   function cart() {
-    Navigate("/cart");
+    navigate("/cart");
   }
   function logoutUser() {
     dispatch(logout());
