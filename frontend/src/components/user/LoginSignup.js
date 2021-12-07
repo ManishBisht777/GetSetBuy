@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { login, clearerror, register } from "../../actions/userAction";
 import { useAlert } from "react-alert";
+
 const LoginSignup = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -11,6 +12,15 @@ const LoginSignup = () => {
   const { error, loading, isauthenticated } = useSelector(
     (state) => state.user
   );
+
+  useEffect(() => {
+    const script = document.createElement("script");
+
+    script.src = "./loginjs.js";
+    script.async = true;
+
+    document.body.appendChild(script);
+  }, []);
 
   const alert = useAlert();
   const [loginemail, setloginemail] = useState("");
@@ -66,7 +76,7 @@ const LoginSignup = () => {
       dispatch(clearerror);
     }
     if (isauthenticated) {
-      navigate("/account");
+      navigate("/");
     }
   }, [alert, error, dispatch, navigate, isauthenticated]);
 
