@@ -10,6 +10,9 @@ import {
   LOAD_USER_FAIL,
   LOGOUT_SUCCESS,
   LOGOUT_FAIL,
+  UPDATE_PROFILE_REQUEST,
+  UPDATE_PROFILE_SUCCESS,
+  UPDATE_PROFILE_FAIL,
 } from "../constants/UserConstant";
 
 import { CLEAR_ERROR } from "../constants/UserConstant";
@@ -83,6 +86,27 @@ export const logout = () => async (dispatch) => {
     dispatch({ type: LOGOUT_SUCCESS });
   } catch (error) {
     dispatch({ type: LOGOUT_FAIL, payload: error.response.data.message });
+  }
+};
+
+// update user profile
+export const updateprofile = (userdata) => async (dispatch) => {
+  try {
+    dispatch({ type: UPDATE_PROFILE_REQUEST });
+
+    const config = {
+      headers: { "Content-type": "multipart/form-data" },
+      credentials: "include",
+    };
+
+    const { data } = await axios.put("/api/me/update", userdata, config);
+
+    dispatch({ type: UPDATE_PROFILE_SUCCESS, payload: data.user });
+  } catch (error) {
+    dispatch({
+      type: UPDATE_PROFILE_FAIL,
+      payload: error.response.data.message,
+    });
   }
 };
 

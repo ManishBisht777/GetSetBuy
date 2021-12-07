@@ -6,12 +6,13 @@ import {
   productReducer,
 } from "./reducer/ProductReducer";
 
-import { userreducer } from "./reducer/Userreducer";
+import { profilereducer, userreducer } from "./reducer/Userreducer";
 
 const reducer = combineReducers({
   products: productReducer,
   productdetails: productdetailsReducer,
   user: userreducer,
+  profile: profilereducer,
 });
 const initialstate = [];
 const middleware = [thunk];

@@ -10,6 +10,10 @@ import {
   LOAD_USER_FAIL,
   LOGOUT_SUCCESS,
   LOGOUT_FAIL,
+  UPDATE_PROFILE_REQUEST,
+  UPDATE_PROFILE_SUCCESS,
+  UPDATE_PROFILE_RESET,
+  UPDATE_PROFILE_FAIL,
 } from "../constants/UserConstant";
 
 import { CLEAR_ERROR } from "../constants/UserConstant";
@@ -58,6 +62,45 @@ export const userreducer = (state = { user: {} }, action) => {
       };
 
     case LOGOUT_FAIL:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };
+
+    case CLEAR_ERROR:
+      return {
+        ...state,
+        error: null,
+      };
+
+    default:
+      return state;
+  }
+};
+
+export const profilereducer = (state = {}, action) => {
+  switch (action.type) {
+    case UPDATE_PROFILE_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      };
+
+    case UPDATE_PROFILE_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        isupdated: action.payload,
+      };
+
+    case UPDATE_PROFILE_RESET:
+      return {
+        ...state,
+        isupdated: false,
+      };
+
+    case UPDATE_PROFILE_FAIL:
       return {
         ...state,
         loading: false,
