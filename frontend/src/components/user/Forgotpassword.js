@@ -9,7 +9,7 @@ const Forgotpassword = () => {
   const alert = useAlert();
   const navigate = useNavigate();
 
-  const { error, success } = useSelector((state) => state.forgotpassword);
+  const { error, message } = useSelector((state) => state.forgotpassword);
 
   const [email, setemail] = useState("");
 
@@ -26,11 +26,10 @@ const Forgotpassword = () => {
       alert.error(error);
       dispatch(clearerror);
     }
-    if (success) {
-      alert.success(success);
-      navigate("/login");
+    if (message) {
+      alert.success(message);
     }
-  }, [alert, error, dispatch, success, navigate]);
+  }, [alert, error, dispatch, message, navigate]);
 
   return (
     <div>

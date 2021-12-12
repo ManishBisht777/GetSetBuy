@@ -10,7 +10,7 @@ const Resetpassword = () => {
   const navigate = useNavigate();
   const alert = useAlert();
 
-  const { error, isupdated } = useSelector((state) => state.profile);
+  const { error, success } = useSelector((state) => state.forgotpassword);
 
   const [newpassword, setnewpassword] = useState("");
   const [confirmpassword, setconfirmpassword] = useState("");
@@ -29,11 +29,11 @@ const Resetpassword = () => {
       alert.error(error);
       dispatch(clearerror);
     }
-    if (isupdated) {
+    if (success) {
       alert.success("password reset succesfully");
-      navigate("/");
+      navigate("/auth");
     }
-  }, [alert, error, dispatch, navigate, isupdated]);
+  }, [alert, error, dispatch, navigate, success]);
   return (
     <div>
       <h3>reset password</h3>
