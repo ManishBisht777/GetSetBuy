@@ -88,11 +88,11 @@ exports.forgotpassword = catchasyncerror(async (req, res, next) => {
 
   await user.save({ validateBeforeSave: false });
 
-  const resetpasswordurl = `${req.protocol}://${req.get(
-    "host"
-  )}/api/password/reset/${passwordresettoken}`;
+  //req.protocol}://${req.get("host")
 
-  const message = `your paswword reset token is : \n\n ${resetpasswordurl} \n\n if you didnt request it then please ignore`;
+  const resetpasswordurl = `${process.env.FRONTEND_URL}/password/reset/${passwordresettoken}`;
+
+  const message = `your paswword reset token is temp : \n\n ${resetpasswordurl} \n\n if you didnt request it then please ignore`;
 
   console.log(passwordresettoken);
   try {

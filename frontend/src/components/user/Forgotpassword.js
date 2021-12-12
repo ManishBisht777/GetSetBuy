@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { clearerror, forgotpassword } from "../../actions/userAction";
 import { useAlert } from "react-alert";
 
 const Forgotpassword = () => {
   const dispatch = useDispatch();
   const alert = useAlert();
+  const navigate = useNavigate();
 
-  const { error, message } = useSelector((state) => state.forgotpassword);
+  const { error, success } = useSelector((state) => state.forgotpassword);
 
-  const [email, setEmail] = useState("");
+  const [email, setemail] = useState("");
 
   const change = (e) => {
     e.preventDefault();
@@ -24,10 +26,11 @@ const Forgotpassword = () => {
       alert.error(error);
       dispatch(clearerror);
     }
-    if (message) {
-      alert.success(message);
+    if (success) {
+      alert.success(success);
+      navigate("/login");
     }
-  }, [alert, error, dispatch, message]);
+  }, [alert, error, dispatch, success, navigate]);
 
   return (
     <div>
@@ -39,7 +42,7 @@ const Forgotpassword = () => {
             name="email"
             type="text"
             placeholder="email"
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => setemail(e.target.value)}
           />
           <input type="submit" value="email" />
         </form>
