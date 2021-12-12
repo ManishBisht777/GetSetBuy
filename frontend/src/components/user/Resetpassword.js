@@ -19,7 +19,7 @@ const Resetpassword = () => {
     e.preventDefault();
 
     const myForm = new FormData();
-    myForm.set("newpassword", newpassword);
+    myForm.set("password", newpassword);
     myForm.set("confirmpassword", confirmpassword);
     dispatch(resetpassword(token, myForm));
   };
