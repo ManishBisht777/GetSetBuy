@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./loginsignup.css";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { login, clearerror, register } from "../../actions/userAction";
 import { useAlert } from "react-alert";
@@ -107,9 +107,9 @@ const LoginSignup = () => {
                 onChange={(e) => setloginpassword(e.target.value)}
               />
               <input type="submit" value="Login" onClick={loginsubmit} />
-              <a href="/" className="forgot">
+              <Link to="/password/forgot" className="forgot">
                 Forgot Password?
-              </a>
+              </Link>
             </form>
           </div>
           <div className="sameform signupform">

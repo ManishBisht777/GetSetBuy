@@ -15,6 +15,7 @@ import Useroptions from "./components/layout/Useroptions";
 import Account from "./components/user/Account";
 import Updateprofile from "./components/user/Updateprofile";
 import Updatepassword from "./components/user/Updatepassword";
+import Forgotpassword from "./components/user/Forgotpassword";
 
 function App() {
   const { isauthenticated, user } = useSelector((state) => state.user);
@@ -37,6 +38,7 @@ function App() {
         <Route exact path="/account" element={<Account />} />
         <Route exact path="me/update" element={<Updateprofile />} />
         <Route exact path="password/update" element={<Updatepassword />} />
+        <Route exact path="password/forgot" element={<Forgotpassword />} />
       </Routes>
       <Footer />
     </Router>
