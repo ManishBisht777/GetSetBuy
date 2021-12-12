@@ -4,8 +4,12 @@ import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { login, clearerror, register } from "../../actions/userAction";
 import { useAlert } from "react-alert";
+import { Helmet } from "react-helmet";
 
 const LoginSignup = () => {
+  <Helmet>
+    <script src="./loginjs.js" type="text/javascript" />
+  </Helmet>;
   const dispatch = useDispatch();
   const navigate = useNavigate();
 

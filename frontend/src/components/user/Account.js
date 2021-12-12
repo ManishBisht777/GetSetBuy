@@ -14,6 +14,8 @@ const Account = () => {
     }
   }, [navigate, isAuthenticated]);
 
+  console.log(user);
+
   return (
     <div>
       <div className="profileContainer">
