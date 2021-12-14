@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { clearerror, getproductdetails } from "../../actions/productAction";
 import { useParams } from "react-router-dom";
 import { useAlert } from "react-alert";
+import { addtocart } from "../../actions/cartaction";
 
 const Productdetails = () => {
   const dispatch = useDispatch();
@@ -34,6 +35,11 @@ const Productdetails = () => {
     setquantity(qty);
   };
 
+  const addtocarthandler = () => {
+    dispatch(addtocart(id, quantity));
+    alert.success("item added to cart");
+  };
+
   return (
     <div>
       <div>
@@ -50,6 +56,7 @@ const Productdetails = () => {
       <p>{product.description}</p>
       <p>{product.noofrewiew} review</p>
 
+      <button onClick={addtocarthandler}> addtocart</button>
       <div>
         {product.reviews && product.reviews[0] ? (
           <div className="reviews">
