@@ -6,6 +6,8 @@ import { logout } from "../../actions/userAction";
 
 const Useroptions = () => {
   const { user } = useSelector((state) => state.user);
+  const { cartitems } = useSelector((state) => state.cart);
+
   const alert = useAlert();
   const dispatch = useDispatch();
 
@@ -28,9 +30,9 @@ const Useroptions = () => {
     <div>
       <h3>{user.name}</h3>
       <img src={user.avatar.url} alt="profileimg" />
-      <button onClick={account}>account</button>
       <button onClick={orders}>your orders</button>
-      <button onClick={cart}>cart</button>
+      <button onClick={account}>account</button>
+      <button onClick={cart}>{`cart${cartitems.length}`}</button>
       <button onClick={logoutUser}>logout</button>
     </div>
   );

@@ -52,6 +52,13 @@ const Cart = () => {
             <p className="subtotal">{item.price * item.quantity}</p>
           </div>
         ))}
+      <p>full total</p>
+      <p>
+        {`${cartitems.reduce(
+          (acc, item) => acc + item.price * item.quantity,
+          0
+        )}`}
+      </p>
     </div>
   );
 };
