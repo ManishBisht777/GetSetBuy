@@ -1,7 +1,7 @@
 import React from "react";
 import Cartitemcard from "./Cartitemcard";
 import { useSelector, useDispatch } from "react-redux";
-import { addtocart } from "../../actions/cartaction";
+import { addtocart, removefromcart } from "../../actions/cartaction";
 const Cart = () => {
   const dispatch = useDispatch();
   const { cartitems } = useSelector((state) => state.cart);
@@ -14,8 +14,15 @@ const Cart = () => {
   };
   const decquantity = (id, quantity) => {
     const newqty = quantity - 1;
-    if (1 >= quantity) return;
-    dispatch(addtocart(id, newqty));
+    if (newqty === 0) {
+      dispatch(removefromcart(id));
+    } else {
+      dispatch(addtocart(id, newqty));
+    }
+  };
+
+  const deletecartitem = (id) => {
+    dispatch(removefromcart(id));
   };
   return (
     <div>
@@ -25,8 +32,8 @@ const Cart = () => {
       <p>subtotal</p>
       {cartitems &&
         cartitems.map((item) => (
-          <>
-            <Cartitemcard item={item} />
+          <div className="cart" key={item.product}>
+            <Cartitemcard item={item} deleteitem={deletecartitem} />
             <button
               onClick={() =>
                 decquantity(item.product, item.quantity, item.stock)
@@ -43,7 +50,7 @@ const Cart = () => {
               +
             </button>
             <p className="subtotal">{item.price * item.quantity}</p>
-          </>
+          </div>
         ))}
     </div>
   );

@@ -1,10 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-const Cartitemcard = ({ item }) => {
+const Cartitemcard = ({ item, deleteitem }) => {
   return (
     <div>
       <img src={item.image} alt="yoyo" />
-      <Link to={`/products/${item.product}`}>{item.name}</Link>
+      <Link to={`/product/${item.product}`}>{item.name}</Link>
+      <button onClick={() => deleteitem(item.product)}>remove</button>
     </div>
   );
 };
