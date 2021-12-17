@@ -26,6 +26,9 @@ const initialstate = {
     cartitems: localStorage.getItem("cartitems")
       ? JSON.parse(localStorage.getItem("cartitems"))
       : [],
+    shippinginfo: localStorage.getItem("shippinginfo")
+      ? JSON.parse(localStorage.getItem("shippinginfo"))
+      : [],
   },
 };
 const middleware = [thunk];

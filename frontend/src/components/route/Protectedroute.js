@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { Route } from "react-router-dom";
 import { Navigate } from "react-router";
 
-const ProtectedRoute = ({ isAdmin, component: Component, ...rest }) => {
+const ProtectedRoute = ({ isAdmin, element: Element, ...rest }) => {
   const { loading, isAuthenticated, user } = useSelector((state) => state.user);
   return (
     <Fragment>
@@ -19,7 +19,7 @@ const ProtectedRoute = ({ isAdmin, component: Component, ...rest }) => {
               return <Navigate to="/auth" />;
             }
 
-            return <Component {...props} />;
+            return <Element {...props} />;
           }}
         />
       )}

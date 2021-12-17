@@ -51,7 +51,7 @@
   color: #fff;
   letter-spacing: 1px;
 }
-.form {
+.container .box .form {
   position: absolute;
   top: -45px;
   left: 0;
@@ -80,20 +80,20 @@
 .active2 {
   left: -100%;
 }
-.form .signinform {
+.container .box .form .signinform {
   transition-delay: 0.5s;
 }
 
-.form .signupform {
+.container .box .form .signupform {
   left: 110%;
 }
 .active .signupform {
   left: 90px;
 }
-.form .signiupform {
+.container .box .form .signiupform {
   left: 100%;
 }
-.form .signiupform .active2 {
+.container .box .form .signiupform .active2 {
   left: 0;
 }
 .sameform {
@@ -161,7 +161,7 @@ a.forgot {
   .box {
     max-width: 400px;
   }
-  .form {
+  .container .box .form {
     width: 100%;
     height: 90%;
   }

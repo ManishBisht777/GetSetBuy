@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./loginsignup.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { login, clearerror, register } from "../../actions/userAction";
 import { useAlert } from "react-alert";
@@ -12,6 +12,7 @@ const LoginSignup = () => {
   </Helmet>;
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const location = useLocation();
 
   const { error, loading, isauthenticated } = useSelector(
     (state) => state.user
@@ -65,15 +66,16 @@ const LoginSignup = () => {
     }
   };
 
+  const redirect = location.search ? location.search.split("=")[1] : "/account";
   useEffect(() => {
     if (error) {
       alert.error(error);
       dispatch(clearerror);
     }
     if (isauthenticated) {
-      navigate("/");
+      navigate(redirect);
     }
-  }, [alert, error, dispatch, navigate, isauthenticated]);
+  }, [alert, error, dispatch, navigate, isauthenticated, redirect]);
 
   return loading ? (
     "loading"

@@ -2,7 +2,9 @@ import React from "react";
 import Cartitemcard from "./Cartitemcard";
 import { useSelector, useDispatch } from "react-redux";
 import { addtocart, removefromcart } from "../../actions/cartaction";
+import { useNavigate } from "react-router-dom";
 const Cart = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { cartitems } = useSelector((state) => state.cart);
 
@@ -23,6 +25,10 @@ const Cart = () => {
 
   const deletecartitem = (id) => {
     dispatch(removefromcart(id));
+  };
+
+  const checkouthandler = () => {
+    navigate("/auth?redirect=shipping");
   };
   return (
     <div>
@@ -59,6 +65,7 @@ const Cart = () => {
           0
         )}`}
       </p>
+      <button onClick={checkouthandler}>checkout</button>
     </div>
   );
 };
