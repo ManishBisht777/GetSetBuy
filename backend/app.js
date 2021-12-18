@@ -22,10 +22,10 @@ const user = require("./routes/userroutes");
 const order = require("./routes/orderroutes");
 const payment = require("./routes/paymentroute");
 
-app.use("/api", product);
-app.use("/api", user);
-app.use("/api", order);
-app.use("/api", payment);
+app.use("/api/", product);
+app.use("/api/", user);
+app.use("/api/", order);
+app.use("/api/", payment);
 
 // middleware for error handling
 app.use(ErrorMiddleware);

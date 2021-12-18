@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import {
   CardNumberElement,
   CardCvcElement,
@@ -6,31 +6,33 @@ import {
   useStripe,
   useElements,
 } from "@stripe/react-stripe-js";
-
+import "./payment.css";
 const Payment = () => {
   const orderinfo = JSON.parse(sessionStorage.getItem("orderinfo"));
+  const payBtn = useRef(null);
+  const submitHandler = () => {};
   return (
     <div>
       <div className="paymentContainer">
-        <form
-          className="paymentForm"
-          // onSubmit={(e) => submitHandler(e)}
-        >
+        <form className="paymentForm" onSubmit={(e) => submitHandler(e)}>
           <h3>card info</h3>
           <div>
+            <h3>yoyo</h3>
             <CardNumberElement className="paymentInput" />
           </div>
           <div>
+            <h3>yoyo</h3>
             <CardExpiryElement className="paymentInput" />
           </div>
           <div>
+            <h3>yoyo</h3>
             <CardCvcElement className="paymentInput" />
           </div>
 
           <input
             type="submit"
-            // value={`Pay - ₹${orderInfo && orderInfo.totalPrice}`}
-            // ref={payBtn}
+            value={`Pay - ₹${orderinfo && orderinfo.totalPrice}`}
+            ref={payBtn}
             className="paymentFormBtn"
           />
         </form>
