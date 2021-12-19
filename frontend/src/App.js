@@ -39,8 +39,10 @@ function App() {
   const [stripeapikey, setstripeapikey] = useState("");
 
   async function getstripepaikey() {
-    const { data } = axios.get("/api/stripeapikey");
-    setstripeapikey(data.stripeApiKey);
+    const { data } = await axios.get("/api/stripeapikey");
+    console.log(data);
+    setstripeapikey(data);
+    console.log(stripeapikey);
   }
 
   useEffect(() => {
@@ -50,36 +52,32 @@ function App() {
 
   return (
     <Router>
-      <Elements stripe={loadStripe(stripeapikey)}>
-        <Navbar />
+      <Elements stripe={loadStripe(stripeapikey[0])}></Elements>
 
-        {isauthenticated && <Useroptions user={user} />}
+      <Navbar />
 
-        <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route exact path="/product/:id" element={<Productdetails />} />
-          <Route exact path="/products" element={<Products />} />
-          <Route exact path="/products/:keyword" element={<Products />} />
-          <Route exact path="/search" element={<Search />} />
-          <Route exact path="/auth" element={<LoginSignup />} />
-          <Route exact path="/account" element={<Account />} />
-          {/* <ProtectedRoute exact path="/account" element={<Account />} /> */}
-          <Route exact path="me/update" element={<Updateprofile />} />
-          <Route exact path="password/update" element={<Updatepassword />} />
-          <Route exact path="password/forgot" element={<Forgotpassword />} />
-          <Route exact path="password/forgot" element={<Forgotpassword />} />
-          <Route
-            exact
-            path="password/reset/:token"
-            element={<Resetpassword />}
-          />
-          <Route exact path="/cart" element={<Cart />} />
-          <Route exact path="/auth/shipping" element={<Shipping />} />
-          <Route exact path="/order/confirm" element={<ConfirmOrder />} />
-          <Route exact path="/process/payment" element={<Payment />} />
-        </Routes>
-        <Footer />
-      </Elements>
+      {isauthenticated && <Useroptions user={user} />}
+
+      <Routes>
+        <Route exact path="/" element={<Home />} />
+        <Route exact path="/product/:id" element={<Productdetails />} />
+        <Route exact path="/products" element={<Products />} />
+        <Route exact path="/products/:keyword" element={<Products />} />
+        <Route exact path="/search" element={<Search />} />
+        <Route exact path="/auth" element={<LoginSignup />} />
+        <Route exact path="/account" element={<Account />} />
+        {/* <ProtectedRoute exact path="/account" element={<Account />} /> */}
+        <Route exact path="me/update" element={<Updateprofile />} />
+        <Route exact path="password/update" element={<Updatepassword />} />
+        <Route exact path="password/forgot" element={<Forgotpassword />} />
+        <Route exact path="password/forgot" element={<Forgotpassword />} />
+        <Route exact path="password/reset/:token" element={<Resetpassword />} />
+        <Route exact path="/cart" element={<Cart />} />
+        <Route exact path="/auth/shipping" element={<Shipping />} />
+        <Route exact path="/order/confirm" element={<ConfirmOrder />} />
+        <Route exact path="/process/payment" element={<Payment />} />
+      </Routes>
+      <Footer />
     </Router>
   );
 }
