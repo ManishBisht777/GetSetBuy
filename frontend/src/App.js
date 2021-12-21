@@ -31,19 +31,16 @@ axios.defaults.withCredentials = true;
 
 // import ProtectedRoute from "./components/route/Protectedroute";
 
-// const stripePromise = loadStripe(process.env.STRIPE_API_KEY);
-
 function App() {
   const { isauthenticated, user } = useSelector((state) => state.user);
 
   const [stripeapikey, setstripeapikey] = useState("");
 
-  async function getstripepaikey() {
+  const getstripepaikey = async () => {
     const { data } = await axios.get("/api/stripeapikey");
     console.log(data);
-    setstripeapikey(data);
-    console.log(stripeapikey);
-  }
+    setstripeapikey(data.stripeapikey);
+  };
 
   useEffect(() => {
     store.dispatch(loaduser());
@@ -51,32 +48,38 @@ function App() {
   }, []);
 
   return (
-    <Router>
-      // will do later
-      <Elements stripe={loadStripe(stripeapikey[0])}></Elements>
-      <Navbar />
-      {isauthenticated && <Useroptions user={user} />}
-      <Routes>
-        <Route exact path="/" element={<Home />} />
-        <Route exact path="/product/:id" element={<Productdetails />} />
-        <Route exact path="/products" element={<Products />} />
-        <Route exact path="/products/:keyword" element={<Products />} />
-        <Route exact path="/search" element={<Search />} />
-        <Route exact path="/auth" element={<LoginSignup />} />
-        <Route exact path="/account" element={<Account />} />
-        {/* <ProtectedRoute exact path="/account" element={<Account />} /> */}
-        <Route exact path="me/update" element={<Updateprofile />} />
-        <Route exact path="password/update" element={<Updatepassword />} />
-        <Route exact path="password/forgot" element={<Forgotpassword />} />
-        <Route exact path="password/forgot" element={<Forgotpassword />} />
-        <Route exact path="password/reset/:token" element={<Resetpassword />} />
-        <Route exact path="/cart" element={<Cart />} />
-        <Route exact path="/auth/shipping" element={<Shipping />} />
-        <Route exact path="/order/confirm" element={<ConfirmOrder />} />
-        <Route exact path="/process/payment" element={<Payment />} />
-      </Routes>
-      <Footer />
-    </Router>
+    stripeapikey && (
+      <Elements stripe={loadStripe(stripeapikey)}>
+        <Router>
+          <Navbar />
+          {isauthenticated && <Useroptions user={user} />}
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+            <Route exact path="/product/:id" element={<Productdetails />} />
+            <Route exact path="/products" element={<Products />} />
+            <Route exact path="/products/:keyword" element={<Products />} />
+            <Route exact path="/search" element={<Search />} />
+            <Route exact path="/auth" element={<LoginSignup />} />
+            <Route exact path="/account" element={<Account />} />
+            {/* <ProtectedRoute exact path="/account" element={<Account />} /> */}
+            <Route exact path="me/update" element={<Updateprofile />} />
+            <Route exact path="password/update" element={<Updatepassword />} />
+            <Route exact path="password/forgot" element={<Forgotpassword />} />
+            <Route exact path="password/forgot" element={<Forgotpassword />} />
+            <Route
+              exact
+              path="password/reset/:token"
+              element={<Resetpassword />}
+            />
+            <Route exact path="/cart" element={<Cart />} />
+            <Route exact path="/auth/shipping" element={<Shipping />} />
+            <Route exact path="/order/confirm" element={<ConfirmOrder />} />
+            <Route exact path="/process/payment" element={<Payment />} />
+          </Routes>
+          <Footer />
+        </Router>
+      </Elements>
+    )
   );
 }
 
