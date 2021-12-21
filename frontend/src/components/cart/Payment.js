@@ -7,10 +7,86 @@ import {
   useElements,
 } from "@stripe/react-stripe-js";
 import "./payment.css";
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { useAlert } from "react-alert";
+
+import axios from "axios";
+
+axios.defaults.baseURL = "http://localhost:5000";
+axios.defaults.withCredentials = true;
+
 const Payment = () => {
   const orderinfo = JSON.parse(sessionStorage.getItem("orderinfo"));
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const alert = useAlert();
+  const stripe = useStripe();
+  const elements = useElements();
   const payBtn = useRef(null);
-  const submitHandler = () => {};
+
+  const { cartitems, shippinginfo } = useSelector((state) => state.cart);
+  const { user } = useSelector((state) => state.user);
+  // const {error} = useSelector(state => state.cat);
+
+  const paymentData = {
+    amount: Math.round(300 * 100),
+  };
+
+  const submitHandler = async (e) => {
+    e.preventDefault();
+
+    payBtn.current.disabled = true;
+    try {
+      const config = {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      };
+      const { data } = await axios.post(
+        "/api/payment/process",
+        paymentData,
+        config
+      );
+
+      const client_secret = data.client_secret;
+
+      if (!stripe || !elements) return;
+
+      const result = await stripe.confirmCardPayment(client_secret, {
+        payment_method: {
+          card: elements.getElement(CardNumberElement),
+          billing_details: {
+            name: user.name,
+            email: user.email,
+            address: {
+              line1: shippinginfo.address,
+              city: shippinginfo.city,
+              state: shippinginfo.state,
+              postal_code: shippinginfo.pincode,
+              country: shippinginfo.country,
+            },
+          },
+        },
+      });
+
+      if (result.error) {
+        payBtn.current.disabled = false;
+
+        alert.error(result.error.message);
+      } else {
+        if (result.paymentIntent.status === "succeeded") {
+          navigate("/success");
+        } else {
+          alert.error("There's some issue while processing payment ");
+        }
+      }
+    } catch (error) {
+      payBtn.current.disabled = false;
+      alert.error(error.response.data.message);
+    }
+  };
   return (
     <div>
       <div className="paymentContainer">
