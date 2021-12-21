@@ -10,7 +10,7 @@ const {
 const { isauthenticated, authorizedrole } = require("../middleware/auth");
 const router = express.Router();
 
-router.route("/order/new").put(isauthenticated, neworder);
+router.route("/order/new").post(isauthenticated, neworder);
 
 router.route("/order/:id").get(isauthenticated, getsingleorder);
 

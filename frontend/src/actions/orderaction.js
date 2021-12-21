@@ -6,8 +6,8 @@ import {
 } from "../constants/orderconstant";
 
 import axios from "axios";
-axios.defaults.baseURL = "http://localhost:5000";
 
+axios.defaults.baseURL = "http://localhost:5000";
 axios.defaults.withCredentials = true;
 
 export const createorder = (order) => async (dispatch) => {
@@ -15,13 +15,16 @@ export const createorder = (order) => async (dispatch) => {
     dispatch({ type: CREATE_ORDER_REQUEST });
 
     const config = {
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers: { "Content-type": "application/json" },
     };
     const { data } = await axios.post("/api/order/new", order, config);
 
-    dispatch({ type: CREATE_ORDER_SUCCESS, payload: data });
+    if (data) {
+      dispatch({
+        type: CREATE_ORDER_SUCCESS,
+        payload: data,
+      });
+    }
   } catch (error) {
     dispatch({
       type: CREATE_ORDER_FAIL,
@@ -31,5 +34,7 @@ export const createorder = (order) => async (dispatch) => {
 };
 
 export const clearerrors = () => async (dispatch) => {
-  dispatch({ type: CLEAR_ERROR });
+  dispatch({
+    type: CLEAR_ERROR,
+  });
 };

@@ -110,7 +110,7 @@ const Payment = () => {
   useEffect(() => {
     if (error) {
       alert.error(error);
-      dispatch(clearerrors);
+      dispatch(clearerrors());
     }
     dispatch();
   }, [error, dispatch, alert]);
