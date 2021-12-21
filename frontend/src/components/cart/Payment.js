@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import {
   CardNumberElement,
   CardCvcElement,
@@ -12,6 +12,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useAlert } from "react-alert";
 
 import axios from "axios";
+import { createorder, clearerrors } from "../../actions/orderaction";
 
 axios.defaults.baseURL = "http://localhost:5000";
 axios.defaults.withCredentials = true;
@@ -28,11 +29,22 @@ const Payment = () => {
 
   const { cartitems, shippinginfo } = useSelector((state) => state.cart);
   const { user } = useSelector((state) => state.user);
-  // const {error} = useSelector(state => state.cat);
+  const { error } = useSelector((state) => state.neworder);
 
   const paymentData = {
-    amount: Math.round(300 * 100),
+    amount: Math.round(orderinfo.totalPrice * 100),
   };
+
+  const order = {
+    shippinginfo,
+    orderitems: cartitems,
+    itemsPrice: orderinfo.subtotal,
+    taxPrice: orderinfo.tax,
+    shippingPrice: orderinfo.shippingCharges,
+    totalPrice: orderinfo.totalPrice,
+  };
+
+  console.log(order);
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -77,6 +89,13 @@ const Payment = () => {
         alert.error(result.error.message);
       } else {
         if (result.paymentIntent.status === "succeeded") {
+          order.paymentInfo = {
+            id: result.paymentIntent.id,
+            status: result.paymentIntent.status,
+          };
+
+          dispatch(createorder(order));
+
           navigate("/success");
         } else {
           alert.error("There's some issue while processing payment ");
@@ -87,6 +106,14 @@ const Payment = () => {
       alert.error(error.response.data.message);
     }
   };
+
+  useEffect(() => {
+    if (error) {
+      alert.error(error);
+      dispatch(clearerrors);
+    }
+    dispatch();
+  }, [error, dispatch, alert]);
   return (
     <div>
       <div className="paymentContainer">
