@@ -52,12 +52,10 @@ function App() {
 
   return (
     <Router>
+      // will do later
       <Elements stripe={loadStripe(stripeapikey[0])}></Elements>
-
       <Navbar />
-
       {isauthenticated && <Useroptions user={user} />}
-
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/product/:id" element={<Productdetails />} />
