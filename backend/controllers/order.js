@@ -7,8 +7,8 @@ const Product = require("../models/productmodel");
 
 exports.neworder = catchasyncerror(async (req, res, next) => {
   const {
-    shippingInfo,
-    orderItems,
+    shippinginfo,
+    orderitems,
     paymentInfo,
     itemsPrice,
     taxPrice,
@@ -17,8 +17,8 @@ exports.neworder = catchasyncerror(async (req, res, next) => {
   } = req.body;
 
   const order = await Order.create({
-    shippingInfo,
-    orderItems,
+    shippinginfo,
+    orderitems,
     paymentInfo,
     itemsPrice,
     taxPrice,
