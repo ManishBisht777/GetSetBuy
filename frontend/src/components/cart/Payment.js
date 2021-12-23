@@ -112,7 +112,6 @@ const Payment = () => {
       alert.error(error);
       dispatch(clearerrors());
     }
-    dispatch();
   }, [error, dispatch, alert]);
   return (
     <div>
