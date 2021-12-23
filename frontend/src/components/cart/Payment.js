@@ -35,6 +35,7 @@ const Payment = () => {
     amount: Math.round(orderinfo.totalPrice * 100),
   };
 
+  console.log(shippinginfo);
   const order = {
     shippinginfo,
     orderitems: cartitems,
@@ -76,23 +77,26 @@ const Payment = () => {
               line1: shippinginfo.address,
               city: shippinginfo.city,
               state: shippinginfo.state,
-              postal_code: shippinginfo.pincode,
+              postal_code: shippinginfo.pinCode,
               country: shippinginfo.country,
             },
           },
         },
       });
 
+      console.log(result);
       if (result.error) {
         payBtn.current.disabled = false;
 
         alert.error(result.error.message);
       } else {
         if (result.paymentIntent.status === "succeeded") {
+          console.log(result);
           order.paymentInfo = {
             id: result.paymentIntent.id,
             status: result.paymentIntent.status,
           };
+          console.log(order);
 
           dispatch(createorder(order));
 
