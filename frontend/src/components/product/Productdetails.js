@@ -56,7 +56,13 @@ const Productdetails = () => {
       <p>{product.description}</p>
       <p>{product.noofrewiew} review</p>
 
-      <button onClick={addtocarthandler}> addtocart</button>
+      <button
+        disabled={product.stock < 1 ? true : false}
+        onClick={addtocarthandler}
+      >
+        {" "}
+        addtocart
+      </button>
       <div>
         {product.reviews && product.reviews[0] ? (
           <div className="reviews">
