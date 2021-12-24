@@ -25,6 +25,7 @@ import { Elements } from "@stripe/react-stripe-js";
 import Payment from "./components/cart/Payment";
 import { loadStripe } from "@stripe/stripe-js";
 import Ordersuccess from "./components/cart/Ordersuccess";
+import Myorders from "./components/order/Myorders";
 
 axios.defaults.baseURL = "http://localhost:5000";
 
@@ -77,6 +78,7 @@ function App() {
             <Route exact path="/order/confirm" element={<ConfirmOrder />} />
             <Route exact path="/process/payment" element={<Payment />} />
             <Route exact path="/success" element={<Ordersuccess />} />
+            <Route exact path="/myorders" element={<Myorders />} />
           </Routes>
           <Footer />
         </Router>

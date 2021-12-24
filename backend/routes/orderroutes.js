@@ -14,7 +14,7 @@ router.route("/order/new").post(isauthenticated, neworder);
 
 router.route("/order/:id").get(isauthenticated, getsingleorder);
 
-router.route("/myorder").get(isauthenticated, myorders);
+router.route("/myorders").get(isauthenticated, myorders);
 
 router
   .route("/allorders")

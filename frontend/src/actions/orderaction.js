@@ -2,6 +2,9 @@ import {
   CREATE_ORDER_REQUEST,
   CREATE_ORDER_SUCCESS,
   CREATE_ORDER_FAIL,
+  MY_ORDER_REQUEST,
+  MY_ORDER_SUCCESS,
+  MY_ORDER_FAIL,
   CLEAR_ERROR,
 } from "../constants/orderconstant";
 
@@ -29,6 +32,25 @@ export const createorder = (order) => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: CREATE_ORDER_FAIL,
+      payload: error.response.data.message,
+    });
+  }
+};
+
+export const myorders = () => async (dispatch) => {
+  try {
+    dispatch({ type: MY_ORDER_REQUEST });
+
+    const { data } = await axios.get("/api/myorders");
+
+    console.log(data);
+    dispatch({
+      type: MY_ORDER_SUCCESS,
+      payload: data.orders,
+    });
+  } catch (error) {
+    dispatch({
+      type: MY_ORDER_FAIL,
       payload: error.response.data.message,
     });
   }

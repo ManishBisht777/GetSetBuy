@@ -12,7 +12,7 @@ import {
   userreducer,
 } from "./reducer/Userreducer";
 import { cartreducer } from "./reducer/Cartreducer";
-import { neworderreducer } from "./reducer/orderreducer";
+import { myorderreducer, neworderreducer } from "./reducer/orderreducer";
 
 const reducer = combineReducers({
   products: productReducer,
@@ -22,6 +22,7 @@ const reducer = combineReducers({
   forgotpassword: forgotpasswordreducer,
   cart: cartreducer,
   neworder: neworderreducer,
+  myorders: myorderreducer,
 });
 const initialstate = {
   cart: {

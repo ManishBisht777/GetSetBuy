@@ -13,7 +13,7 @@ const Useroptions = () => {
 
   const navigate = useNavigate();
   function orders() {
-    navigate("/orders");
+    navigate("/myorders");
   }
   function account() {
     navigate("/account");

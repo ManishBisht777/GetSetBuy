@@ -84,14 +84,12 @@ const Payment = () => {
         },
       });
 
-      console.log(result);
       if (result.error) {
         payBtn.current.disabled = false;
 
         alert.error(result.error.message);
       } else {
         if (result.paymentIntent.status === "succeeded") {
-          console.log(result);
           order.paymentInfo = {
             id: result.paymentIntent.id,
             status: result.paymentIntent.status,

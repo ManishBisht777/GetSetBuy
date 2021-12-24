@@ -5,7 +5,7 @@ const Ordersuccess = () => {
   return (
     <div>
       <h3>Order success</h3>
-      <Link to="/myorder">view order</Link>
+      <Link to="/myorders">view order</Link>
     </div>
   );
 };
