@@ -92,7 +92,7 @@ exports.deleteproduct = catchasyncerror(async (req, res, next) => {
 // create review or update review
 exports.createreview = catchasyncerror(async (req, res, next) => {
   const { rating, comment, productid } = req.body;
-
+  console.log(productId);
   const review = {
     user: req.user._id,
     name: req.user.name,
@@ -100,6 +100,7 @@ exports.createreview = catchasyncerror(async (req, res, next) => {
     comment,
   };
 
+  console.log(review);
   const product = await Product.findById(productid);
 
   console.log(product);

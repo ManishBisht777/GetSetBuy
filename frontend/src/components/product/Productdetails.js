@@ -32,6 +32,13 @@ const Productdetails = () => {
     (state) => state.newreview
   );
 
+  const options = {
+    size: "large",
+    value: product.ratings,
+    readOnly: true,
+    precision: 0.5,
+  };
+
   useEffect(() => {
     if (error) {
       alert.error(error);
@@ -64,7 +71,7 @@ const Productdetails = () => {
     myForm.set("comment", comment);
     myForm.set("productId", id);
     console.log(id, rating, comment);
-    console.log(myForm);
+    console.log(myForm.get("productId"));
     dispatch(newreview(myForm));
 
     setOpen(false);
@@ -101,6 +108,7 @@ const Productdetails = () => {
       <p>{product.price}</p>
       <p>{product.description}</p>
       <p>{product.noofrewiew} review</p>
+      <Rating {...options} />
 
       <button
         disabled={product.stock < 1 ? true : false}
