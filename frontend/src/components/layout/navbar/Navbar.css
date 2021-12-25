@@ -37,8 +37,8 @@
   opacity: 0;
   transition: all 0.5s ease;
 }
-.sidebar .open .logo-details .icon,
-.sidebar .open .logo-details .logo_name {
+.open .logo-details .icon,
+.open .logo-details .logo_name {
   opacity: 1;
 }
 .sidebar .logo-details #btn {
@@ -99,7 +99,7 @@
 .sidebar .open li .tooltip {
   display: none;
 }
-.sidebar input {
+.sidebar .input-nav {
   font-size: 15px;
   color: #fff;
   font-weight: 400;
@@ -112,7 +112,7 @@
   transition: all 0.5s ease;
   background: #1d1b31;
 }
-.sidebar .open input {
+.sidebar .open .input-nav {
   padding: 0 20px 0 50px;
   width: 100%;
 }
@@ -155,7 +155,7 @@
   pointer-events: none;
   transition: 0.4s;
 }
-.sidebar .open li a .links_name {
+.open li a .links_name {
   opacity: 1;
   pointer-events: auto;
 }
@@ -181,7 +181,7 @@
   transition: all 0.5s ease;
   overflow: hidden;
 }
-.sidebar .open li.profile {
+.open li.profile {
   width: 250px;
 }
 .sidebar li .profile-details {
@@ -196,8 +196,8 @@
   border-radius: 6px;
   margin-right: 10px;
 }
-.sidebar li.profile .name,
-.sidebar li.profile .job {
+.open li.profile .name,
+.open li.profile .job {
   font-size: 15px;
   font-weight: 400;
   color: #fff;
