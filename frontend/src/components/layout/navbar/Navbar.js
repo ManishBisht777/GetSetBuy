@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 function Navbar() {
@@ -25,17 +26,17 @@ function Navbar() {
         <ul>
           <li>
             <i className="bx bx-archive-in"></i>
-            <a href="/">Your Order</a>
+            <Link to={"/myorders"}>Your Order</Link>
           </li>
           <li>
             <i className="bx bx-cart-alt"></i>
-            <a href="/">Cart</a>
+            <Link to={"/cart"}>Cart</Link>
           </li>
         </ul>
       </div>
-      <div className="user">
+      <Link to={"/profile"} className="user">
         <i className="bx bxs-user-circle"></i>
-      </div>
+      </Link>
     </Nav>
   );
 }

@@ -55,7 +55,11 @@ function App() {
       <Elements stripe={loadStripe(stripeapikey)}>
         <Router>
           <Navbar />
-          {isauthenticated && <Useroptions user={user} />}
+          {isauthenticated && (
+            <Routes>
+              <Route path="/profile" element={<Useroptions user={user} />} />
+            </Routes>
+          )}
           <Routes>
             <Route exact path="/" element={<Home />} />
             <Route exact path="/product/:id" element={<Productdetails />} />
