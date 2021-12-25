@@ -1,102 +1,98 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useState } from "react";
+import "./Navbar.css";
 
 function Navbar() {
+  const [menuActive, setMenuState] = useState(false);
+  let classes = "bx bx-menu";
+  if (menuActive) {
+    classes += " open";
+  }
   return (
-    <Nav>
-      <div className="logo">Company</div>
-      <div className="links">
-        <ul>
-          <li>
-            <i className="bx bx-home"></i>
-            <a href="/">Home</a>
-          </li>
-          <li>
-            <i className="bx bx-book"></i>
-            <a href="/">About</a>
-          </li>
-        </ul>
+    <div className="sidebar">
+      <div className="logo-details">
+        <i className="bx bxl-c-plus-plus icon"></i>
+        <div className="logo_name">Manish Bisht</div>
+        <i
+          className={classes}
+          id="btn"
+          onClick={() => setMenuState(!menuActive)}
+        ></i>
       </div>
-      <div className="search">
-        <input type="text" placeholder="Search Here" />
-        <i className="bx bx-search-alt"></i>
-      </div>
-      <div className="links">
-        <ul>
-          <li>
-            <i className="bx bx-archive-in"></i>
-            <a href="/">Your Order</a>
-          </li>
-          <li>
+      <ul className="nav-list">
+        <li>
+          <i className="bx bx-search"></i>
+          <input type="text" placeholder="Search..." />
+          <span className="tooltip">Search</span>
+        </li>
+        <li>
+          <a href="/">
+            <i className="bx bx-grid-alt"></i>
+            <span className="links_name">Dashboard</span>
+          </a>
+          <span className="tooltip">Dashboard</span>
+        </li>
+        <li>
+          <a href="/">
+            <i className="bx bx-user"></i>
+            <span className="links_name">User</span>
+          </a>
+          <span className="tooltip">User</span>
+        </li>
+        <li>
+          <a href="/">
+            <i className="bx bx-chat"></i>
+            <span className="links_name">Messages</span>
+          </a>
+          <span className="tooltip">Messages</span>
+        </li>
+        <li>
+          <a href="/">
+            <i className="bx bx-pie-chart-alt-2"></i>
+            <span className="links_name">Analytics</span>
+          </a>
+          <span className="tooltip">Analytics</span>
+        </li>
+        <li>
+          <a href="/">
+            <i className="bx bx-folder"></i>
+            <span className="links_name">File Manager</span>
+          </a>
+          <span className="tooltip">Files</span>
+        </li>
+        <li>
+          <a href="/">
             <i className="bx bx-cart-alt"></i>
-            <a href="/">Cart</a>
-          </li>
-        </ul>
-      </div>
-      <div className="user">
-        <i className="bx bxs-user-circle"></i>
-      </div>
-    </Nav>
+            <span className="links_name">Order</span>
+          </a>
+          <span className="tooltip">Order</span>
+        </li>
+        <li>
+          <a href="/">
+            <i className="bx bx-heart"></i>
+            <span className="links_name">Saved</span>
+          </a>
+          <span className="tooltip">Saved</span>
+        </li>
+        <li>
+          <a href="/">
+            <i className="bx bx-cog"></i>
+            <span className="links_name">Setting</span>
+          </a>
+          <span className="tooltip">Setting</span>
+        </li>
+        <li className="profile">
+          <div className="profile-details">
+            {/* <!--<img src="profile.jpg" alt="profileImg">--> */}
+            <div className="name_job">
+              <div className="name">Prem Shahi</div>
+              <div className="job">Web designer</div>
+            </div>
+          </div>
+          <i className="bx bx-log-out" id="log_out"></i>
+        </li>
+      </ul>
+    </div>
   );
 }
 
-const Nav = styled.nav`
-
-  display: flex;
-  padding: 10px;
-  justify-content: space-between;
-  align-items: center;
-  background: black;
-  font-family: "Roboto", sans-serif;
-  position: relative;
-  .logo {
-    font-family: "Comforter", cursive;
-    font-size: 2rem;
-    color: #fff;
-    letter-spacing: 1.5px;
-  }
-
-  li
-  {
-      list-style:none;
-      display:flex;
-      align-items:center;
-      margin:0 10px;
-      i{
-          font-size:20px;
-      }
-  }
-  a{
-      text-decoration:none;
-      margin:0 5px;
-    padding:5px;
-      color:#fff;
-      border-bottom:2px solid purple;
-  }
-
-  .search {
-    display: flex;
-    align-items: center;
-
-    input {
-      margin: 0 10px;
-      padding:5px 10px;
-      border-radius:5px;
-      border:1px solid white;
-      background:transparent;
-    }
-  }
-
-  i {
-    color: #fff;
-    font-size: 30px;
-  }
-
-  .links ul{
-      display:flex;
-      align-items:center;
-  }
-  
-  }
-`;
 export default Navbar;
