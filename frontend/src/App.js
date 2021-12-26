@@ -54,10 +54,14 @@ function App() {
       <div className="bigbox">
         <div className="Box1">
           <Navbar />
-          {isauthenticated && <Useroptions user={user} />}
+          {/* {isauthenticated && <Useroptions user={user} />}
           {stripeapikey && (
-            <Elements stripe={loadStripe(stripeapikey)}></Elements>
-          )}
+            <Elements stripe={loadStripe(stripeapikey)}>
+              <Routes>
+                <Route exact path="/process/payment" element={<Payment />} />
+              </Routes>
+            </Elements>
+          )} */}
         </div>
         <div className="box2">
           <Routes>
@@ -80,7 +84,6 @@ function App() {
             />
             <Route exact path="/cart" element={<Cart />} />
             <Route exact path="/auth/shipping" element={<Shipping />} />
-            <Route exact path="/process/payment" element={<Payment />} />
             <Route exact path="/success" element={<Ordersuccess />} />
             <Route exact path="/myorders" element={<Myorders />} />
 

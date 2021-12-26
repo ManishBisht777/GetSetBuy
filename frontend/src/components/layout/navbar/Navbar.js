@@ -1,11 +1,14 @@
 import React from "react";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Useroptions from "../Useroptions";
 
 function Navbar() {
   const [profile, setprofile] = useState(false);
+  const { isauthenticated } = useSelector((state) => state.user);
+
   return (
     <Nav>
       <div className="logo">Company</div>
@@ -34,12 +37,19 @@ function Navbar() {
         <i className="bx bx-search-alt"></i>
       </div>
 
-      <i
-        onClick={() => setprofile(!profile)}
-        className=" userprofileicon bx bxs-user-circle"
-      ></i>
-
-      <Useroptions show={profile} />
+      {isauthenticated ? (
+        <div>
+          <i
+            onClick={() => setprofile(!profile)}
+            className=" userprofileicon bx bxs-user-circle"
+          ></i>
+          <Useroptions show={profile} />
+        </div>
+      ) : (
+        <Link to={"/auth"}>
+          <button> login</button>
+        </Link>
+      )}
     </Nav>
   );
 }
