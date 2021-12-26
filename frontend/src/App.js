@@ -54,14 +54,14 @@ function App() {
       <div className="bigbox">
         <div className="Box1">
           <Navbar />
-          {/* {isauthenticated && <Useroptions user={user} />}
+          {isauthenticated && <Useroptions user={user} />}
           {stripeapikey && (
             <Elements stripe={loadStripe(stripeapikey)}>
               <Routes>
                 <Route exact path="/process/payment" element={<Payment />} />
               </Routes>
             </Elements>
-          )} */}
+          )}
         </div>
         <div className="box2">
           <Routes>

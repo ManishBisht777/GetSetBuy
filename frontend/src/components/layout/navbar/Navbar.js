@@ -15,27 +15,41 @@ function Navbar() {
       <div className="links">
         <ul>
           <li>
-            <i className="bx bx-home"></i>
-            <a href="/">Home</a>
+            <a href="/">
+              <i className="bx bxs-home-heart"></i>
+              Home
+            </a>
           </li>
           <li>
-            <i className="bx bx-book"></i>
-            <a href="/">About</a>
+            <a href="/">
+              <i className="bx bxs-book-add"></i>
+              About
+            </a>
           </li>
           <li>
-            <i className=" bx bx-archive-in"></i>
-            <Link to={"/myorders"}>Your Order</Link>
+            <Link to={"/products"}>
+              <i className="bx bxs-shopping-bags"></i>
+              products
+            </Link>
           </li>
           <li>
-            <i className="bx bx-cart-alt"></i>
-            <Link to={"/cart"}>Cart</Link>
+            <Link to={"/cart"}>
+              <i className="bx bxs-cart"></i>
+              Cart
+            </Link>
+          </li>
+          <li>
+            <Link to={"/cart"}>
+              <i className="bx bxs-cart"></i>
+              Cart
+            </Link>
           </li>
         </ul>
       </div>
-      <div className="search">
-        <input type="text" placeholder="Search Here" />
+      <Searchbar className="search">
         <i className="bx bx-search-alt"></i>
-      </div>
+        <input type="text" placeholder="Search Here" />
+      </Searchbar>
 
       {isauthenticated ? (
         <div>
@@ -47,7 +61,7 @@ function Navbar() {
         </div>
       ) : (
         <Link to={"/auth"}>
-          <button> login</button>
+          <Loginbutton> login</Loginbutton>
         </Link>
       )}
     </Nav>
@@ -59,9 +73,17 @@ const Nav = styled.nav`
   justify-content: space-between;
   padding: 10px;
   align-items: center;
-  background: rgb(61, 66, 82);
+  height: 70px;
+  /* background: rgb(61, 66, 82); */
+  background: url("./bgnav.jpg");
+  background-size: cover;
+  background-position: center;
+  position: fixed;
+  background-color: #000000;
+  background-blend-mode: luminosity;
+  width: 100%;
+  top: 0;
   font-family: "Roboto", sans-serif;
-  position: relative;
   z-index: 1;
   .logo {
     font-family: "Comforter", cursive;
@@ -75,28 +97,18 @@ const Nav = styled.nav`
     display: flex;
     align-items: center;
     margin: 0 10px;
+    font-size: 15px;
     i {
-      font-size: 20px;
+      font-size: 25px;
+      margin: 5px;
     }
   }
   a {
     text-decoration: none;
-    margin: 0 5px;
     padding: 5px;
-    color: #fff;
-  }
-
-  .search {
+    color: #ababab;
     display: flex;
     align-items: center;
-
-    input {
-      margin: 0 10px;
-      padding: 5px 10px;
-      border-radius: 5px;
-      border: 1px solid white;
-      background: transparent;
-    }
   }
 
   i {
@@ -111,6 +123,42 @@ const Nav = styled.nav`
   .userprofileicon {
     border: 5px solid gray;
     border-radius: 50%;
+  }
+`;
+
+const Loginbutton = styled.button`
+  border: none;
+  background: purple;
+  color: #fff;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+`;
+
+const Searchbar = styled.div`
+  display: flex;
+  align-items: center;
+  background: #1f222e;
+  border-radius: 5px;
+  padding: 10px;
+  i {
+    font-size: 20px;
+    color: #ababab;
+  }
+  input {
+    margin: 0 10px;
+    border-radius: 5px;
+    border: none;
+    background: transparent;
+    width: 90px;
+    color: #ababab;
+
+    &::placeholder {
+      color: #ababab;
+    }
+    &:focus {
+      outline: none;
+    }
   }
 `;
 export default Navbar;
