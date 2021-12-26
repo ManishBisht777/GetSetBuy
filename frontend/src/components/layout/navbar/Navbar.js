@@ -8,6 +8,7 @@ import Useroptions from "../Useroptions";
 function Navbar() {
   const [profile, setprofile] = useState(false);
   const { isauthenticated } = useSelector((state) => state.user);
+  const { user } = useSelector((state) => state.user);
 
   return (
     <Nav>
@@ -52,13 +53,14 @@ function Navbar() {
       </Searchbar>
 
       {isauthenticated ? (
-        <div>
-          <i
-            onClick={() => setprofile(!profile)}
+        <Useroption onClick={() => setprofile(!profile)}>
+          <img
             className=" userprofileicon bx bxs-user-circle"
-          ></i>
+            src={user.avatar.url}
+            alt="profileimage"
+          />
           <Useroptions show={profile} />
-        </div>
+        </Useroption>
       ) : (
         <Link to={"/auth"}>
           <Loginbutton> login</Loginbutton>
@@ -121,7 +123,7 @@ const Nav = styled.nav`
     align-items: center;
   }
   .userprofileicon {
-    border: 5px solid gray;
+    border: 2px solid gray;
     border-radius: 50%;
   }
 `;
@@ -159,6 +161,14 @@ const Searchbar = styled.div`
     &:focus {
       outline: none;
     }
+  }
+`;
+
+const Useroption = styled.div`
+  cursor: pointer;
+  img {
+    width: 40px;
+    height: 40px;
   }
 `;
 export default Navbar;

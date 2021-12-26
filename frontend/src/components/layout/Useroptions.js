@@ -1,4 +1,4 @@
-import { React, useEffect } from "react";
+import { React } from "react";
 import { useAlert } from "react-alert";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -6,8 +6,7 @@ import styled from "styled-components";
 import { logout } from "../../actions/userAction";
 
 const Useroptions = ({ show }) => {
-  const { isauthenticated, user } = useSelector((state) => state.user);
-
+  const { user } = useSelector((state) => state.user);
   const { cartitems } = useSelector((state) => state.cart);
 
   const alert = useAlert();
@@ -28,39 +27,33 @@ const Useroptions = ({ show }) => {
     alert.success("Logout Successfully");
   }
 
-  useEffect(() => {
-    if (!isauthenticated) {
-      navigate("/auth");
-    }
-  }, [navigate, isauthenticated]);
+  return show ? (
+    <Useroption>
+      <Userinfo>
+        <UserImage src={user.avatar.url} alt="profileimg" />
+        <Name>
+          <i className="bx bxs-crown usercrown"></i> {user.name}
+        </Name>
+      </Userinfo>
 
-  return (
-    show && (
-      <Useroption>
-        <Userinfo>
-          <UserImage src={user.avatar.url} alt="profileimg" />
-          <Name>
-            <i class="bx bxs-crown usercrown"></i> {user.name}
-          </Name>
-        </Userinfo>
-
-        <Userlink>
-          <Userbtn onClick={orders}>
-            <i className="bx bxs-shopping-bag"></i>your orders
-          </Userbtn>
-          <Userbtn onClick={account}>
-            <i className="bx bxs-user-pin"></i>account
-          </Userbtn>
-          <Userbtn onClick={cart}>
-            <i className="bx bxs-cart"></i>{" "}
-            <span>{`cart ${cartitems.length}`}</span>
-          </Userbtn>
-          <Userbtn onClick={logoutUser}>
-            <i className="bx bx-log-out"></i>logout
-          </Userbtn>
-        </Userlink>
-      </Useroption>
-    )
+      <Userlink>
+        <Userbtn onClick={orders}>
+          <i className="bx bxs-shopping-bag"></i>your orders
+        </Userbtn>
+        <Userbtn onClick={account}>
+          <i className="bx bxs-user-pin"></i>account
+        </Userbtn>
+        <Userbtn onClick={cart}>
+          <i className="bx bxs-cart"></i>{" "}
+          <span>{`cart ${cartitems.length}`}</span>
+        </Userbtn>
+        <Userbtn onClick={logoutUser}>
+          <i className="bx bx-log-out"></i>logout
+        </Userbtn>
+      </Userlink>
+    </Useroption>
+  ) : (
+    ""
   );
 };
 
@@ -104,7 +97,7 @@ const Name = styled.h3`
 const UserImage = styled.img`
   border-radius: 50%;
   height: 50px;
-  border: 5px solid gray;
+  border: 3px solid gray;
   margin: 5px;
 `;
 
