@@ -45,15 +45,14 @@ function Navbar() {
 }
 
 const Nav = styled.nav`
-
   display: flex;
   justify-content: space-between;
-  padding:10px;
+  padding: 10px;
   align-items: center;
-  background: rgb(61,66,82);
+  background: rgb(61, 66, 82);
   font-family: "Roboto", sans-serif;
   position: relative;
-  z-index:1;
+  z-index: 1;
   .logo {
     font-family: "Comforter", cursive;
     font-size: 2rem;
@@ -61,21 +60,20 @@ const Nav = styled.nav`
     letter-spacing: 1.5px;
   }
 
-  li
-  {
-      list-style:none;
-      display:flex;
-      align-items:center;
-      margin:0 10px;
-      i{
-          font-size:20px;
-      }
+  li {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin: 0 10px;
+    i {
+      font-size: 20px;
+    }
   }
-  a{
-      text-decoration:none;
-      margin:0 5px;
-    padding:5px;
-      color:#fff;
+  a {
+    text-decoration: none;
+    margin: 0 5px;
+    padding: 5px;
+    color: #fff;
   }
 
   .search {
@@ -84,10 +82,10 @@ const Nav = styled.nav`
 
     input {
       margin: 0 10px;
-      padding:5px 10px;
-      border-radius:5px;
-      border:1px solid white;
-      background:transparent;
+      padding: 5px 10px;
+      border-radius: 5px;
+      border: 1px solid white;
+      background: transparent;
     }
   }
 
@@ -96,15 +94,13 @@ const Nav = styled.nav`
     font-size: 30px;
   }
 
-  .links ul{
-      display:flex;
-      align-items:center;
+  .links ul {
+    display: flex;
+    align-items: center;
   }
-  .userprofileicon
-  {
-    border:5px solid gray;
-    border-radius:50%;
-  }
+  .userprofileicon {
+    border: 5px solid gray;
+    border-radius: 50%;
   }
 `;
 export default Navbar;

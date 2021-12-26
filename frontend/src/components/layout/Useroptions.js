@@ -1,4 +1,4 @@
-import { React } from "react";
+import { React, useEffect } from "react";
 import { useAlert } from "react-alert";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -6,7 +6,8 @@ import styled from "styled-components";
 import { logout } from "../../actions/userAction";
 
 const Useroptions = ({ show }) => {
-  const { user } = useSelector((state) => state.user);
+  const { isauthenticated, user } = useSelector((state) => state.user);
+
   const { cartitems } = useSelector((state) => state.cart);
 
   const alert = useAlert();
@@ -27,12 +28,20 @@ const Useroptions = ({ show }) => {
     alert.success("Logout Successfully");
   }
 
+  useEffect(() => {
+    if (!isauthenticated) {
+      navigate("/auth");
+    }
+  }, [navigate, isauthenticated]);
+
   return (
     show && (
       <Useroption>
         <Userinfo>
           <UserImage src={user.avatar.url} alt="profileimg" />
-          <Name>{user.name}</Name>
+          <Name>
+            <i class="bx bxs-crown usercrown"></i> {user.name}
+          </Name>
         </Userinfo>
 
         <Userlink>
@@ -43,7 +52,8 @@ const Useroptions = ({ show }) => {
             <i className="bx bxs-user-pin"></i>account
           </Userbtn>
           <Userbtn onClick={cart}>
-            <i className="bx bxs-cart"></i> {`cart${cartitems.length}`}
+            <i className="bx bxs-cart"></i>{" "}
+            <span>{`cart ${cartitems.length}`}</span>
           </Userbtn>
           <Userbtn onClick={logoutUser}>
             <i className="bx bx-log-out"></i>logout
@@ -66,37 +76,57 @@ const Useroption = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   padding: 10px;
-  width: 200px;
   z-index: 1;
   transition: 0.3s;
 `;
 
 const Userinfo = styled.div`
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 10px;
 `;
 
 const Name = styled.h3`
+  word-break: break-word;
+  width: 100px;
+  color: #a5a5a5;
   word-break: break-all;
+  font-size: 1rem;
+
+  .usercrown {
+    font-size: 15px;
+    color: gold;
+  }
 `;
 const UserImage = styled.img`
-  border-radius: 12px;
-  height: 100px;
+  border-radius: 50%;
+  height: 50px;
+  border: 5px solid gray;
+  margin: 5px;
 `;
 
-const Userlink = styled.div``;
+const Userlink = styled.div`
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid gray;
+`;
 const Userbtn = styled.button`
   padding: 5px 10px;
-  background-color: rgba(17, 25, 40, 0.95);
-  border-radius: 5px;
-  border: 1px solid rgba(255, 255, 255, 0.125);
+  background-color: transparent;
+  border: none;
   cursor: pointer;
+  display: flex;
+  align-items: center;
   color: #fff;
   margin: 5px;
+  text-transform: capitalize;
+
+  span {
+    margin: 0px 5px;
+  }
 
   i {
     margin: 5px;
