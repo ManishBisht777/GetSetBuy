@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { logout } from "../../actions/userAction";
 
-const Useroptions = () => {
+const Useroptions = ({ show }) => {
   const { user } = useSelector((state) => state.user);
   const { cartitems } = useSelector((state) => state.cart);
 
@@ -28,33 +28,36 @@ const Useroptions = () => {
   }
 
   return (
-    <Useroption>
-      <Userinfo>
-        <UserImage src={user.avatar.url} alt="profileimg" />
-        <Name>{user.name}</Name>
-      </Userinfo>
+    show && (
+      <Useroption>
+        <Userinfo>
+          <UserImage src={user.avatar.url} alt="profileimg" />
+          <Name>{user.name}</Name>
+        </Userinfo>
 
-      <Userlink>
-        <Userbtn onClick={orders}>
-          <i className="bx bxs-shopping-bag"></i>your orders
-        </Userbtn>
-        <Userbtn onClick={account}>
-          <i className="bx bxs-user-pin"></i>account
-        </Userbtn>
-        <Userbtn onClick={cart}>
-          <i className="bx bxs-cart"></i> {`cart${cartitems.length}`}
-        </Userbtn>
-        <Userbtn onClick={logoutUser}>
-          <i className="bx bx-log-out"></i>logout
-        </Userbtn>
-      </Userlink>
-    </Useroption>
+        <Userlink>
+          <Userbtn onClick={orders}>
+            <i className="bx bxs-shopping-bag"></i>your orders
+          </Userbtn>
+          <Userbtn onClick={account}>
+            <i className="bx bxs-user-pin"></i>account
+          </Userbtn>
+          <Userbtn onClick={cart}>
+            <i className="bx bxs-cart"></i> {`cart${cartitems.length}`}
+          </Userbtn>
+          <Userbtn onClick={logoutUser}>
+            <i className="bx bx-log-out"></i>logout
+          </Userbtn>
+        </Userlink>
+      </Useroption>
+    )
   );
 };
 
 const Useroption = styled.div`
   position: absolute;
   right: 10px;
+  top: 70px;
   backdrop-filter: blur(16px) saturate(180%);
   -webkit-backdrop-filter: blur(16px) saturate(180%);
   background-color: rgba(17, 25, 40, 0.75);
@@ -66,6 +69,8 @@ const Useroption = styled.div`
   align-items: center;
   padding: 10px;
   width: 200px;
+  z-index: 1;
+  transition: 0.3s;
 `;
 
 const Userinfo = styled.div`

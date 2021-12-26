@@ -1,4 +1,11 @@
 * {
-  margin: 0;
-  padding: 0;
+  box-sizing: border-box;
+}
+
+.bigbox {
+  display: flex;
+  flex-direction: column;
+}
+
+.box2 {
 }

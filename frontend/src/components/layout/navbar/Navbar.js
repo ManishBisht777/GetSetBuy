@@ -1,8 +1,11 @@
 import React from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import Useroptions from "../Useroptions";
 
 function Navbar() {
+  const [profile, setprofile] = useState(false);
   return (
     <Nav>
       <div className="logo">Company</div>
@@ -16,16 +19,8 @@ function Navbar() {
             <i className="bx bx-book"></i>
             <a href="/">About</a>
           </li>
-        </ul>
-      </div>
-      <div className="search">
-        <input type="text" placeholder="Search Here" />
-        <i className="bx bx-search-alt"></i>
-      </div>
-      <div className="links">
-        <ul>
           <li>
-            <i className="bx bx-archive-in"></i>
+            <i className=" bx bx-archive-in"></i>
             <Link to={"/myorders"}>Your Order</Link>
           </li>
           <li>
@@ -34,9 +29,17 @@ function Navbar() {
           </li>
         </ul>
       </div>
-      <Link to={"/profile"} className="user">
-        <i className="bx bxs-user-circle"></i>
-      </Link>
+      <div className="search">
+        <input type="text" placeholder="Search Here" />
+        <i className="bx bx-search-alt"></i>
+      </div>
+
+      <i
+        onClick={() => setprofile(!profile)}
+        className=" userprofileicon bx bxs-user-circle"
+      ></i>
+
+      <Useroptions show={profile} />
     </Nav>
   );
 }
@@ -44,12 +47,13 @@ function Navbar() {
 const Nav = styled.nav`
 
   display: flex;
-  padding: 10px;
   justify-content: space-between;
+  padding:10px;
   align-items: center;
-  background: black;
+  background: rgb(61,66,82);
   font-family: "Roboto", sans-serif;
   position: relative;
+  z-index:1;
   .logo {
     font-family: "Comforter", cursive;
     font-size: 2rem;
@@ -72,7 +76,6 @@ const Nav = styled.nav`
       margin:0 5px;
     padding:5px;
       color:#fff;
-      border-bottom:2px solid purple;
   }
 
   .search {
@@ -97,7 +100,11 @@ const Nav = styled.nav`
       display:flex;
       align-items:center;
   }
-  
+  .userprofileicon
+  {
+    border:5px solid gray;
+    border-radius:50%;
+  }
   }
 `;
 export default Navbar;

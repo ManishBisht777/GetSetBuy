@@ -54,40 +54,57 @@ function App() {
     stripeapikey && (
       <Elements stripe={loadStripe(stripeapikey)}>
         <Router>
-          <Navbar />
-          {isauthenticated && (
-            <Routes>
-              <Route path="/profile" element={<Useroptions user={user} />} />
-            </Routes>
-          )}
-          <Routes>
-            <Route exact path="/" element={<Home />} />
-            <Route exact path="/product/:id" element={<Productdetails />} />
-            <Route exact path="/products" element={<Products />} />
-            <Route exact path="/products/:keyword" element={<Products />} />
-            <Route exact path="/search" element={<Search />} />
-            <Route exact path="/auth" element={<LoginSignup />} />
-            <Route exact path="/account" element={<Account />} />
-            {/* <ProtectedRoute exact path="/account" element={<Account />} /> */}
-            <Route exact path="me/update" element={<Updateprofile />} />
-            <Route exact path="password/update" element={<Updatepassword />} />
-            <Route exact path="password/forgot" element={<Forgotpassword />} />
-            <Route exact path="password/forgot" element={<Forgotpassword />} />
-            <Route
-              exact
-              path="password/reset/:token"
-              element={<Resetpassword />}
-            />
-            <Route exact path="/cart" element={<Cart />} />
-            <Route exact path="/auth/shipping" element={<Shipping />} />
-            <Route exact path="/process/payment" element={<Payment />} />
-            <Route exact path="/success" element={<Ordersuccess />} />
-            <Route exact path="/myorders" element={<Myorders />} />
+          <div className="bigbox">
+            <Navbar />
 
-            <Route exact path="/order/confirm" element={<ConfirmOrder />} />
-            <Route exact path="/order/:id" element={<Orderdetails />} />
-          </Routes>
-          <Footer />
+            {isauthenticated && (
+              <Routes>
+                <Route path="/profile" element={<Useroptions user={user} />} />
+              </Routes>
+            )}
+            <div className="box2">
+              <Routes>
+                <Route exact path="/" element={<Home />} />
+                <Route exact path="/product/:id" element={<Productdetails />} />
+                <Route exact path="/products" element={<Products />} />
+                <Route exact path="/products/:keyword" element={<Products />} />
+                <Route exact path="/search" element={<Search />} />
+                <Route exact path="/auth" element={<LoginSignup />} />
+                <Route exact path="/account" element={<Account />} />
+                {/* <ProtectedRoute exact path="/account" element={<Account />} /> */}
+                <Route exact path="me/update" element={<Updateprofile />} />
+                <Route
+                  exact
+                  path="password/update"
+                  element={<Updatepassword />}
+                />
+                <Route
+                  exact
+                  path="password/forgot"
+                  element={<Forgotpassword />}
+                />
+                <Route
+                  exact
+                  path="password/forgot"
+                  element={<Forgotpassword />}
+                />
+                <Route
+                  exact
+                  path="password/reset/:token"
+                  element={<Resetpassword />}
+                />
+                <Route exact path="/cart" element={<Cart />} />
+                <Route exact path="/auth/shipping" element={<Shipping />} />
+                <Route exact path="/process/payment" element={<Payment />} />
+                <Route exact path="/success" element={<Ordersuccess />} />
+                <Route exact path="/myorders" element={<Myorders />} />
+
+                <Route exact path="/order/confirm" element={<ConfirmOrder />} />
+                <Route exact path="/order/:id" element={<Orderdetails />} />
+              </Routes>
+              <Footer />
+            </div>
+          </div>
         </Router>
       </Elements>
     )
