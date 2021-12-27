@@ -116,6 +116,12 @@ const Userbtn = styled.button`
   color: #fff;
   margin: 5px;
   text-transform: capitalize;
+  transition: 0.3s;
+
+  &:hover {
+    color: #ababab;
+    transition: 0.3s;
+  }
 
   span {
     margin: 0px 5px;

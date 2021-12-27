@@ -77,16 +77,16 @@ const Nav = styled.nav`
   align-items: center;
   height: 70px;
   /* background: rgb(61, 66, 82); */
-  background: url("./bgnav.jpg");
   background-size: cover;
   background-position: center;
   position: fixed;
-  background-color: #000000;
+  background-color: #00000066;
   background-blend-mode: luminosity;
   width: 100%;
   top: 0;
   font-family: "Roboto", sans-serif;
   z-index: 1;
+  box-shadow: 1px 2px 20px 8px #1f222e;
   .logo {
     font-family: "Comforter", cursive;
     font-size: 2rem;
@@ -100,6 +100,8 @@ const Nav = styled.nav`
     align-items: center;
     margin: 0 10px;
     font-size: 15px;
+    transition: 0.3s;
+
     i {
       font-size: 25px;
       margin: 5px;
@@ -111,6 +113,13 @@ const Nav = styled.nav`
     color: #ababab;
     display: flex;
     align-items: center;
+    transition: 0.3s;
+    letter-spacing: 1px;
+    font-weight: 600;
+    &:hover {
+      color: #c97dc9;
+      transition: 0.3s;
+    }
   }
 
   i {

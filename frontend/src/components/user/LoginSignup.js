@@ -77,6 +77,15 @@ const LoginSignup = () => {
     }
   }, [alert, error, dispatch, navigate, isauthenticated, redirect]);
 
+  const [toggle, settoggle] = useState(false);
+  var class1 = "form";
+  var class2 = "sameform signinform ";
+  var class3 = "sameform signupform";
+  if (toggle) {
+    class1 += " active";
+    class2 += " active2 ";
+  }
+
   return loading ? (
     "loading"
   ) : (
@@ -84,18 +93,26 @@ const LoginSignup = () => {
       <div className="box">
         <div className="same signin">
           <h2>Already Have An Account?</h2>
-          <button className="signinbtn" type="submit">
+          <button
+            onClick={() => settoggle(!toggle)}
+            className="signinbtn"
+            type="submit"
+          >
             Signin
           </button>
         </div>
         <div className="same signup">
           <h2>Don't Have an Account ?</h2>
-          <button className="signupbtn" type="submit">
+          <button
+            onClick={() => settoggle(!toggle)}
+            className="signupbtn"
+            type="submit"
+          >
             Signup
           </button>
         </div>
-        <div className="form">
-          <div className="sameform signinform">
+        <div className={class1}>
+          <div className={class2}>
             <form action="">
               <h3>SignIn</h3>
               <input
@@ -114,7 +131,7 @@ const LoginSignup = () => {
               </Link>
             </form>
           </div>
-          <div className="sameform signupform">
+          <div className={class3}>
             <form action="" onSubmit={registerSubmit}>
               <h3>Signup</h3>
               <input
