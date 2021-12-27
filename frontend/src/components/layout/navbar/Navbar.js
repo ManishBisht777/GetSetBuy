@@ -77,10 +77,11 @@ const Nav = styled.nav`
   align-items: center;
   height: 70px;
   /* background: rgb(61, 66, 82); */
+  /* background: url("./bgnav.jpg"); */
   background-size: cover;
   background-position: center;
   position: fixed;
-  background-color: #000000b3;
+  background-color: #161824;
   background-blend-mode: luminosity;
   width: 100%;
   top: 0;
@@ -152,6 +153,7 @@ const Searchbar = styled.div`
   background: #1f222e;
   border-radius: 5px;
   padding: 10px;
+  width: 250px;
   i {
     font-size: 20px;
     color: #ababab;

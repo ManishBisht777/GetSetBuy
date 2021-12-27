@@ -9,6 +9,7 @@
   background: transparent;
   overflow-x: hidden;
   align-items: center;
+  z-index: 0;
 }
 
 .category-container h3 {
@@ -80,13 +81,13 @@
 }
 
 .category-card:nth-child(2) .category-card-info button {
-  background: #4a650c;
-  box-shadow: 0px 0px 14px -1px #090c05;
-  border: 1px solid #445b0d;
+  background: #ad9103;
+  box-shadow: 0px 0px 14px -1px #ad9103;
+  border: 1px solid #ad9103;
 }
 
 .category-card:nth-child(2) .category-card-info button:hover {
-  background: #9f5101;
+  background: #e0bb03;
 }
 
 .category-card:nth-child(3) .category-card-info {
