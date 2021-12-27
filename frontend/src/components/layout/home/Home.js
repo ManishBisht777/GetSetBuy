@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Product from "../../product/Product";
+import Category from "../category/Category";
 import Imgslider from "../Imgslider";
 import MetaData from "../MetaData";
 const Home = () => {
@@ -8,9 +9,8 @@ const Home = () => {
     <Wrap>
       <MetaData title="Ecommerce" />
       <Imgslider />
-      <Container>
-        <h3>hello</h3>
-      </Container>
+      <Category />
+
       <Product />
     </Wrap>
   );
@@ -32,8 +32,4 @@ const Wrap = styled.div`
   }
 `;
 
-const Container = styled.section`
-  min-height: 50vh;
-  width: 100%;
-`;
 export default Home;

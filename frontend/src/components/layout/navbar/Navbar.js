@@ -80,7 +80,7 @@ const Nav = styled.nav`
   background-size: cover;
   background-position: center;
   position: fixed;
-  background-color: #00000066;
+  background-color: #000000b3;
   background-blend-mode: luminosity;
   width: 100%;
   top: 0;
