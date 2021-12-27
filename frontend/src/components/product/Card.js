@@ -4,7 +4,7 @@ import { Rating } from "@material-ui/lab";
 
 const Card = ({ product }) => {
   const options = {
-    size: "large",
+    size: "medium",
     value: product.ratings,
     readOnly: true,
     precision: 0.5,
@@ -19,7 +19,7 @@ const Card = ({ product }) => {
         <h2>{product.name}</h2>
         <div className="rating">
           <Rating {...options} />
-          <div className="noofreview">{product.noofrewiew} Reviews</div>
+          {/* <div className="noofreview">{product.noofrewiew} Reviews</div> */}
         </div>
         <p>{product.price}</p>
       </div>
