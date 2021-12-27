@@ -129,6 +129,8 @@ const Userbtn = styled.button`
 
   i {
     margin: 5px;
+    color: #fff;
+    font-size: 20px;
   }
 `;
 export default Useroptions;

@@ -17,31 +17,31 @@ function Navbar() {
         <ul>
           <li>
             <a href="/">
-              <i className="bx bxs-home-heart"></i>
+              {/* <i className="bx bxs-home-heart"></i> */}
               Home
             </a>
           </li>
           <li>
             <a href="/">
-              <i className="bx bxs-book-add"></i>
+              {/* <i className="bx bxs-book-add"></i> */}
               About
             </a>
           </li>
           <li>
             <Link to={"/products"}>
-              <i className="bx bxs-shopping-bags"></i>
+              {/* <i className="bx bxs-shopping-bags"></i> */}
               products
             </Link>
           </li>
           <li>
             <Link to={"/cart"}>
-              <i className="bx bxs-cart"></i>
+              {/* <i className="bx bxs-cart"></i> */}
               Cart
             </Link>
           </li>
           <li>
             <Link to={"/cart"}>
-              <i className="bx bxs-cart"></i>
+              {/* <i className="bx bxs-cart"></i> */}
               Cart
             </Link>
           </li>
@@ -102,6 +102,14 @@ const Nav = styled.nav`
     margin: 0 10px;
     font-size: 15px;
     transition: 0.3s;
+    border-radius: 5px;
+    transition: 0.3s;
+    padding: 1px 5px;
+
+    &:hover {
+      background: #ffffff17;
+      transition: 0.3s;
+    }
 
     i {
       font-size: 25px;
@@ -112,15 +120,11 @@ const Nav = styled.nav`
     text-decoration: none;
     padding: 5px;
     color: #ababab;
+    text-transform: capitalize;
     display: flex;
     align-items: center;
     transition: 0.3s;
     letter-spacing: 1px;
-    font-weight: 600;
-    &:hover {
-      color: #c97dc9;
-      transition: 0.3s;
-    }
   }
 
   i {
