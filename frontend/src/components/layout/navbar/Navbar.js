@@ -3,12 +3,25 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 import Useroptions from "../Useroptions";
 
 function Navbar() {
   const [profile, setprofile] = useState(false);
   const { isauthenticated } = useSelector((state) => state.user);
   const { user } = useSelector((state) => state.user);
+
+  const [keyword, setKeyword] = useState("");
+
+  const navigate = useNavigate();
+  const searchSubmitHandler = (e) => {
+    e.preventDefault();
+    if (keyword.trim()) {
+      navigate(`/products/${keyword}`);
+    } else {
+      navigate("/products");
+    }
+  };
 
   return (
     <Nav>
@@ -48,8 +61,12 @@ function Navbar() {
         </ul>
       </div>
       <Searchbar className="search">
-        <i className="bx bx-search-alt"></i>
-        <input type="text" placeholder="Search Here" />
+        <i className="bx bx-search-alt" onClick={searchSubmitHandler}></i>
+        <input
+          type="text"
+          placeholder="Search Here"
+          onChange={(e) => setKeyword(e.target.value)}
+        />
       </Searchbar>
 
       {isauthenticated ? (
@@ -161,6 +178,7 @@ const Searchbar = styled.div`
   i {
     font-size: 20px;
     color: #ababab;
+    cursor: pointer;
   }
   input {
     margin: 0 10px;

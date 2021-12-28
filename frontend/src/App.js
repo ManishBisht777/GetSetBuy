@@ -5,7 +5,6 @@ import Footer from "./components/layout/footer/Footer";
 import Home from "./components/layout/home/Home";
 import Productdetails from "./components/product/Productdetails";
 import Products from "./components/product/Products";
-import Search from "./components/product/Search";
 import LoginSignup from "./components/user/LoginSignup";
 import store from "./store";
 import { useEffect, useState } from "react";
@@ -69,7 +68,6 @@ function App() {
             <Route exact path="/product/:id" element={<Productdetails />} />
             <Route exact path="/products" element={<Products />} />
             <Route exact path="/products/:keyword" element={<Products />} />
-            <Route exact path="/search" element={<Search />} />
             <Route exact path="/auth" element={<LoginSignup />} />
             <Route exact path="/account" element={<Account />} />
             {/* <ProtectedRoute exact path="/account" element={<Account />} /> */}
