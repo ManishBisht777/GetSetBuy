@@ -6,7 +6,10 @@ import Card from "./Card";
 import Pagination from "react-js-pagination";
 import { useParams } from "react-router-dom";
 import { Slider } from "@mui/material";
+
 import "./product.css";
+import Banner from "../layout/banner/Banner";
+
 const Products = () => {
   const categories = [
     "laptop",
@@ -60,8 +63,8 @@ const Products = () => {
         "loading"
       ) : (
         <div className="products-container">
-          <div className="productpage-banner"></div>
           <div className="product-box">
+            <Banner />
             <div className="filterBox">
               <div className="filter-price">
                 <h2>Price</h2>
@@ -110,10 +113,16 @@ const Products = () => {
             <h3 className="product-heading">Products</h3>
 
             <div className="products">
-              {products &&
+              {filterproductscount ? (
+                products &&
                 products.map((product) => (
                   <Card product={product} key={product._id} />
-                ))}
+                ))
+              ) : (
+                <div className="noproductfound">
+                  <h3>No product found</h3>
+                </div>
+              )}
             </div>
           </div>
 
