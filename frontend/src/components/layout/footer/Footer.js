@@ -27,7 +27,8 @@ function Footer() {
             </ul>
           </div>
           <div className="foot2">
-            <div className="text">Message Us</div>
+            <h1>Message Us</h1>
+            {/* <div className="text"> </div> */}
             <form action="/">
               <div className="fields">
                 <div className="field name">
@@ -74,7 +75,11 @@ function Footer() {
         </div>
 
         <span>
-          Created By <a href="/">Manish Bisht</a> | 2021 All rights reserved.
+          Created With{" "}
+          <span>
+            <i class="bx bxs-heart"></i>
+          </span>{" "}
+          <a href="https://github.com/ManishBisht777">Manish Bisht </a>
         </span>
       </footer>
     </>

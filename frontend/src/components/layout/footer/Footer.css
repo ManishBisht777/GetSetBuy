@@ -1,7 +1,7 @@
 footer {
-  background: #111;
+  background: #171925;
   padding: 15px 23px;
-  color: #fff;
+  color: #837285;
   text-align: center;
 }
 
@@ -9,7 +9,7 @@ footer ion-icon {
   color: #fff;
 }
 footer span a {
-  color: crimson;
+  color: rgb(156, 107, 179);
   text-decoration: none;
 }
 
@@ -42,27 +42,41 @@ footer ul li {
   margin: 10px;
 }
 .foot1 ul li a {
-  color: rgb(231, 208, 79);
+  color: rgb(120 120 120);
+  text-decoration: none;
+  transition: 0.3s;
+  cursor: pointer;
 }
-
+.foot1 ul li a:hover {
+  transition: 0.3s;
+  color: darkgrey;
+  border-bottom: 1px solid #454c45;
+}
 footer input {
-  background: transparent;
   border: none;
+  padding: 10px 20px;
   color: #fff;
+  background: #1c202e;
+  border-radius: 5px;
 }
 footer span a:hover {
-  text-decoration: underline 2px solid white;
+  text-decoration: underline 1px solid rgb(104, 104, 104);
   transition: 0.3s;
 }
 
+footer span i {
+  color: hotpink;
+}
+
 footer button {
-  background: #97d9e1;
-  border: none;
   padding: 10px 15px;
-  border-radius: 10px;
   margin-top: 40px;
-  border: 1px solid #97d9e1;
+  border: 1px solid #222222;
   letter-spacing: 1px;
+  border-radius: 10px;
+  color: rgb(211, 211, 211);
+  background: #171925;
+  box-shadow: 0px 10px 42px #090a0f, -21px -21px 42px #25283b;
 }
 
 footer button a {

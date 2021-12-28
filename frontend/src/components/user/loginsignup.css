@@ -145,7 +145,7 @@
   margin: 10px;
 }
 
-form input {
+.authform input {
   width: 100%;
   padding: 10px;
   outline: none;
@@ -156,7 +156,7 @@ form input {
   color: #fff;
   border-radius: 5px;
 }
-form input[type="submit"] {
+.authform input[type="submit"] {
   background: #d1a900;
   color: rgb(255, 255, 255);
   border-radius: 5px;
@@ -164,7 +164,7 @@ form input[type="submit"] {
   cursor: pointer;
   width: 130px;
 }
-form input[type="submit"]:hover {
+.authform input[type="submit"]:hover {
   background: black;
   transition: 0.3s;
 }

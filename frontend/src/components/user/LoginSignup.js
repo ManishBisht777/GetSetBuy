@@ -113,7 +113,7 @@ const LoginSignup = () => {
         </div>
         <div className={class1}>
           <div className={class2}>
-            <form action="">
+            <form className="authform" action="">
               <h3>SignIn</h3>
               <input
                 type="text"
@@ -132,7 +132,7 @@ const LoginSignup = () => {
             </form>
           </div>
           <div className={class3}>
-            <form action="" onSubmit={registerSubmit}>
+            <form className="authform" action="" onSubmit={registerSubmit}>
               <h3>Signup</h3>
               <input
                 name="name"
