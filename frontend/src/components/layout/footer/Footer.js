@@ -77,7 +77,7 @@ function Footer() {
         <span>
           Created With{" "}
           <span>
-            <i class="bx bxs-heart"></i>
+            <i className="bx bxs-heart"></i>
           </span>{" "}
           <a href="https://github.com/ManishBisht777">Manish Bisht </a>
         </span>

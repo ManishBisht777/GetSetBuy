@@ -7,7 +7,6 @@ import Pagination from "react-js-pagination";
 import { useParams } from "react-router-dom";
 import { Slider } from "@mui/material";
 import "./product.css";
-
 const Products = () => {
   const categories = [
     "laptop",
@@ -60,52 +59,62 @@ const Products = () => {
       {loading ? (
         "loading"
       ) : (
-        <div className="product-container">
-          <metadata TITLE="All Product" />
-          <h3>Products</h3>
-          <div className="products">
-            {products &&
-              products.map((product) => (
-                <Card product={product} key={product._id} />
-              ))}
-          </div>
+        <div className="products-container">
+          <div className="productpage-banner"></div>
+          <div className="product-box">
+            <div className="filterBox">
+              <div className="filter-price">
+                <h2>Price</h2>
+                <Slider
+                  value={price}
+                  onChange={priceHandler}
+                  valueLabelDisplay="auto"
+                  aria-labelledby="range-slider"
+                  min={0}
+                  max={25000}
+                  dragging="MuiSlider-dragging"
+                />
+              </div>
+              <div className="filter-category">
+                <h2>category</h2>
+                <ul className="categoryBox">
+                  {categories.map((category) => (
+                    <li
+                      className="category-link"
+                      key={category}
+                      onClick={() => {
+                        setCategory(category);
+                      }}
+                    >
+                      {category}
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
-          <div className="filterBox">
-            <h2>Price</h2>
-            <Slider
-              value={price}
-              onChange={priceHandler}
-              valueLabelDisplay="auto"
-              aria-labelledby="range-slider"
-              min={0}
-              max={25000}
-              dragging="MuiSlider-dragging"
-            />
-            <h2>category</h2>
-            <ul className="categoryBox">
-              {categories.map((category) => (
-                <li
-                  className="category-link"
-                  key={category}
-                  onClick={() => {
-                    setCategory(category);
+              <div className="filter-rating">
+                <h3>Rating Above</h3>
+                <Slider
+                  value={ratings}
+                  onChange={(e, newRating) => {
+                    setratings(newRating);
                   }}
-                >
-                  {category}
-                </li>
-              ))}
-            </ul>
-            <fieldset>Rating Above</fieldset>
-            <Slider
-              value={ratings}
-              onChange={(e, newRating) => {
-                setratings(newRating);
-              }}
-              aria-labelledby="continuous-slider"
-              valueLabelDisplay="auto"
-              min={0}
-              max={5}
-            />
+                  aria-labelledby="continuous-slider"
+                  valueLabelDisplay="auto"
+                  min={0}
+                  max={5}
+                />
+              </div>
+            </div>
+
+            <h3 className="product-heading">Products</h3>
+
+            <div className="products">
+              {products &&
+                products.map((product) => (
+                  <Card product={product} key={product._id} />
+                ))}
+            </div>
           </div>
 
           {resultperpage < count && (

@@ -50,11 +50,12 @@
 }
 
 .filterBox {
-  width: 10vmax;
-  position: absolute;
-  top: 10vmax;
-  left: 4vmax;
-  z-index: 100000;
+  padding: 10px;
+  z-index: 10;
+  color: #7e708b;
+  text-transform: capitalize;
+  margin: 10px;
+  display: flex;
 }
 
 .categoryBox {
@@ -67,7 +68,55 @@
   margin: 0.4vmax;
   cursor: pointer;
   transition: all 0.5s;
+  border-radius: 5px;
+  padding: 3px 10px;
 }
 .category-link:hover {
-  color: rgb(49, 49, 49);
+  color: rgb(0, 0, 0);
+  background: gray;
+  border-radius: 5px;
+  padding: 3px 10px;
+}
+
+.products-container {
+  padding-top: 90px;
+  background: url("../../images/home-background.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.filter-price,
+.filter-category,
+.filter-rating {
+  width: 33%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.product-box {
+  position: relative;
+}
+.product-box .product-heading {
+  font-size: 3rem;
+  color: #fff;
+  z-index: 1;
+  padding: 10px 20px;
+  margin: 30px;
+  text-align: center;
+  position: relative;
+}
+
+.product-box .product-heading::before {
+  content: "Products";
+  position: absolute;
+  width: 100%;
+  font-size: 7rem;
+  font-weight: bold;
+  z-index: 0;
+  left: 0;
+  top: -25px;
+  text-align: center;
+  color: #0000002c;
 }

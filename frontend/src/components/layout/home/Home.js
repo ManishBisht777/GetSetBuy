@@ -10,7 +10,6 @@ const Home = () => {
       <MetaData title="Ecommerce" />
       <Imgslider />
       <Category />
-
       <Product />
     </Wrap>
   );
