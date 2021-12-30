@@ -1,0 +1,42 @@
+.reviewCard {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  padding: 10px;
+  color: #fff;
+  text-align: center;
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgb(0 0 0 / 60%);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.125);
+  background-image: url("https://images.unsplash.com/photo-1519681393784-d120267933ba?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1124&q=100");
+  background-position: center;
+  background-blend-mode: darken;
+}
+
+.reviewCard:nth-child(odd) {
+  background-image: url("https://images.unsplash.com/photo-1519068737630-e5db30e12e42?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80");
+}
+
+.reviewCard i {
+  font-size: 4rem;
+  color: #10121a;
+}
+
+.reviewCard p {
+  margin: 5px;
+}
+.reviewCard .reviewCardComment {
+  margin: 5px;
+  display: flex;
+  align-items: center;
+}
+.reviewCard .reviewCardComment i {
+  color: white;
+  font-size: 30px;
+  margin: 5px;
+}

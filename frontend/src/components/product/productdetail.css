@@ -15,12 +15,14 @@
   width: 50%;
   height: 100%;
   padding: 20px;
+  display: flex;
+  justify-content: center;
 }
 
-.CarouselImage {
+/* .CarouselImage {
   width: 50%;
   height: 50%;
-}
+} */
 
 .product-detail-info {
   width: 50%;
@@ -118,4 +120,30 @@
   font-size: 30px;
   color: #a193a1;
   margin: 0px 5px;
+}
+
+.review-box .all-reviews {
+  background: #12131a;
+  min-height: 100vh;
+}
+
+.review-box .all-reviews h3 {
+  font-size: 3rem;
+  color: #fff;
+  z-index: 1;
+  padding: 30px;
+  text-align: center;
+  position: relative;
+}
+.review-box .all-reviews h3::before {
+  content: "Reviews";
+  position: absolute;
+  width: 100%;
+  font-size: 7rem;
+  font-weight: bold;
+  z-index: 0;
+  left: 0;
+  top: -10px;
+  text-align: center;
+  color: #6a6a6a33;
 }

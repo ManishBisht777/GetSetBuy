@@ -22,6 +22,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./productdetail.css";
 import { NEW_REVIEW_RESET } from "../../constants/ProductConstant";
+import Reviewcard from "./Reviewcard";
 
 const Productdetails = () => {
   const dispatch = useDispatch();
@@ -187,10 +188,11 @@ const Productdetails = () => {
         </Dialog>
 
         {product.reviews && product.reviews[0] ? (
-          <div className="reviews">
+          <div className="all-reviews">
+            <h3>Kuch Customers ke Vichar</h3>
             {product.reviews &&
               product.reviews.map((review) => (
-                <p key={review._id}>{review.comment}</p>
+                <Reviewcard key={review._id} review={review} />
               ))}
           </div>
         ) : (
