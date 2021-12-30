@@ -11,12 +11,12 @@ const Reviewcard = ({ review }) => {
 
   return (
     <div className="reviewCard">
-      <i class="bx bxs-user-circle"></i>
+      <i className="bx bxs-user-circle"></i>
       <p>{review.name} Ji ne Kaha</p>
       <Rating {...options} />
       <span className="reviewCardComment">
-        <i class="bx bxs-quote-alt-left"></i> {review.comment}
-        <i class="bx bxs-quote-alt-right"></i>
+        <i className="bx bxs-quote-alt-left"></i> {review.comment}
+        <i className="bx bxs-quote-alt-right"></i>
       </span>
     </div>
   );

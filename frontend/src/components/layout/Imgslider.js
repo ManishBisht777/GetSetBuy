@@ -31,8 +31,6 @@ function Imgslider() {
   );
 }
 
-export default Imgslider;
-
 const Carousel = styled(Slider)`
   margin-top: 20px;
   padding-top: 60px;
@@ -80,3 +78,5 @@ const Wrap = styled.div`
     }
   }
 `;
+
+export default Imgslider;

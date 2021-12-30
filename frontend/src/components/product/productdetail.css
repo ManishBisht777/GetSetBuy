@@ -17,12 +17,16 @@
   padding: 20px;
   display: flex;
   justify-content: center;
+  overflow-x: hidden;
 }
 
-/* .CarouselImage {
-  width: 50%;
-  height: 50%;
-} */
+.slick-slider {
+  width: 400px;
+}
+
+.CarouselImage {
+  height: 400px;
+}
 
 .product-detail-info {
   width: 50%;
