@@ -15,8 +15,8 @@ import {
   DialogTitle,
   Button,
 } from "@material-ui/core";
+import Carousel from "react-material-ui-carousel";
 import { Rating } from "@material-ui/lab";
-import Slider from "react-slick";
 import styled from "styled-components";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -26,15 +26,7 @@ import { NEW_REVIEW_RESET } from "../../constants/ProductConstant";
 const Productdetails = () => {
   const dispatch = useDispatch();
   const alert = useAlert();
-  let settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    centerMode: true,
-    autoplay: true,
-  };
+
   const { id } = useParams();
 
   const { product, loading, error } = useSelector(
@@ -107,37 +99,60 @@ const Productdetails = () => {
   };
 
   return (
-    <div className="product-detail-box">
-      <Carousel {...settings}>
-        {product.images &&
-          product.images.map((item, i) => {
-            return (
-              <Wrap>
-                <img key={i} src={item.url} alt="1" />
-              </Wrap>
-            );
-          })}
-        <img src="./slider-scales.jpg" alt="" />
-      </Carousel>
-      <div></div>
-      <button onClick={decquantity}> -</button>
-      <input type="number" readOnly value={quantity} />
-      <button onClick={incquantity}>+</button>
-      <h3>{product.name}</h3>
-      <p>{product.price}</p>
-      <p>{product.description}</p>
-      <p>{product.noofrewiew} review</p>
+    <div className="product-detail">
+      <div className="product-detail-box">
+        <div className="product-image-slider">
+          <Carousel>
+            {product.images &&
+              product.images.map((item, i) => (
+                <img
+                  className="CarouselImage"
+                  key={i}
+                  src={item.url}
+                  alt={`${i} Slide`}
+                />
+              ))}
+          </Carousel>
+        </div>
 
-      <Rating {...options} />
+        <div className="product-detail-info">
+          <h3>{product.name}</h3>
+          <div className="price-rating-review">
+            <p>
+              <span>₹ {product.price}</span>
+              <span>Reviews {product.noofrewiew}</span>
+            </p>
+          </div>
+          <Rating {...options} />
+          <div className="inc-dec-quantity">
+            <button onClick={decquantity}>
+              <i class="bx bx-minus"></i>
+            </button>
+            <input type="number" readOnly value={quantity} />
+            <button onClick={incquantity}>
+              <i class="bx bx-plus"></i>
+            </button>
+          </div>
+          <div className="product-desc">
+            <h2>Description</h2>
+            <p>{product.description}</p>
+          </div>
 
-      <button
-        disabled={product.stock < 1 ? true : false}
-        onClick={addtocarthandler}
-      >
-        addtocart
-      </button>
-      <button onClick={submitReviewToggle}>submit review</button>
-      <div>
+          <div className="product-button">
+            <button
+              disabled={product.stock < 1 ? true : false}
+              onClick={addtocarthandler}
+            >
+              <i class="bx bxs-cart"></i>
+              addtocart
+            </button>
+            <button onClick={submitReviewToggle}>
+              <i class="bx bxs-shopping-bags"></i>submit review
+            </button>
+          </div>
+        </div>
+      </div>
+      <div className="review-box">
         <Dialog
           aria-labelledby="simple-dialog-title"
           open={open}
@@ -185,57 +200,5 @@ const Productdetails = () => {
     </div>
   );
 };
-const Carousel = styled(Slider)`
-  margin-top: 20px;
-  padding-top: 60px;
-  margin-bottom: 20px;
-  width: 50%;
-  background: black;
-  overflow-x: hidden;
-  .slick-list {
-    overflow: visible;
-  }
-
-  ul li button {
-    &:before {
-      font-size: 10px;
-      color: rgb(150, 158, 171);
-    }
-  }
-
-  li.slick-active button::before {
-    color: white;
-  }
-
-  button {
-    z-index: 1;
-  }
-
-  .slick-prev {
-    left: 3% !important;
-    z-index: 1;
-  }
-  .slick-next {
-    right: 3% !important;
-    z-index: 1;
-  }
-`;
-
-const Wrap = styled.div`
-  cursor: pointer;
-  width: 100%;
-  img {
-    border: 4px solid transparent;
-    width: 250px;
-    height: 250px;
-    border-radius: 4px;
-    box-shadow: rgb(0 0 0 /69%) 0px 26px 30px -10px,
-      rgb(0 0 0 /73%) 0px 16px 10px -10px;
-    transition-duration: 300ms;
-    &:hover {
-      border: 4px solid rgba(249, 249, 249, 0.8);
-    }
-  }
-`;
 
 export default Productdetails;
