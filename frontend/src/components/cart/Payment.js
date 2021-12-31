@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import Checkoutsteps from "./Checkoutsteps";
+
 import "./commoncss.css";
 
 import {
@@ -119,21 +120,22 @@ const Payment = () => {
     }
   }, [error, dispatch, alert]);
   return (
-    <div>
-      <Checkoutsteps activeSteps={2} />
+    <div className="paymentbox">
+      <Checkoutsteps activesteps={2} />
+
       <div className="paymentContainer">
         <form className="paymentForm" onSubmit={(e) => submitHandler(e)}>
           <h3>card info</h3>
           <div>
-            <h3>yoyo</h3>
+            <h3>Card Number</h3>
             <CardNumberElement className="paymentInput" />
           </div>
           <div>
-            <h3>yoyo</h3>
+            <h3>Expiry Date</h3>
             <CardExpiryElement className="paymentInput" />
           </div>
           <div>
-            <h3>yoyo</h3>
+            <h3>Cvv</h3>
             <CardCvcElement className="paymentInput" />
           </div>
 
