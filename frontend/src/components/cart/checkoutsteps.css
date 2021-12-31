@@ -1,16 +1,13 @@
-.MuiStepConnector-line {
-  display: none !important;
-}
 .MuiStepper-alternativeLabel {
-  background: transparent;
+  background: transparent !important;
 }
 
 .MuiStepConnector-root {
   height: 1px;
-  background-color: rgba(0, 0, 0, 0.349) !important;
+  background-color: rgba(0, 0, 0, 0) !important;
 }
 
 .MuiStepConnector-active,
 .MuiStepConnector-completed {
-  background-color: tomato !important;
+  color: rgb(113 131 201) !important;
 }

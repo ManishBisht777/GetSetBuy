@@ -119,7 +119,7 @@ const Payment = () => {
   }, [error, dispatch, alert]);
   return (
     <div>
-      <Checkoutsteps activeStep={2} />
+      <Checkoutsteps activeSteps={2} />
       <div className="paymentContainer">
         <form className="paymentForm" onSubmit={(e) => submitHandler(e)}>
           <h3>card info</h3>

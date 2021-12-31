@@ -42,7 +42,7 @@ const Shipping = () => {
   return (
     <Fragment>
       <div className="commoncssbox">
-        <Checkoutsteps activestep={0} />
+        <Checkoutsteps activesteps={0} />
         <div className="shippingBox">
           <h2 className="shippingHeading">Shipping Details</h2>
 

@@ -38,7 +38,7 @@ const ConfirmOrder = () => {
   return (
     <Fragment>
       <div className="confirmOrderPage">
-        <Checkoutsteps activestep={1} />
+        <Checkoutsteps activesteps={1} />
         <div>
           <div className="confirmshippingArea">
             <h3>Shipping Info</h3>
