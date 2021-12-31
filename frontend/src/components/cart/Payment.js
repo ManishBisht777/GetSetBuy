@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import Checkoutsteps from "./Checkoutsteps";
+import "./commoncss.css";
 
 import {
   CardNumberElement,

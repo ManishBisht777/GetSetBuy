@@ -2,6 +2,7 @@ import React, { Fragment } from "react";
 import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import Checkoutsteps from "./Checkoutsteps";
+import "./confirmorder.css";
 
 const ConfirmOrder = () => {
   const navigate = useNavigate();
@@ -38,21 +39,21 @@ const ConfirmOrder = () => {
   return (
     <Fragment>
       <div className="confirmOrderPage">
-        <Checkoutsteps activesteps={1} />
         <div>
+          <Checkoutsteps activesteps={1} />
           <div className="confirmshippingArea">
             <h3>Shipping Info</h3>
             <div className="confirmshippingAreaBox">
               <div>
-                <p>Name:</p>
+                <p>Name</p>
                 <span>{user.name}</span>
               </div>
               <div>
-                <p>Phone:</p>
+                <p>Phone</p>
                 <span>{shippinginfo.phoneNo}</span>
               </div>
               <div>
-                <p>Address:</p>
+                <p>Address</p>
                 <span>{address}</span>
               </div>
             </div>
@@ -76,21 +77,20 @@ const ConfirmOrder = () => {
             </div>
           </div>
         </div>
-        {/*  */}
         <div>
           <div className="orderSummary">
             <h3>order summary</h3>
             <div>
               <div>
-                <p>Subtotal:</p>
+                <p>Subtotal</p>
                 <span>₹{subtotal}</span>
               </div>
               <div>
-                <p>Shipping Charges:</p>
+                <p>Shipping Charges</p>
                 <span>₹{shippingCharges}</span>
               </div>
               <div>
-                <p>GST:</p>
+                <p>GST</p>
                 <span>₹{tax}</span>
               </div>
             </div>
