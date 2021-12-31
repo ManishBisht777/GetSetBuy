@@ -16,10 +16,7 @@ import {
   Button,
 } from "@material-ui/core";
 import { Rating } from "@material-ui/lab";
-import Slider from "react-slick";
-import styled from "styled-components";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import Carousel from "react-material-ui-carousel";
 import "./productdetail.css";
 import { NEW_REVIEW_RESET } from "../../constants/ProductConstant";
 import Reviewcard from "./Reviewcard";
@@ -99,31 +96,19 @@ const Productdetails = () => {
     alert.success("item added to cart");
   };
 
-  let settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    centerMode: true,
-    autoplay: true,
-  };
-
   return (
     <div className="product-detail">
       <div className="product-detail-box">
         <div className="product-image-slider">
-          <Carousel {...settings}>
+          <Carousel>
             {product.images &&
               product.images.map((item, i) => (
-                <Wrap>
-                  <img
-                    className="CarouselImage"
-                    key={i}
-                    src={item.url}
-                    alt={`${i} Slide`}
-                  />
-                </Wrap>
+                <img
+                  className="CarouselImage"
+                  key={i}
+                  src={item.url}
+                  alt={`${i} Slide`}
+                />
               ))}
           </Carousel>
         </div>
@@ -202,10 +187,12 @@ const Productdetails = () => {
         {product.reviews && product.reviews[0] ? (
           <div className="all-reviews">
             <h3>Kuch Customers ke Vichar</h3>
-            {product.reviews &&
-              product.reviews.map((review) => (
-                <Reviewcard key={review._id} review={review} />
-              ))}
+            <div className="allreviews">
+              {product.reviews &&
+                product.reviews.map((review) => (
+                  <Reviewcard key={review._id} review={review} />
+                ))}
+            </div>
           </div>
         ) : (
           <p className="noReviews">No Reviews Yet</p>
@@ -214,52 +201,5 @@ const Productdetails = () => {
     </div>
   );
 };
-const Carousel = styled(Slider)`
-  margin-top: 20px;
-  padding-top: 60px;
-  margin-bottom: 20px;
-  .slick-list {
-    overflow: visible;
-  }
-
-  ul li button {
-    &:before {
-      font-size: 10px;
-      color: rgb(150, 158, 171);
-    }
-  }
-
-  li.slick-active button::before {
-    color: white;
-  }
-
-  button {
-    z-index: 1;
-  }
-
-  .slick-prev {
-    left: 3% !important;
-    z-index: 1;
-  }
-  .slick-next {
-    right: 3% !important;
-    z-index: 1;
-  }
-`;
-const Wrap = styled.div`
-  cursor: pointer;
-  img {
-    border: 4px solid transparent;
-    width: 300px;
-    height: 300px;
-    border-radius: 4px;
-    box-shadow: rgb(0 0 0 /69%) 0px 26px 30px -10px,
-      rgb(0 0 0 /73%) 0px 16px 10px -10px;
-    transition-duration: 300ms;
-    &:hover {
-      border: 4px solid rgba(249, 249, 249, 0.8);
-    }
-  }
-`;
 
 export default Productdetails;
