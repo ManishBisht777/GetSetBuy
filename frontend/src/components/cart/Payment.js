@@ -1,4 +1,6 @@
 import React, { useRef, useEffect } from "react";
+import Checkoutsteps from "./Checkoutsteps";
+
 import {
   CardNumberElement,
   CardCvcElement,
@@ -117,6 +119,7 @@ const Payment = () => {
   }, [error, dispatch, alert]);
   return (
     <div>
+      <Checkoutsteps activeStep={2} />
       <div className="paymentContainer">
         <form className="paymentForm" onSubmit={(e) => submitHandler(e)}>
           <h3>card info</h3>

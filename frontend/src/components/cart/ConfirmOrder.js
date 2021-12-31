@@ -1,9 +1,7 @@
 import React, { Fragment } from "react";
-// import CheckoutSteps from "../Cart/CheckoutSteps";
 import { useSelector } from "react-redux";
-// import MetaData from "../layout/MetaData";
 import { Link, useNavigate } from "react-router-dom";
-// import { Typography } from "@material-ui/core";
+import Checkoutsteps from "./Checkoutsteps";
 
 const ConfirmOrder = () => {
   const navigate = useNavigate();
@@ -39,8 +37,8 @@ const ConfirmOrder = () => {
 
   return (
     <Fragment>
-      {/* <CheckoutSteps activeStep={1} /> */}
       <div className="confirmOrderPage">
+        <Checkoutsteps activestep={1} />
         <div>
           <div className="confirmshippingArea">
             <h3>Shipping Info</h3>

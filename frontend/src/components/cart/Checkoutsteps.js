@@ -3,7 +3,7 @@ import { Stepper, StepLabel, Step } from "@material-ui/core";
 import LocalShippingIcon from "@material-ui/icons/LocalShipping";
 import LibraryAddCheckIcon from "@material-ui/icons/LibraryAddCheck";
 import AccountBalanceIcon from "@material-ui/icons/AccountBalance";
-// import { withStyles } from "@material-ui/core/styles";
+import "./checkoutsteps.css";
 
 const Checkoutsteps = ({ activesteps }) => {
   const steps = [

@@ -3,8 +3,16 @@ import { useSelector, useDispatch } from "react-redux";
 import { saveshippinginfo } from "../../actions/cartaction";
 import { Country, State } from "country-state-city";
 import { useAlert } from "react-alert";
-// import Checkoutsteps from "./Checkoutsteps";
+import Checkoutsteps from "./Checkoutsteps";
 import { useNavigate } from "react-router-dom";
+import PinDropIcon from "@material-ui/icons/PinDrop";
+import HomeIcon from "@material-ui/icons/Home";
+import LocationCityIcon from "@material-ui/icons/LocationCity";
+import PublicIcon from "@material-ui/icons/Public";
+import PhoneIcon from "@material-ui/icons/Phone";
+import TransferWithinAStationIcon from "@material-ui/icons/TransferWithinAStation";
+import "./commoncss.css";
+
 const Shipping = () => {
   const alert = useAlert();
   const dispatch = useDispatch();
@@ -33,8 +41,8 @@ const Shipping = () => {
 
   return (
     <Fragment>
-      {/* <Checkoutsteps activestep={0} /> */}
-      <div className="shippingContainer">
+      <div className="commoncssbox">
+        <Checkoutsteps activestep={0} />
         <div className="shippingBox">
           <h2 className="shippingHeading">Shipping Details</h2>
 
@@ -44,6 +52,7 @@ const Shipping = () => {
             onSubmit={shippingSubmit}
           >
             <div>
+              <HomeIcon />
               <input
                 type="text"
                 placeholder="Address"
@@ -54,6 +63,7 @@ const Shipping = () => {
             </div>
 
             <div>
+              <LocationCityIcon />
               <input
                 type="text"
                 placeholder="City"
@@ -64,6 +74,7 @@ const Shipping = () => {
             </div>
 
             <div>
+              <PinDropIcon />
               <input
                 type="number"
                 placeholder="Pin Code"
@@ -74,6 +85,7 @@ const Shipping = () => {
             </div>
 
             <div>
+              <PhoneIcon />
               <input
                 type="number"
                 placeholder="Phone Number"
@@ -85,6 +97,7 @@ const Shipping = () => {
             </div>
 
             <div>
+              <PublicIcon />
               <select
                 required
                 value={country}
@@ -102,6 +115,7 @@ const Shipping = () => {
 
             {country && (
               <div>
+                <TransferWithinAStationIcon />
                 <select
                   required
                   value={state}

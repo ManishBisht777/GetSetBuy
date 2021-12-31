@@ -1,0 +1,84 @@
+.commoncssbox {
+  padding-top: 80px;
+  display: flex;
+  flex-direction: column;
+  background: url("../../images/home-background.png");
+  background-size: cover;
+  background-position: center;
+  text-transform: capitalize;
+  width: 100%;
+}
+
+.shippingBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.shippingBox div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #1f222e;
+  margin: 5px;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.shippingBox div svg {
+  margin: 5px;
+  color: #9ea7c7;
+  font-size: 2rem;
+}
+.shippingBox form {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+
+.shippingBox h2 {
+  font-size: 3rem;
+  color: #fff;
+  z-index: 1;
+  padding: 30px;
+  text-align: center;
+  width: 100%;
+  position: relative;
+}
+.shippingBox h2::before {
+  content: "Shipping Details";
+  position: absolute;
+  width: 100%;
+  font-size: 5rem;
+  font-weight: bold;
+  z-index: 0;
+  left: 0;
+  top: 5px;
+  text-align: center;
+  color: #6a6a6a33;
+}
+.shippingBox form input,
+.shippingBox form select,
+.shippingBox form option {
+  padding: 5px 15px;
+  border-radius: 5px;
+  border: none;
+  background: #ffffff00;
+  font-size: 1rem;
+  color: #bfbfbf;
+  width: 250px;
+}
+.shippingBox form input::placeholder {
+  color: #ffffffb2;
+}
+.shippingBox form input:focus {
+  outline: none;
+}
+
+.shippingBtn {
+  background: #9ea7c7 !important;
+  padding: 10px 20px !important;
+  border: 1px solid black !important;
+  margin: 20px auto !important;
+  color: black !important;
+}
