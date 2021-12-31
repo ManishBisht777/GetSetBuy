@@ -1,0 +1,140 @@
+.emptycart {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: black;
+  color: #fff;
+  font-size: 3vmax;
+  text-transform: capitalize;
+}
+
+.table-section {
+  padding-top: 80px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  background: url("../../images/home-background.png");
+  background-size: cover;
+  background-position: center;
+  text-transform: capitalize;
+}
+
+.table-section .table-header {
+  background-color: #3d4866;
+  width: 90%;
+  box-sizing: border-box;
+  color: white;
+  margin: 10px auto;
+  display: grid;
+  grid-template-columns: 4fr 1fr 1fr;
+  font-size: 1.3vmax;
+  border-radius: 5px;
+}
+.table-header > p {
+  margin: 15px;
+}
+.table-header > p:last-child {
+  text-align: end;
+}
+
+.carditemcard {
+  display: flex;
+}
+
+.cart {
+  width: 90%;
+  display: grid;
+  grid-template-columns: 4fr 1fr 1fr;
+  margin: 10px auto;
+  align-items: center;
+  background: #000000bf;
+  border-radius: 5px;
+  background-image: url(https://images.unsplash.com/photo-1519681393784-d120267933ba?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1124&q=100);
+  background-position: center;
+  background-size: cover;
+  background-blend-mode: darken;
+}
+
+.cart:nth-child(odd) {
+  background-image: url("https://images.unsplash.com/photo-1519068737630-e5db30e12e42?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80");
+}
+.cart-quantity {
+  display: flex;
+  align-items: center;
+}
+.cart-quantity button {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  margin: 5px;
+  display: flex;
+  cursor: pointer;
+}
+
+.cart-quantity input {
+  background: #787d954a;
+  border: none;
+  padding: 5px 15px;
+  border-radius: 5px;
+  font-size: 1rem;
+  color: #fff;
+}
+
+.cart .subtotal {
+  display: flex;
+  padding: 5px 15px;
+  color: #939fc5;
+  font-size: 1rem;
+  border-radius: 5px;
+  text-align: center;
+  justify-content: flex-end;
+  align-items: center;
+}
+.cart .subtotal i {
+  font-size: 2rem;
+  color: #d6d79f;
+  margin: 0px 5px;
+}
+
+.cartGrossProfit {
+  display: grid;
+  grid-template-columns: 2fr 1.2fr;
+}
+
+.cartGrossProfitBox {
+  border-top: 3px solid #7286c1;
+  margin: 1vmax 4vmax;
+  box-sizing: border-box;
+  padding: 2vmax 0;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+}
+
+.checkOutBtn {
+  display: flex;
+  justify-content: flex-end;
+}
+.checkOutBtn > button {
+  background: #8080801c;
+  color: #787a85;
+  font-size: 15px;
+  margin: auto;
+  text-transform: capitalize;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 1px solid #464646;
+  display: flex;
+  align-items: center;
+}
+.checkOutBtn > button > i {
+  font-size: 2rem;
+  margin: 0 5px;
+  color: #5f6076;
+}

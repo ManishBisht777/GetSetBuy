@@ -2,7 +2,9 @@ import React from "react";
 import Cartitemcard from "./Cartitemcard";
 import { useSelector, useDispatch } from "react-redux";
 import { addtocart, removefromcart } from "../../actions/cartaction";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import "./cart.css";
+
 const Cart = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -32,40 +34,63 @@ const Cart = () => {
   };
   return (
     <div>
-      <h3>this is cart</h3>
-      <p>product</p>
-      <p>quantity</p>
-      <p>subtotal</p>
-      {cartitems &&
-        cartitems.map((item) => (
-          <div className="cart" key={item.product}>
-            <Cartitemcard item={item} deleteitem={deletecartitem} />
-            <button
-              onClick={() =>
-                decquantity(item.product, item.quantity, item.stock)
-              }
-            >
-              -
-            </button>
-            <input type="number" readOnly value={item.quantity} />
-            <button
-              onClick={() =>
-                incquantity(item.product, item.quantity, item.stock)
-              }
-            >
-              +
-            </button>
-            <p className="subtotal">{item.price * item.quantity}</p>
+      {cartitems.length === 0 ? (
+        <div className="emptycart">
+          <h3>no item in cart</h3>
+          <Link to={"/products"}>Shop Now</Link>
+        </div>
+      ) : (
+        <div className="table-section">
+          <div className="table-header">
+            <p>product</p>
+            <p>quantity</p>
+            <p>subtotal</p>
           </div>
-        ))}
-      <p>full total</p>
-      <p>
-        {`${cartitems.reduce(
-          (acc, item) => acc + item.price * item.quantity,
-          0
-        )}`}
-      </p>
-      <button onClick={checkouthandler}>checkout</button>
+
+          {cartitems &&
+            cartitems.map((item) => (
+              <div className="cart" key={item.product}>
+                <Cartitemcard item={item} deleteitem={deletecartitem} />
+                <div className="cart-quantity">
+                  <button
+                    onClick={() =>
+                      decquantity(item.product, item.quantity, item.stock)
+                    }
+                  >
+                    <i className="bx bx-minus"></i>
+                  </button>
+                  <input type="number" readOnly value={item.quantity} />
+                  <button
+                    onClick={() =>
+                      incquantity(item.product, item.quantity, item.stock)
+                    }
+                  >
+                    <i className="bx bx-plus"></i>
+                  </button>
+                </div>
+                <p className="subtotal">
+                  <i class="bx bxs-dollar-circle"></i>
+                  {item.price * item.quantity}
+                </p>
+              </div>
+            ))}
+
+          <div className="cartGrossProfit">
+            <div className="cartGrossProfitBox">
+              <p>Gross Total</p>
+              <p>{`₹${cartitems.reduce(
+                (acc, item) => acc + item.quantity * item.price,
+                0
+              )}`}</p>
+            </div>
+            <div className="checkOutBtn">
+              <button onClick={checkouthandler}>
+                <i class="bx bxs-badge-check"></i>Check Out
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

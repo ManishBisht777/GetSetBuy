@@ -1,0 +1,54 @@
+.CartItemCard {
+  display: flex;
+  padding: 1vmax;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+.CartItemCard > img {
+  width: 10vmax;
+}
+
+.CartItemCard > div {
+  display: flex;
+  margin: 0.3vmax 1vmax;
+  flex-direction: column;
+}
+
+.CartItemCard > div > a {
+  margin: auto;
+  padding: 3px 7px;
+  border-radius: 5px;
+  color: #93a1cd;
+  text-transform: capitalize;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: 500;
+  border-bottom: 2px solid #b1b1cb;
+}
+
+.CartItemCard > div > span {
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: #787d95;
+  text-transform: capitalize;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  margin: 5px;
+}
+
+.CartItemCard > div > button {
+  background: #80808052;
+  color: #787a85;
+  font-size: 15px;
+  margin: auto;
+  text-transform: capitalize;
+  padding: 5px 10px;
+  display: flex;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 1px solid #464646;
+  display: flex;
+  align-items: center;
+}
