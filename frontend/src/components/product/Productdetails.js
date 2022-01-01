@@ -20,6 +20,7 @@ import Carousel from "react-material-ui-carousel";
 import "./productdetail.css";
 import { NEW_REVIEW_RESET } from "../../constants/ProductConstant";
 import Reviewcard from "./Reviewcard";
+import Loader from "../layout/Loader/Loader";
 
 const Productdetails = () => {
   const dispatch = useDispatch();
@@ -98,106 +99,112 @@ const Productdetails = () => {
 
   return (
     <div className="product-detail">
-      <div className="product-detail-box">
-        <div className="product-image-slider">
-          <Carousel>
-            {product.images &&
-              product.images.map((item, i) => (
-                <img
-                  className="CarouselImage"
-                  key={i}
-                  src={item.url}
-                  alt={`${i} Slide`}
-                />
-              ))}
-          </Carousel>
-        </div>
+      {loading ? (
+        <Loader />
+      ) : (
+        <>
+          <div className="product-detail-box">
+            <div className="product-image-slider">
+              <Carousel>
+                {product.images &&
+                  product.images.map((item, i) => (
+                    <img
+                      className="CarouselImage"
+                      key={i}
+                      src={item.url}
+                      alt={`${i} Slide`}
+                    />
+                  ))}
+              </Carousel>
+            </div>
 
-        <div className="product-detail-info">
-          <h3>{product.name}</h3>
-          <div className="price-rating-review">
-            <p>
-              <span>₹ {product.price}</span>
-              <span>Reviews {product.noofrewiew}</span>
-            </p>
-          </div>
-          <Rating {...options} />
-          <div className="inc-dec-quantity">
-            <button onClick={decquantity}>
-              <i className="bx bx-minus"></i>
-            </button>
-            <input type="number" readOnly value={quantity} />
-            <button onClick={incquantity}>
-              <i className="bx bx-plus"></i>
-            </button>
-          </div>
-          <div className="product-desc">
-            <h2>Description</h2>
-            <p>{product.description}</p>
-          </div>
+            <div className="product-detail-info">
+              <h3>{product.name}</h3>
+              <div className="price-rating-review">
+                <p>
+                  <span>₹ {product.price}</span>
+                  <span>Reviews {product.noofrewiew}</span>
+                </p>
+              </div>
+              <Rating {...options} />
+              <div className="inc-dec-quantity">
+                <button onClick={decquantity}>
+                  <i className="bx bx-minus"></i>
+                </button>
+                <input type="number" readOnly value={quantity} />
+                <button onClick={incquantity}>
+                  <i className="bx bx-plus"></i>
+                </button>
+              </div>
+              <div className="product-desc">
+                <h2>Description</h2>
+                <p>{product.description}</p>
+              </div>
 
-          <div className="product-button">
-            <button
-              disabled={product.stock < 1 ? true : false}
-              onClick={addtocarthandler}
-            >
-              <i className="bx bxs-cart"></i>
-              addtocart
-            </button>
-            <button onClick={submitReviewToggle}>
-              <i className="bx bxs-shopping-bags"></i>submit review
-            </button>
-          </div>
-        </div>
-      </div>
-      <div className="review-box">
-        <Dialog
-          aria-labelledby="simple-dialog-title"
-          open={open}
-          onClose={submitReviewToggle}
-        >
-          <DialogTitle>Submit Review</DialogTitle>
-          <DialogContent className="submitDialog">
-            <Rating
-              onChange={(e) => {
-                setRating(e.target.value);
-              }}
-              value={rating}
-              size="large"
-            />
-
-            <textarea
-              className="submitDialogTextArea"
-              cols="30"
-              rows="5"
-              value={comment}
-              onChange={(e) => setComment(e.target.value)}
-            ></textarea>
-          </DialogContent>
-          <DialogActions>
-            <Button onClick={submitReviewToggle} color="secondary">
-              Cancel
-            </Button>
-            <Button onClick={reviewSubmitHandler} color="primary">
-              Submit
-            </Button>
-          </DialogActions>
-        </Dialog>
-
-        {product.reviews && product.reviews[0] ? (
-          <div className="all-reviews">
-            <h3>Kuch Customers ke Vichar</h3>
-            <div className="allreviews">
-              {product.reviews &&
-                product.reviews.map((review) => (
-                  <Reviewcard key={review._id} review={review} />
-                ))}
+              <div className="product-button">
+                <button
+                  disabled={product.stock < 1 ? true : false}
+                  onClick={addtocarthandler}
+                >
+                  <i className="bx bxs-cart"></i>
+                  addtocart
+                </button>
+                <button onClick={submitReviewToggle}>
+                  <i className="bx bxs-shopping-bags"></i>submit review
+                </button>
+              </div>
             </div>
           </div>
-        ) : (
-          <p className="noReviews">No Reviews Yet</p>
-        )}
-      </div>
+          <div className="review-box">
+            <Dialog
+              aria-labelledby="simple-dialog-title"
+              open={open}
+              onClose={submitReviewToggle}
+            >
+              <DialogTitle>Submit Review</DialogTitle>
+              <DialogContent className="submitDialog">
+                <Rating
+                  onChange={(e) => {
+                    setRating(e.target.value);
+                  }}
+                  value={rating}
+                  size="large"
+                />
+
+                <textarea
+                  className="submitDialogTextArea"
+                  cols="30"
+                  rows="5"
+                  value={comment}
+                  onChange={(e) => setComment(e.target.value)}
+                ></textarea>
+              </DialogContent>
+              <DialogActions>
+                <Button onClick={submitReviewToggle} color="secondary">
+                  Cancel
+                </Button>
+                <Button onClick={reviewSubmitHandler} color="primary">
+                  Submit
+                </Button>
+              </DialogActions>
+            </Dialog>
+
+            {product.reviews && product.reviews[0] ? (
+              <div className="all-reviews">
+                <h3>Kuch Customers ke Vichar</h3>
+                <div className="allreviews">
+                  {product.reviews &&
+                    product.reviews.map((review) => (
+                      <Reviewcard key={review._id} review={review} />
+                    ))}
+                </div>
+              </div>
+            ) : (
+              <p className="noReviews">No Reviews Yet</p>
+            )}
+          </div>
+        </>
+      )}
     </div>
   );
 };

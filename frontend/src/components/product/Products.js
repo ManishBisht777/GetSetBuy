@@ -9,6 +9,7 @@ import { Slider } from "@mui/material";
 
 import "./product.css";
 import Banner from "../layout/banner/Banner";
+import Loader from "../layout/Loader/Loader";
 
 const Products = () => {
   const categories = [
@@ -60,7 +61,7 @@ const Products = () => {
   return (
     <div className="">
       {loading ? (
-        "loading"
+        <Loader />
       ) : (
         <div className="products-container">
           <div className="product-box">

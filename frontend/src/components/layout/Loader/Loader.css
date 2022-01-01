@@ -1,0 +1,13 @@
+.loader {
+  height: 50vh;
+  width: 100%;
+  padding-top: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #171925;
+}
+
+.loader img {
+  width: 100px;
+}
