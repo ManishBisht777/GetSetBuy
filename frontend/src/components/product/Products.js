@@ -6,6 +6,7 @@ import Card from "./Card";
 import Pagination from "react-js-pagination";
 import { useParams } from "react-router-dom";
 import { Slider } from "@mui/material";
+import img from "../../images/banner1.jpg";
 
 import "./product.css";
 import Banner from "../layout/banner/Banner";
@@ -65,7 +66,8 @@ const Products = () => {
       ) : (
         <div className="products-container">
           <div className="product-box">
-            <Banner />
+            {/* <Imgslider /> */}
+            <Banner bannerimg={img} />
             <div className="filterBox">
               <div className="filter-price">
                 <h2>Price</h2>

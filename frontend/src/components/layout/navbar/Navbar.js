@@ -104,7 +104,6 @@ const Nav = styled.nav`
   top: 0;
   font-family: "Roboto", sans-serif;
   z-index: 1;
-  box-shadow: 1px 2px 20px 8px #1f222e;
   .logo {
     font-family: "Comforter", cursive;
     font-size: 2rem;

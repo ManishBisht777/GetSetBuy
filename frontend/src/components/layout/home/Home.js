@@ -1,9 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import Product from "../../product/Product";
+import Banner from "../banner/Banner";
 import Category from "../category/Category";
 import Imgslider from "../Imgslider";
 import MetaData from "../MetaData";
+import img from "../../../images/img.jpg";
 const Home = () => {
   return (
     <Wrap>
@@ -11,6 +13,7 @@ const Home = () => {
       <Imgslider />
       <Category />
       <Product />
+      <Banner bannerimg={img} />
     </Wrap>
   );
 };

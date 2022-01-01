@@ -79,10 +79,11 @@
 }
 
 .products-container {
-  padding-top: 90px;
   background: url("../../images/home-background.png");
   background-size: cover;
   background-position: center;
+  overflow-x: hidden;
+  padding-top: 80px;
 }
 
 .filter-price,

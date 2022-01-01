@@ -1,0 +1,16 @@
+.bannerbox {
+  width: 100%;
+  height: 40vmax;
+  display: flex;
+  background-blend-mode: lighten;
+  background-size: cover;
+  background-position: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.bannerbox img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
