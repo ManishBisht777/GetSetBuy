@@ -4,6 +4,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { clearerrors, orderdetail } from "../../actions/orderaction";
+import Loader from "../layout/Loader/Loader";
+import "./orderdetails.css";
 
 const Orderdetails = () => {
   const { order, error, loading } = useSelector((state) => state.orderdetails);
@@ -22,23 +24,23 @@ const Orderdetails = () => {
   return (
     <div>
       {loading ? (
-        "loading"
+        <Loader />
       ) : (
         <div className="orderDetailsPage">
           <div className="orderDetailsContainer">
-            <h3>Order #{order && order._id}</h3>
+            <h3 className="orderid">Order #{order && order._id}</h3>
             <h3>Shipping Info</h3>
             <div className="orderDetailsContainerBox">
               <div>
-                <p>Name:</p>
+                <p>Name</p>
                 <span>{order.user && order.user.name}</span>
               </div>
               <div>
-                <p>Phone:</p>
+                <p>Phone</p>
                 <span>{order.shippinginfo && order.shippinginfo.phoneNo}</span>
               </div>
               <div>
-                <p>Address:</p>
+                <p>Address</p>
                 <span>
                   {order.shippinginfo &&
                     `${order.shippinginfo.address}, ${order.shippinginfo.city}, ${order.shippinginfo.state}, ${order.shippinginfo.pinCode}, ${order.shippinginfo.country}`}
@@ -63,7 +65,7 @@ const Orderdetails = () => {
               </div>
 
               <div>
-                <p>Amount:</p>
+                <p>Amount</p>
                 <span>{order.totalPrice && order.totalPrice}</span>
               </div>
             </div>
@@ -85,7 +87,7 @@ const Orderdetails = () => {
           </div>
 
           <div className="orderDetailsCartItems">
-            <h3>Order Items:</h3>
+            <h3>Order Items </h3>
             <div className="orderDetailsCartItemsContainer">
               {order.orderitems &&
                 order.orderitems.map((item) => (

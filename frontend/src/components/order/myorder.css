@@ -1,9 +1,26 @@
 .myOrdersPage {
-  padding: 0 2vmax;
+  padding: 2vmax;
+  padding-top: 80px;
   background-color: rgb(235, 235, 235);
   height: 100vh;
   display: flex;
+  background: url("../../images/home-background.png");
+  background-size: cover;
+  background-position: center;
   flex-direction: column;
+}
+
+.MuiDataGrid-root {
+  border: none !important;
+}
+.MuiDataGrid-root .MuiDataGrid-cell {
+  border: none !important;
+}
+.MuiDataGrid-root .MuiDataGrid-columnsContainer {
+  border: none !important;
+}
+.MuiDataGrid-root .MuiDataGrid-cell:focus-within {
+  outline: none !important;
 }
 
 #myOrdersHeading {
@@ -16,17 +33,17 @@
 }
 
 .myOrdersTable {
-  background-color: white;
+  background-color: rgba(44, 43, 43, 0.205);
 }
 
 .myOrdersTable div {
   font: 300 1vmax "Roboto";
-  color: rgba(0, 0, 0, 0.678);
+  color: rgb(255, 255, 255);
   border: none;
 }
 
 .myOrdersTable a {
-  color: rgba(0, 0, 0, 0.527);
+  color: gray;
   transition: all 0.5s;
 }
 
@@ -35,7 +52,7 @@
 }
 
 .MuiDataGrid-columnHeader {
-  background-color: tomato;
+  background-color: #837285;
   padding: 1vmax !important;
 }
 

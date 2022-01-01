@@ -10,7 +10,6 @@ const Myorders = () => {
   const alert = useAlert();
   const dispatch = useDispatch();
   const { orders, loading, error } = useSelector((state) => state.myorders);
-  const { user } = useSelector((state) => state.user);
 
   useEffect(() => {
     if (error) {
@@ -90,8 +89,6 @@ const Myorders = () => {
             className="myOrdersTable"
             autoHeight
           />
-
-          <h3 id="myOrdersHeading">{user.name}'s Orders</h3>
         </div>
       )}
     </div>
