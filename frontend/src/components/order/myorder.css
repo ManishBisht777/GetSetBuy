@@ -2,12 +2,19 @@
   padding: 2vmax;
   padding-top: 80px;
   background-color: rgb(235, 235, 235);
-  height: 100vh;
   display: flex;
   background: url("../../images/home-background.png");
   background-size: cover;
   background-position: center;
   flex-direction: column;
+}
+.greenColorfont {
+  color: #52810a !important;
+  font-size: 1.3vmax !important;
+}
+.redColorfont {
+  color: #fb6262 !important;
+  font-size: 1.3vmax !important;
 }
 
 .MuiDataGrid-root {

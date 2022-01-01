@@ -38,7 +38,7 @@ const Checkoutsteps = ({ activesteps }) => {
               style={{
                 color:
                   activesteps >= index
-                    ? "rgb(120 109 109 / 65%)"
+                    ? "rgb(89 140 177);"
                     : "rgba(0, 0, 0, 0.649)",
               }}
               icon={item.icon}

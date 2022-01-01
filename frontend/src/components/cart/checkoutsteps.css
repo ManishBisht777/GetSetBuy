@@ -7,7 +7,14 @@
   background-color: rgba(0, 0, 0, 0) !important;
 }
 
+.MuiStepLabel-completed {
+  color: rgb(199, 199, 199) !important;
+}
+
 .MuiStepConnector-active,
 .MuiStepConnector-completed {
-  color: rgb(120 109 109 / 65%) !important;
+  color: rgb(89 140 177) !important;
+}
+.MuiPaper-root {
+  color: rgb(109 139 195 / 87%);
 }
