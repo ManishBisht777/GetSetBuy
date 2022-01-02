@@ -28,6 +28,7 @@ import Myorders from "./components/order/Myorders";
 import Orderdetails from "./components/cart/Orderdetails";
 import Dashboard from "./components/admin/Dashboard";
 import Productlist from "./components/admin/Productlist";
+import Newproduct from "./components/admin/Newproduct";
 
 axios.defaults.baseURL = "http://localhost:5000";
 
@@ -92,6 +93,7 @@ function App() {
 
             <Route exact path="/admin/dashboard" element={<Dashboard />} />
             <Route exact path="/admin/products" element={<Productlist />} />
+            <Route exact path="/admin/product" element={<Newproduct />} />
           </Routes>
           <Footer />
         </div>

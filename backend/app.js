@@ -12,6 +12,8 @@ const cors = require("cors");
 app.use(cors({ origin: true, optionsSuccessStatus: 200, credentials: true }));
 app.use(bodyparser.urlencoded({ extended: true }));
 app.use(fileupload());
+app.use(express.json({ limit: "50mb" }));
+app.use(express.urlencoded({ limit: "50mb", extended: true }));
 
 // config
 dotenv.config({ path: "backend/config/config.env" });
@@ -22,10 +24,10 @@ const user = require("./routes/userroutes");
 const order = require("./routes/orderroutes");
 const payment = require("./routes/paymentroute");
 
-app.use("/api/", product);
-app.use("/api/", user);
-app.use("/api/", order);
-app.use("/api/", payment);
+app.use("/api", product);
+app.use("/api", user);
+app.use("/api", order);
+app.use("/api", payment);
 
 // middleware for error handling
 app.use(ErrorMiddleware);
