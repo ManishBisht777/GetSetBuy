@@ -53,6 +53,7 @@ export const getproductadmin = () => async (dispatch) => {
   try {
     dispatch({ type: ADMIN_PRODUCT_REQUEST });
     const { data } = await axios.get("/api/admin/products");
+
     if (data) {
       dispatch({
         type: ADMIN_PRODUCT_SUCCESS,
