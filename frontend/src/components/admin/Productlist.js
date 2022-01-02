@@ -1,30 +1,52 @@
 import React, { Fragment, useEffect } from "react";
 import { DataGrid } from "@material-ui/data-grid";
 import { useSelector, useDispatch } from "react-redux";
-import { clearerror, getproductadmin } from "../../actions/productAction";
+import {
+  clearerror,
+  getproductadmin,
+  deleteproduct,
+} from "../../actions/productAction";
 import { Link } from "react-router-dom";
 import { useAlert } from "react-alert";
 import { Button } from "@material-ui/core";
 import EditIcon from "@material-ui/icons/Edit";
 import DeleteIcon from "@material-ui/icons/Delete";
 import Sidebar from "./Sidebar";
+import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import "./productlist.css";
+import { DELETE_PRODUCT_RESET } from "../../constants/ProductConstant";
 
 const Productlist = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
+  const params = useParams();
   const alert = useAlert();
   const { error, products } = useSelector((state) => state.products);
+  const { error: deleterrror, isdeleted } = useSelector(
+    (state) => state.updatedeleteproduct
+  );
 
   useEffect(() => {
     if (error) {
       alert.error(error);
       dispatch(clearerror());
     }
+    if (deleterrror) {
+      alert.error(deleterrror);
+      dispatch(clearerror());
+    }
+    if (isdeleted) {
+      alert.success("product deleted Successfully");
+      navigate("/admin/dashboard");
+      dispatch({ type: DELETE_PRODUCT_RESET });
+    }
     dispatch(getproductadmin());
-  }, [dispatch, alert, error]);
+  }, [dispatch, alert, error, deleterrror, isdeleted, navigate]);
+
+  const deleteProductHandler = (id) => {
+    dispatch(deleteproduct(id));
+  };
 
   const columns = [
     { field: "id", headerName: "Product ID", minWidth: 200, flex: 0.5 },
@@ -65,7 +87,11 @@ const Productlist = () => {
               <EditIcon />
             </Link>
 
-            <Button>
+            <Button
+              onClick={() =>
+                deleteProductHandler(params.getValue(params.id, "id"))
+              }
+            >
               <DeleteIcon />
             </Button>
           </Fragment>

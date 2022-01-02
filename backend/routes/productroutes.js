@@ -26,14 +26,14 @@ router
   .post(isauthenticated, authorizedrole("admin"), createProduct);
 
 router
-  .route("/products/:id")
+  .route("/admin/product/:id")
   .put(isauthenticated, authorizedrole("admin"), updateproduct);
 
 router
-  .route("/products/:id")
+  .route("/admin/product/:id")
   .delete(isauthenticated, authorizedrole("admin"), deleteproduct);
 
-router.route("/products/:id").get(getproduct);
+router.route("/product/:id").get(getproduct);
 
 router.route("/review").put(isauthenticated, createreview);
 
