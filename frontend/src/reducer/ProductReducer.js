@@ -144,7 +144,6 @@ export const updatedeleteproductreducer = (state = {}, action) => {
       return {
         ...state,
         loading: false,
-        isdeleted: false,
       };
     case DELETE_PRODUCT_FAIL:
       return {

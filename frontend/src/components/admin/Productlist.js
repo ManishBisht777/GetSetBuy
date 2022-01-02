@@ -20,7 +20,8 @@ import { DELETE_PRODUCT_RESET } from "../../constants/ProductConstant";
 const Productlist = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const params = useParams();
+  const { id } = useParams();
+
   const alert = useAlert();
   const { error, products } = useSelector((state) => state.products);
   const { error: deleterrror, isdeleted } = useSelector(
@@ -45,6 +46,7 @@ const Productlist = () => {
   }, [dispatch, alert, error, deleterrror, isdeleted, navigate]);
 
   const deleteProductHandler = (id) => {
+    console.log(id);
     dispatch(deleteproduct(id));
   };
 
@@ -89,7 +91,7 @@ const Productlist = () => {
 
             <Button
               onClick={() =>
-                deleteProductHandler(params.getValue(params.id, "id"))
+                deleteProductHandler(`${params.getValue(params.id, "id")}`)
               }
             >
               <DeleteIcon />
