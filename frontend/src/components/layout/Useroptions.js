@@ -13,6 +13,10 @@ const Useroptions = ({ show }) => {
   const dispatch = useDispatch();
 
   const navigate = useNavigate();
+
+  function dashboard() {
+    navigate("/admin/dashboard");
+  }
   function orders() {
     navigate("/myorders");
   }
@@ -40,6 +44,13 @@ const Useroptions = ({ show }) => {
         <Userbtn onClick={orders}>
           <i className="bx bxs-shopping-bag"></i>your orders
         </Userbtn>
+        {user.role === "admin" ? (
+          <Userbtn onClick={dashboard}>
+            <i className="bx bxs-dashboard"></i>dashboard
+          </Userbtn>
+        ) : (
+          ""
+        )}
         <Userbtn onClick={account}>
           <i className="bx bxs-user-pin"></i>account
         </Userbtn>

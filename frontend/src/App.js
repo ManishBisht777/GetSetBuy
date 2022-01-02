@@ -26,6 +26,8 @@ import { loadStripe } from "@stripe/stripe-js";
 import Ordersuccess from "./components/cart/Ordersuccess";
 import Myorders from "./components/order/Myorders";
 import Orderdetails from "./components/cart/Orderdetails";
+import Dashboard from "./components/admin/Dashboard";
+import Productlist from "./components/admin/Productlist";
 
 axios.defaults.baseURL = "http://localhost:5000";
 
@@ -87,6 +89,9 @@ function App() {
 
             <Route exact path="/order/confirm" element={<ConfirmOrder />} />
             <Route exact path="/order/:id" element={<Orderdetails />} />
+
+            <Route exact path="/admin/dashboard" element={<Dashboard />} />
+            <Route exact path="/admin/products" element={<Productlist />} />
           </Routes>
           <Footer />
         </div>
