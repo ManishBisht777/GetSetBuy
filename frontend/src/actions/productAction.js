@@ -104,7 +104,7 @@ export const updateproduct = (id, productdata) => async (dispatch) => {
     const config = {
       headers: { "Content-type": "multipart/form-data" },
     };
-    const { data } = await axios.post(
+    const { data } = await axios.put(
       `/api/admin/product/${id}`,
       productdata,
       config

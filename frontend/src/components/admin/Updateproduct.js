@@ -29,6 +29,7 @@ const Updateproduct = () => {
     error: updateerror,
     isupdated,
   } = useSelector((state) => state.updatedeleteproduct);
+
   const { error, product } = useSelector((state) => state.productdetails);
 
   const [name, setName] = useState("");
@@ -41,7 +42,6 @@ const Updateproduct = () => {
   const [imagesPreview, setImagesPreview] = useState([]);
 
   const { id } = useParams();
-  console.log(id);
   const categories = [
     "Laptop",
     "Footwear",
@@ -53,7 +53,7 @@ const Updateproduct = () => {
   ];
 
   useEffect(() => {
-    if (product && product._id === id) {
+    if (product && product._id !== id) {
       dispatch(getproductdetails(id));
     } else {
       setName(product.name);
@@ -102,6 +102,7 @@ const Updateproduct = () => {
 
     setImages([]);
     setImagesPreview([]);
+    setoldimages([]);
 
     files.forEach((file) => {
       const reader = new FileReader();
@@ -147,6 +148,7 @@ const Updateproduct = () => {
                 placeholder="Price"
                 required
                 onChange={(e) => setPrice(e.target.value)}
+                value={price}
               />
             </div>
 
@@ -164,7 +166,10 @@ const Updateproduct = () => {
 
             <div>
               <AccountTreeIcon />
-              <select onChange={(e) => setCategory(e.target.value)}>
+              <select
+                value={category}
+                onChange={(e) => setCategory(e.target.value)}
+              >
                 <option value="">Choose Category</option>
                 {categories.map((cate) => (
                   <option key={cate} value={cate}>
@@ -181,6 +186,7 @@ const Updateproduct = () => {
                 placeholder="stock"
                 required
                 onChange={(e) => setStock(e.target.value)}
+                value={stock}
               />
             </div>
 
@@ -195,8 +201,15 @@ const Updateproduct = () => {
             </div>
 
             <div id="createProductFormImage">
+              {oldimages &&
+                oldimages.map((image, index) => (
+                  <img key={index} src={image.url} alt="old product images" />
+                ))}
+            </div>
+
+            <div id="createProductFormImage">
               {imagesPreview.map((image, index) => (
-                <img key={index} src={image} alt="Product Preview" />
+                <img key={index} src={image} alt="new product images" />
               ))}
             </div>
 
