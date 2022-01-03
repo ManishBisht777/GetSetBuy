@@ -1,11 +1,11 @@
 import React, { Fragment, useEffect } from "react";
 import { DataGrid } from "@material-ui/data-grid";
 import { useSelector, useDispatch } from "react-redux";
-import { clearerror } from "../../actions/productAction";
 import {
   getallorders,
   updateorder,
   deleteorder,
+  clearerrors,
 } from "../../actions/orderaction";
 import { Link } from "react-router-dom";
 import { useAlert } from "react-alert";
@@ -15,7 +15,7 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import Sidebar from "./Sidebar";
 import { useNavigate } from "react-router-dom";
 import "./productlist.css";
-import { DELETE_PRODUCT_RESET } from "../../constants/ProductConstant";
+import { DELETE_ORDER_RESET } from "../../constants/orderconstant";
 
 const Orderlist = () => {
   const navigate = useNavigate();
@@ -30,23 +30,23 @@ const Orderlist = () => {
   useEffect(() => {
     if (error) {
       alert.error(error);
-      dispatch(clearerror());
+      dispatch(clearerrors());
     }
-    // if (deleterrror) {
-    //   alert.error(deleterrror);
-    //   dispatch(clearerror());
-    // }
-    // if (isdeleted) {
-    //   alert.success("product deleted Successfully");
-    //   navigate("/admin/dashboard");
-    //   dispatch({ type: DELETE_PRODUCT_RESET });
-    // }
+    if (deleterrror) {
+      alert.error(deleterrror);
+      dispatch(clearerrors());
+    }
+    if (isdeleted) {
+      alert.success("order deleted Successfully");
+      navigate("/allorders");
+      dispatch({ type: DELETE_ORDER_RESET });
+    }
     dispatch(getallorders());
   }, [dispatch, alert, error, deleterrror, isdeleted, navigate]);
 
-  const deleteProductHandler = (id) => {
+  const deleteOrderHandler = (id) => {
     console.log(id);
-    // dispatch(deleteproduct(id));
+    dispatch(deleteorder(id));
   };
 
   const columns = [
@@ -88,13 +88,13 @@ const Orderlist = () => {
       renderCell: (params) => {
         return (
           <Fragment>
-            <Link to={`/order/${params.getValue(params.id, "id")}`}>
+            <Link to={`/admin/order/${params.getValue(params.id, "id")}`}>
               <EditIcon />
             </Link>
 
             <Button
               onClick={() =>
-                deleteProductHandler(`${params.getValue(params.id, "id")}`)
+                deleteOrderHandler(`${params.getValue(params.id, "id")}`)
               }
             >
               <DeleteIcon />

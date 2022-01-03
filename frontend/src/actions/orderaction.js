@@ -93,7 +93,7 @@ export const updateorder = (id, order) => async (dispatch) => {
     const config = {
       headers: { "Content-type": "application/json" },
     };
-    const { data } = await axios.put(`/api/order/${id}`, order, config);
+    const { data } = await axios.put(`/api/admin/order/${id}`, order, config);
 
     if (data) {
       dispatch({
@@ -115,7 +115,7 @@ export const deleteorder = (id) => async (dispatch) => {
   try {
     dispatch({ type: DELETE_ORDER_REQUEST });
 
-    const { data } = await axios.delete(`/api/order/${id}`);
+    const { data } = await axios.delete(`/api/admin/order/${id}`);
 
     if (data) {
       dispatch({

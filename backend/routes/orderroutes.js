@@ -21,7 +21,7 @@ router
   .get(isauthenticated, authorizedrole("admin"), getallorders);
 
 router
-  .route("/order/:id")
+  .route("/admin/order/:id")
   .put(isauthenticated, authorizedrole("admin"), updateorder)
   .delete(isauthenticated, authorizedrole("admin"), deleteorder);
 
