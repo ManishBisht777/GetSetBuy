@@ -12,7 +12,6 @@ import { Button } from "@material-ui/core";
 import EditIcon from "@material-ui/icons/Edit";
 import DeleteIcon from "@material-ui/icons/Delete";
 import Sidebar from "./Sidebar";
-import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import "./productlist.css";
 import { DELETE_PRODUCT_RESET } from "../../constants/ProductConstant";
@@ -20,7 +19,6 @@ import { DELETE_PRODUCT_RESET } from "../../constants/ProductConstant";
 const Productlist = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { id } = useParams();
 
   const alert = useAlert();
   const { error, products } = useSelector((state) => state.products);

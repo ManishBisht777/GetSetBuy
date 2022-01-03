@@ -11,6 +11,9 @@ import {
   NEW_PRODUCT_REQUEST,
   NEW_PRODUCT_SUCCESS,
   NEW_PRODUCT_FAIL,
+  UPDATE_PRODUCT_REQUEST,
+  UPDATE_PRODUCT_SUCCESS,
+  UPDATE_PRODUCT_FAIL,
   NEW_REVIEW_REQUEST,
   NEW_REVIEW_SUCCESS,
   NEW_REVIEW_FAIL,
@@ -89,6 +92,33 @@ export const deleteproduct = (id) => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: DELETE_PRODUCT_FAIL,
+      payload: error.response.data.message,
+    });
+  }
+};
+
+// update product Admin
+export const updateproduct = (id, productdata) => async (dispatch) => {
+  try {
+    dispatch({ type: UPDATE_PRODUCT_REQUEST });
+    const config = {
+      headers: { "Content-type": "multipart/form-data" },
+    };
+    const { data } = await axios.post(
+      `/api/admin/product/${id}`,
+      productdata,
+      config
+    );
+
+    if (data) {
+      dispatch({
+        type: UPDATE_PRODUCT_SUCCESS,
+        payload: data.success,
+      });
+    }
+  } catch (error) {
+    dispatch({
+      type: UPDATE_PRODUCT_FAIL,
       payload: error.response.data.message,
     });
   }
