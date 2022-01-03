@@ -19,6 +19,8 @@ import {
   myorderreducer,
   neworderreducer,
   orderdetailreducer,
+  allorderreducer,
+  updatedeleteorderreducer,
 } from "./reducer/orderreducer";
 
 const reducer = combineReducers({
@@ -34,6 +36,8 @@ const reducer = combineReducers({
   newreview: newreviewreducer,
   newproduct: newproductreducer,
   updatedeleteproduct: updatedeleteproductreducer,
+  allorders: allorderreducer,
+  updatedeleteorder: updatedeleteorderreducer,
 });
 const initialstate = {
   cart: {
