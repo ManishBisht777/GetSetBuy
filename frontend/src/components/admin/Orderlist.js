@@ -41,7 +41,7 @@ const Orderlist = () => {
     //   navigate("/admin/dashboard");
     //   dispatch({ type: DELETE_PRODUCT_RESET });
     // }
-    dispatch();
+    dispatch(getallorders());
   }, [dispatch, alert, error, deleterrror, isdeleted, navigate]);
 
   const deleteProductHandler = (id) => {
