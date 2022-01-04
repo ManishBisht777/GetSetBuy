@@ -10,7 +10,7 @@ const Cartitemcard = ({ item, deleteitem }) => {
         <Link to={`/product/${item.product}`}>{item.name}</Link>
         <span>{`Price: ₹${item.price}`}</span>
         <button onClick={() => deleteitem(item.product)}>
-          <i class="bx bxs-trash-alt"></i>Remove
+          <i className="bx bxs-trash-alt"></i>Remove
         </button>
       </div>
     </div>
