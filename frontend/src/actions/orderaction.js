@@ -91,7 +91,7 @@ export const updateorder = (id, order) => async (dispatch) => {
     dispatch({ type: UPDATE_ORDER_REQUEST });
 
     const config = {
-      headers: { "Content-type": "application/json" },
+      headers: { "Content-type": "multipart/form-data" },
     };
     const { data } = await axios.put(`/api/admin/order/${id}`, order, config);
 

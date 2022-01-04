@@ -3,7 +3,6 @@ import { DataGrid } from "@material-ui/data-grid";
 import { useSelector, useDispatch } from "react-redux";
 import {
   getallorders,
-  updateorder,
   deleteorder,
   clearerrors,
 } from "../../actions/orderaction";
