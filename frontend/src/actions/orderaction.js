@@ -151,6 +151,7 @@ export const orderdetail = (id) => async (dispatch) => {
   }
 };
 
+// clear error
 export const clearerrors = () => async (dispatch) => {
   dispatch({
     type: CLEAR_ERROR,
