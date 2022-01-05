@@ -8,11 +8,13 @@ import { Doughnut, Line } from "react-chartjs-2";
 import { getproductadmin } from "../../actions/productAction";
 import { getallorders } from "../../actions/orderaction";
 import "chart.js/auto";
+import { getalluser } from "../../actions/userAction";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
   const { products } = useSelector((state) => state.products);
   const { orders } = useSelector((state) => state.allorders);
+  const { users } = useSelector((state) => state.allusers);
 
   let outOfStock = 0;
 
@@ -26,6 +28,7 @@ const Dashboard = () => {
   useEffect(() => {
     dispatch(getproductadmin());
     dispatch(getallorders());
+    dispatch(getalluser());
   }, [dispatch]);
 
   const lineState = {
@@ -74,7 +77,7 @@ const Dashboard = () => {
             </Link>
             <Link to="/admin/users">
               <p>Users</p>
-              {/* <p>{users && users.length}</p> */}
+              <p>{users && users.length}</p>
             </Link>
           </div>
         </div>

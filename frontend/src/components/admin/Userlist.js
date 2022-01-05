@@ -1,11 +1,7 @@
 import React, { Fragment, useEffect } from "react";
 import { DataGrid } from "@material-ui/data-grid";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  clearerror,
-  getproductadmin,
-  deleteproduct,
-} from "../../actions/productAction";
+
 import { Link } from "react-router-dom";
 import { useAlert } from "react-alert";
 import { Button } from "@material-ui/core";
@@ -14,9 +10,9 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import Sidebar from "./Sidebar";
 import { useNavigate } from "react-router-dom";
 import "./productlist.css";
-import { DELETE_PRODUCT_RESET } from "../../constants/ProductConstant";
-import { getalluser } from "../../actions/userAction";
+import { deleteuser, getalluser, clearerror } from "../../actions/userAction";
 import Loader from "../layout/Loader/Loader";
+import { DELETE_USER_RESET } from "../../constants/UserConstant";
 
 const Userlist = () => {
   const navigate = useNavigate();
@@ -24,9 +20,12 @@ const Userlist = () => {
 
   const alert = useAlert();
   const { error, loading, users } = useSelector((state) => state.allusers);
-  const { error: deleterrror, isdeleted } = useSelector(
-    (state) => state.updatedeleteproduct
-  );
+
+  const {
+    error: deleterrror,
+    isdeleted,
+    message,
+  } = useSelector((state) => state.profile);
 
   useEffect(() => {
     if (error) {
@@ -38,16 +37,16 @@ const Userlist = () => {
       dispatch(clearerror());
     }
     if (isdeleted) {
-      alert.success("product deleted Successfully");
-      navigate("/admin/dashboard");
-      dispatch({ type: DELETE_PRODUCT_RESET });
+      alert.success(message);
+      navigate("/admin/users");
+      dispatch({ type: DELETE_USER_RESET });
     }
-    dispatch(getalluser());
-  }, [dispatch, alert, error, deleterrror, isdeleted, navigate]);
 
-  const deleteProductHandler = (id) => {
-    console.log(id);
-    dispatch(deleteproduct(id));
+    dispatch(getalluser());
+  }, [dispatch, alert, error, deleterrror, isdeleted, navigate, message]);
+
+  const deleteUserHandler = (id) => {
+    dispatch(deleteuser(id));
   };
 
   const columns = [
@@ -72,6 +71,11 @@ const Userlist = () => {
       type: "number",
       minWidth: 150,
       flex: 0.3,
+      cellClassName: (params) => {
+        return params.getValue(params.id, "role") === "admin"
+          ? "greenColorfont"
+          : "redColorfont";
+      },
     },
 
     {
@@ -84,13 +88,13 @@ const Userlist = () => {
       renderCell: (params) => {
         return (
           <Fragment>
-            <Link to={`/admin/product/${params.getValue(params.id, "id")}`}>
+            <Link to={`/admin/user/${params.getValue(params.id, "id")}`}>
               <EditIcon />
             </Link>
 
             <Button
               onClick={() =>
-                deleteProductHandler(`${params.getValue(params.id, "id")}`)
+                deleteUserHandler(`${params.getValue(params.id, "id")}`)
               }
             >
               <DeleteIcon />
