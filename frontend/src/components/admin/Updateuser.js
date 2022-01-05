@@ -118,7 +118,9 @@ const Updateuser = () => {
               <Button
                 id="createProductBtn"
                 type="submit"
-                disabled={updateloading ? true : false}
+                disabled={
+                  updateloading ? true : false || role === "" ? true : false
+                }
               >
                 update
               </Button>

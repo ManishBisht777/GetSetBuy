@@ -244,7 +244,7 @@ export const updateuser = (id, userdata) => async (dispatch) => {
       credentials: "include",
     };
 
-    const { data } = await axios.put(`api/admin/${id}`, userdata, config);
+    const { data } = await axios.put(`api/admin/user/${id}`, userdata, config);
 
     dispatch({ type: UPDATE_USER_SUCCESS, payload: data.success });
   } catch (error) {
