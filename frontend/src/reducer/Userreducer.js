@@ -208,7 +208,7 @@ export const forgotpasswordreducer = (state = {}, action) => {
   }
 };
 
-export const alluserreducer = (state = { user: [] }, action) => {
+export const alluserreducer = (state = { users: [] }, action) => {
   switch (action.type) {
     case ALL_USER_REQUEST:
       return {
