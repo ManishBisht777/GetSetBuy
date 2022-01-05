@@ -1,4 +1,4 @@
-const Errorhandler = require("../utils/errorhandler");
+const Errorhandler = require("../utils/Errorhandler");
 const catchasyncerror = require("../middleware/catchasyncerror");
 const User = require("../models/usermodel");
 const sendtoken = require("../utils/jwttoken");
@@ -236,7 +236,7 @@ exports.getsingleuser = catchasyncerror(async (req, res, next) => {
 
   if (!user) {
     return next(
-      new errorhandler(`User does not exist with Id: ${req.params.id}`)
+      new Errorhandler(`User does not exist with Id: ${req.params.id}`)
     );
   }
 
@@ -263,7 +263,7 @@ exports.updaterole = catchasyncerror(async (req, res, next) => {
 
   if (!user) {
     return next(
-      new errorhandler(`User does not exist with Id: ${req.params.id}`, 400)
+      new Errorhandler(`User does not exist with Id: ${req.params.id}`, 400)
     );
   }
 
@@ -280,9 +280,13 @@ exports.deleteuser = catchasyncerror(async (req, res, next) => {
 
   if (!user) {
     return next(
-      new errorhandler(`User does not exist with Id: ${req.params.id}`, 400)
+      new Errorhandler(`User does not exist with Id: ${req.params.id}`, 400)
     );
   }
+
+  const imageId = user.avatar.public_id;
+
+  await cloudinary.v2.uploader.destroy(imageId);
 
   await user.remove();
 

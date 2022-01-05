@@ -10,8 +10,10 @@ import {
 } from "./reducer/ProductReducer";
 
 import {
+  alluserreducer,
   forgotpasswordreducer,
   profilereducer,
+  userdetailreducer,
   userreducer,
 } from "./reducer/Userreducer";
 import { cartreducer } from "./reducer/Cartreducer";
@@ -38,6 +40,8 @@ const reducer = combineReducers({
   updatedeleteproduct: updatedeleteproductreducer,
   allorders: allorderreducer,
   updatedeleteorder: updatedeleteorderreducer,
+  allusers: alluserreducer,
+  userdetails: userdetailreducer,
 });
 const initialstate = {
   cart: {

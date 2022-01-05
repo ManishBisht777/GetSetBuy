@@ -32,6 +32,7 @@ import Newproduct from "./components/admin/Newproduct";
 import Updateproduct from "./components/admin/Updateproduct";
 import Orderlist from "./components/admin/Orderlist";
 import Updateorder from "./components/admin/Updateorder";
+import Userlist from "./components/admin/Userlist";
 
 axios.defaults.baseURL = "http://localhost:5000";
 
@@ -104,6 +105,7 @@ function App() {
             />
             <Route exact path="/allorders" element={<Orderlist />} />
             <Route exact path="/admin/order/:id" element={<Updateorder />} />
+            <Route exact path="/admin/users" element={<Userlist />} />
           </Routes>
           <Footer />
         </div>
