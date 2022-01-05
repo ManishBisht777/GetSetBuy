@@ -6,11 +6,13 @@ import { Typography } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import { Doughnut, Line } from "react-chartjs-2";
 import { getproductadmin } from "../../actions/productAction";
+import { getallorders } from "../../actions/orderaction";
 import "chart.js/auto";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
   const { products } = useSelector((state) => state.products);
+  const { orders } = useSelector((state) => state.allorders);
 
   let outOfStock = 0;
 
@@ -23,6 +25,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     dispatch(getproductadmin());
+    dispatch(getallorders());
   }, [dispatch]);
 
   const lineState = {
@@ -65,9 +68,9 @@ const Dashboard = () => {
               <p>Product</p>
               <p>{products && products.length}</p>
             </Link>
-            <Link to="/admin/orders">
+            <Link to="/allorders">
               <p>Orders</p>
-              {/* <p>{orders && orders.length}</p> */}
+              <p>{orders && orders.length}</p>
             </Link>
             <Link to="/admin/users">
               <p>Users</p>
