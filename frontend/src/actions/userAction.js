@@ -260,7 +260,7 @@ export const updateuser = (id, userdata) => async (dispatch) => {
 export const deleteuser = (id) => async (dispatch) => {
   try {
     dispatch({ type: DELETE_USER_REQUEST });
-    const { data } = await axios.delete(`api/admin/${id}`);
+    const { data } = await axios.delete(`api/admin/user/${id}`);
 
     dispatch({ type: DELETE_USER_SUCCESS, payload: data });
   } catch (error) {
