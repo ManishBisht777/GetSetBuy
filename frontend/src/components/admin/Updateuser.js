@@ -18,7 +18,7 @@ const Updateuser = () => {
   const alert = useAlert();
   const navigate = useNavigate();
 
-  const { loading, error, user } = useSelector((state) => state.usedetails);
+  const { loading, error, user } = useSelector((state) => state.userdetails);
 
   const {
     loading: updateloading,
@@ -118,7 +118,7 @@ const Updateuser = () => {
               <Button
                 id="createProductBtn"
                 type="submit"
-                disabled={loading ? true : false}
+                disabled={updateloading ? true : false}
               >
                 update
               </Button>
