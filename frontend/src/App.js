@@ -34,6 +34,7 @@ import Orderlist from "./components/admin/Orderlist";
 import Updateorder from "./components/admin/Updateorder";
 import Userlist from "./components/admin/Userlist";
 import Updateuser from "./components/admin/Updateuser";
+import Productreviews from "./components/admin/Productreviews";
 
 axios.defaults.baseURL = "http://localhost:5000";
 
@@ -108,6 +109,7 @@ function App() {
             <Route exact path="/admin/order/:id" element={<Updateorder />} />
             <Route exact path="/admin/users" element={<Userlist />} />
             <Route exact path="/admin/user/:id" element={<Updateuser />} />
+            <Route exact path="/reviews" element={<Productreviews />} />
           </Routes>
           <Footer />
         </div>

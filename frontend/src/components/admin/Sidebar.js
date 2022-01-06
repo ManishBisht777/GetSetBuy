@@ -48,7 +48,7 @@ const Sidebar = () => {
           <PeopleIcon /> Users
         </p>
       </Link>
-      <Link to="/admin/reviews">
+      <Link to="/reviews">
         <p>
           <RateReviewIcon />
           Reviews

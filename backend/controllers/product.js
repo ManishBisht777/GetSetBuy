@@ -211,6 +211,8 @@ exports.getproductreviews = catchasyncerror(async (req, res, next) => {
   });
 });
 
+// delete review (admin)
+
 exports.deleteproductreview = catchasyncerror(async (req, res, next) => {
   // find product
   const product = await Product.findById(req.query.productid);
