@@ -35,6 +35,7 @@ import Updateorder from "./components/admin/Updateorder";
 import Userlist from "./components/admin/Userlist";
 import Updateuser from "./components/admin/Updateuser";
 import Productreviews from "./components/admin/Productreviews";
+import Notfound from "./components/layout/Notfound";
 
 axios.defaults.baseURL = "http://localhost:5000";
 
@@ -56,6 +57,8 @@ function App() {
     store.dispatch(loaduser());
     getstripepaikey();
   }, []);
+
+  window.addEventListener("contextmenu", (e) => e.preventDefault());
 
   return (
     <Router>
@@ -110,6 +113,13 @@ function App() {
             <Route exact path="/admin/users" element={<Userlist />} />
             <Route exact path="/admin/user/:id" element={<Updateuser />} />
             <Route exact path="/reviews" element={<Productreviews />} />
+            <Route
+              element={
+                window.location.pathname === "/process/payment" ? null : (
+                  <Notfound />
+                )
+              }
+            />
           </Routes>
           <Footer />
         </div>
