@@ -48,12 +48,14 @@ const Productreviews = () => {
     }
   }, [dispatch, alert, error, deleterrror, isdeleted, navigate, productid]);
 
-  const deleteReviewHandler = (reviewid, productid) => {
+  const deleteReviewHandler = (reviewid) => {
+    console.log(productid);
     dispatch(deletereview(reviewid, productid));
   };
 
   const getreviewshandler = (e) => {
     e.preventDefault();
+
     dispatch(getallreviews(productid));
   };
 

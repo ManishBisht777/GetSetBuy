@@ -228,7 +228,7 @@ export const deletereview = (id, productid) => async (dispatch) => {
   try {
     dispatch({ type: DELETE_REVIEW_REQUEST });
 
-    const { data } = await axios.get(
+    const { data } = await axios.delete(
       `/api/reviews?id=${id}&productid=${productid}`
     );
 
