@@ -1,16 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { clearerror, loaduser, updateprofile } from "../../actions/userAction";
 import { useAlert } from "react-alert";
 import { UPDATE_PROFILE_RESET } from "../../constants/UserConstant";
+import MailOutlineIcon from "@material-ui/icons/MailOutline";
+import FaceIcon from "@material-ui/icons/Face";
+import Loader from "../layout/Loader/Loader";
+import "./updateprofile.css";
 
 const Updateprofile = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const { user } = useSelector((state) => state.user);
-  const { error, isupdated } = useSelector((state) => state.profile);
+  const { loading, error, isupdated } = useSelector((state) => state.profile);
   const alert = useAlert();
 
   const [name, setname] = useState("");
@@ -63,38 +67,64 @@ const Updateprofile = () => {
   }, [alert, error, dispatch, navigate, user, isupdated]);
 
   return (
-    <div>
-      <h3>update profile</h3>
-      <div className="sameform signupform">
-        <form action="" onSubmit={updateprofileaction}>
-          <h3>Signup</h3>
-          <input
-            // todo replace placeholder={user.value} to value={user.value}
-            name="name"
-            type="text"
-            placeholder={user.name}
-            onChange={(e) => setname(e.target.value)}
-          />
-          <input
-            name="email"
-            type="text"
-            placeholder={user.email}
-            onChange={(e) => setname(e.target.value)}
-          />
-          <div className="avatar">
-            <img src={preview} alt="" />
-            <input
-              name="avatar"
-              accept="image/*"
-              type="file"
-              placeholder="avatar"
-              onChange={updateProfileDataChange}
-            />
+    <Fragment>
+      {loading ? (
+        <Loader />
+      ) : (
+        <Fragment>
+          {/* <MetaData title="Update Profile" /> */}
+          <div className="updateProfileContainer">
+            <div className="updateProfileBox">
+              <h2 className="updateProfileHeading">Update Profile</h2>
+
+              <form
+                className="updateProfileForm"
+                encType="multipart/form-data"
+                onSubmit={updateprofileaction}
+              >
+                <div className="updateProfileName">
+                  <FaceIcon />
+                  <input
+                    type="text"
+                    placeholder="Name"
+                    required
+                    name="name"
+                    value={name}
+                    onChange={(e) => setname(e.target.value)}
+                  />
+                </div>
+                <div className="updateProfileEmail">
+                  <MailOutlineIcon />
+                  <input
+                    type="email"
+                    placeholder="Email"
+                    required
+                    name="email"
+                    value={email}
+                    onChange={(e) => setemail(e.target.value)}
+                  />
+                </div>
+
+                <div id="updateProfileImage">
+                  <img src={preview} alt="Avatar Preview" />
+                  <input
+                    type="file"
+                    name="avatar"
+                    accept="image/*"
+                    onChange={updateProfileDataChange}
+                  />
+                </div>
+                <input
+                  type="submit"
+                  value="Update"
+                  className="updateProfileBtn"
+                />
+              </form>
+            </div>
           </div>
-          <input type="submit" value="Update" />
-        </form>
-      </div>
-    </div>
+        </Fragment>
+      )}
+    </Fragment>
   );
 };
 

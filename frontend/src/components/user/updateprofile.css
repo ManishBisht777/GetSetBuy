@@ -1,0 +1,153 @@
+.updateProfileContainer {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("https://images.unsplash.com/photo-1519681393784-d120267933ba?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1124&q=100");
+  background-position: center;
+  background-size: cover;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(32 32 32 / 63%);
+  background-blend-mode: darken;
+}
+
+.updateProfileBox {
+  width: 30vw;
+  height: 70vh;
+  box-sizing: border-box;
+  overflow: hidden;
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(17, 25, 40, 0.75);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.125);
+}
+
+.updateProfileHeading {
+  text-align: center;
+  color: rgb(197 196 203 / 66%);
+  padding: 1.3vmax;
+  border-bottom: 2px solid rgb(229 229 229 / 42%);
+  margin: 30px;
+  letter-spacing: 1px;
+}
+
+.updateProfileForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  padding: 2vmax;
+  justify-content: space-evenly;
+  height: 70%;
+  transition: all 0.5s;
+}
+
+.updateProfileForm > div {
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+
+.updateProfileForm > div > input {
+  padding: 1vmax 4vmax;
+  padding-right: 1vmax;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid rgb(205 205 205 / 21%);
+  border-radius: 4px;
+  /* font: 300 0.9vmax cursive; */
+  outline: none;
+  background: #3d425242;
+  color: #bdbdbd;
+}
+
+.updateProfileForm > div > svg {
+  position: absolute;
+  transform: translateX(1vmax);
+  font-size: 2.6vmax;
+  color: rgb(207 180 50 / 62%);
+}
+
+#updateProfileImage > img {
+  width: 3vmax;
+  border-radius: 7px;
+  margin: 1vmax;
+}
+#updateProfileImage > input {
+  display: flex;
+  padding: 0%;
+}
+
+#updateProfileImage > input::file-selector-button {
+  cursor: pointer;
+  width: 100%;
+  z-index: 2;
+  height: 5vh;
+  border: none;
+  margin: 0%;
+  font: 400 0.8vmax cursive;
+  transition: all 0.5s;
+  padding: 0 1vmax;
+  color: rgba(0, 0, 0, 0.623);
+  background-color: rgb(255, 255, 255);
+}
+
+#updateProfileImage > input::file-selector-button:hover {
+  background-color: rgb(235, 235, 235);
+}
+
+.updateProfileBtn {
+  background-color: #44476c;
+  color: white;
+  font: 300 1.5vmax "Roboto";
+  width: 100%;
+  padding: 0.8vmax;
+  cursor: pointer;
+  transition: all 0.5s;
+  border-radius: 4px;
+  outline: none;
+  border: 1px solid #ffffff36;
+}
+
+.updateProfileBtn:hover {
+  background-color: rgb(179, 66, 46);
+}
+
+@media screen and (max-width: 600px) {
+  .updateProfileContainer {
+    background-color: white;
+  }
+  .updateProfileBox {
+    width: 90vw;
+  }
+
+  .updateProfileForm {
+    padding: 5vmax;
+  }
+
+  .updateProfileForm > div > input {
+    padding: 2.5vmax 5vmax;
+    font: 300 1.7vmax cursive;
+  }
+
+  .updateProfileForm > div > svg {
+    font-size: 2.8vmax;
+  }
+
+  #updateProfileImage > img {
+    width: 8vmax;
+    border-radius: 100%;
+  }
+
+  #updateProfileImage > input::file-selector-button {
+    height: 7vh;
+    font: 400 1.8vmax cursive;
+  }
+
+  .updateProfileBtn {
+    font: 300 1.9vmax "Roboto";
+    padding: 1.8vmax;
+  }
+}

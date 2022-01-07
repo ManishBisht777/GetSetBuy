@@ -58,7 +58,7 @@ function App() {
     getstripepaikey();
   }, []);
 
-  window.addEventListener("contextmenu", (e) => e.preventDefault());
+  // window.addEventListener("contextmenu", (e) => e.preventDefault());
 
   return (
     <Router>
@@ -113,13 +113,6 @@ function App() {
             <Route exact path="/admin/users" element={<Userlist />} />
             <Route exact path="/admin/user/:id" element={<Updateuser />} />
             <Route exact path="/reviews" element={<Productreviews />} />
-            <Route
-              element={
-                window.location.pathname === "/process/payment" ? null : (
-                  <Notfound />
-                )
-              }
-            />
           </Routes>
           <Footer />
         </div>
