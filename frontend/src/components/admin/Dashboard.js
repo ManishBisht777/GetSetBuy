@@ -64,25 +64,31 @@ const Dashboard = () => {
     <div className="dashboard">
       <Sidebar />
       <div className="dashboardContainer">
-        <Typography component="h1">Dashboard</Typography>
+        <Typography component="h3">Dashboard</Typography>
 
         <div className="dashboardSummary">
-          <div>
+          <div className="summarybox1">
             <p>
-              Total Amount <br /> {totalAmount}
+              Total Amount <span>₹ {totalAmount}</span>
             </p>
           </div>
           <div className="dashboardSummaryBox2">
             <Link to="/admin/products">
-              <p>Product</p>
+              <h3>
+                <i className="bx bxl-product-hunt"></i> Product
+              </h3>
               <p>{products && products.length}</p>
             </Link>
             <Link to="/allorders">
-              <p>Orders</p>
+              <h3>
+                <i className="bx bxs-shopping-bag"></i> Orders
+              </h3>
               <p>{orders && orders.length}</p>
             </Link>
             <Link to="/admin/users">
-              <p>Users</p>
+              <h3>
+                <i className="bx bxs-user"></i> Users
+              </h3>
               <p>{users && users.length}</p>
             </Link>
           </div>

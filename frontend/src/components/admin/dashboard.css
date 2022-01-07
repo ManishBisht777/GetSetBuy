@@ -8,61 +8,100 @@
 .dashboardContainer {
   border-left: 1px solid rgba(0, 0, 0, 0.13);
   background-color: rgb(255, 255, 255);
-  padding: 3rem 0;
+  padding: 4rem 0;
+  background: url("../../images/home-background.png");
+  background-size: cover;
+  background-position: center;
+  position: relative;
 }
 
-.dashboardContainer > h1 {
-  color: rgba(0, 0, 0, 0.733);
-  font: 300 2rem "Roboto";
+.dashboardContainer > h3 {
+  font-size: 3rem;
+  color: #fff;
+  width: auto;
   text-align: center;
-  width: 50%;
-  padding: 1.5rem;
-  margin: auto;
+  z-index: 1;
+  padding: 10px 20px;
+  margin: 30px;
+  position: relative;
+}
+
+.dashboardContainer::before {
+  content: "Top Products";
+  position: absolute;
+  width: 100%;
+  font-size: 7rem;
+  font-weight: bold;
+  z-index: 0;
+  text-align: center;
+  color: #0000002c;
+  top: 50px;
 }
 
 .dashboardSummary {
+  display: flex;
   margin: 2rem 0;
+  align-items: center;
+  justify-content: center;
+  padding: 0 2rem;
 }
 
 .dashboardSummary > div {
   display: flex;
-  background-color: white;
   justify-content: center;
+  flex-wrap: wrap;
 }
-.dashboardSummary > div > p {
-  background-color: rgba(70, 117, 218, 0.932);
-  color: white;
-  font: 300 1.3rem "Roboto";
-  text-align: center;
-  padding: 1.5rem;
-  width: 100%;
-  margin: 0 2rem;
+
+.summarybox1 {
+  font-size: 2rem;
+  color: #fff;
+  font-weight: bold;
 }
-.dashboardSummaryBox2 > a {
-  color: rgb(0, 0, 0);
-  font: 300 2rem "Roboto";
-  text-align: center;
-  background-color: rgb(255, 233, 174);
-  text-decoration: none;
-  padding: 1.5rem;
-  width: 10vmax;
-  height: 10vmax;
-  margin: 2rem;
-  border-radius: 100%;
+
+.summarybox1 p {
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
 }
 
-.dashboardSummaryBox2 > a:first-child {
-  background-color: rgb(255, 110, 110);
-  color: rgb(255, 255, 255);
+.summarybox1 span {
+  font-size: 1.4rem;
+  color: gray;
+  margin: 2rem 0px;
 }
 
-.dashboardSummaryBox2 > a:last-child {
-  background-color: rgb(51, 51, 51);
-  color: rgb(255, 255, 255);
+.dashboardSummaryBox2 > a {
+  text-align: center;
+  text-decoration: none;
+  padding: 1.5rem;
+  background: #00000047;
+  margin: 1rem;
+  border-radius: 5px;
+  display: flex;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #fff;
+  border: 1px solid #ffffff21;
+}
+
+.dashboardSummaryBox2 > a > p {
+  background: #ffffff14;
+  padding: 10px 15px;
+  border-radius: 5px;
+  width: 150px;
+}
+
+.dashboardSummaryBox2 > a > h3 {
+  margin: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.dashboardSummaryBox2 > a > h3 > i {
+  font-size: 2rem;
+  color: #b4b723;
+  margin: 5px;
 }
 
 .lineChart {
