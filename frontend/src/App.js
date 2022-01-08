@@ -6,9 +6,10 @@ import Home from "./components/layout/home/Home";
 import Productdetails from "./components/product/Productdetails";
 import Products from "./components/product/Products";
 import LoginSignup from "./components/user/LoginSignup";
+import store from "./store";
 import { useEffect, useState } from "react";
 import { loaduser } from "./actions/userAction";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import Useroptions from "./components/layout/Useroptions";
 import Account from "./components/user/Account";
 import Updateprofile from "./components/user/Updateprofile";
@@ -34,16 +35,15 @@ import Updateorder from "./components/admin/Updateorder";
 import Userlist from "./components/admin/Userlist";
 import Updateuser from "./components/admin/Updateuser";
 import Productreviews from "./components/admin/Productreviews";
-// import Notfound from "./components/layout/Notfound";
+import Notfound from "./components/layout/Notfound";
 
-// axios.defaults.baseURL = "http://localhost:5000";
+axios.defaults.baseURL = "http://localhost:5000";
 
 axios.defaults.withCredentials = true;
 
 // import ProtectedRoute from "./components/route/Protectedroute";
 
 function App() {
-  const dispatch = useDispatch();
   const { isauthenticated, user } = useSelector((state) => state.user);
 
   const [stripeapikey, setstripeapikey] = useState("");
@@ -54,9 +54,9 @@ function App() {
   };
 
   useEffect(() => {
-    dispatch(loaduser());
+    store.dispatch(loaduser());
     getstripepaikey();
-  }, [dispatch]);
+  }, []);
 
   // window.addEventListener("contextmenu", (e) => e.preventDefault());
 

@@ -5,7 +5,7 @@ import {
 } from "../constants/Cartconstant";
 
 import axios from "axios";
-// axios.defaults.baseURL = "http://localhost:5000";
+axios.defaults.baseURL = "http://localhost:5000";
 axios.defaults.withCredentials = true;
 
 // add  to cart
