@@ -4,7 +4,6 @@ const app = express();
 const cookieparser = require("cookie-parser");
 const bodyparser = require("body-parser");
 const fileupload = require("express-fileupload");
-const dotenv = require("dotenv");
 const path = require("path");
 
 app.use(express.json());
@@ -17,7 +16,9 @@ app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ limit: "50mb", extended: true }));
 
 // config
-dotenv.config({ path: "backend/config/config.env" });
+if (process.env.NODE_ENV !== "PRODUCTION") {
+  require("dotenv").config({ path: "backend/config/config.env" });
+}
 
 // route imports
 const product = require("./routes/productroutes");
