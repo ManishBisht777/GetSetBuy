@@ -29,16 +29,16 @@ function Navbar() {
       <div className="links">
         <ul>
           <li>
-            <a href="/">
+            <Link to="/">
               {/* <i className="bx bxs-home-heart"></i> */}
               Home
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/">
+            <Link to="/">
               {/* <i className="bx bxs-book-add"></i> */}
               About
-            </a>
+            </Link>
           </li>
           <li>
             <Link to={"/products"}>
