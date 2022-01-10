@@ -38,7 +38,7 @@ import {
 
 import { CLEAR_ERROR } from "../constants/UserConstant";
 import axios from "axios";
-axios.defaults.baseURL = "http://localhost:5000";
+// axios.defaults.baseURL = "http://localhost:5000";
 
 //login
 export const login = (email, password) => async (dispatch) => {
