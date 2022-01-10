@@ -6,6 +6,8 @@ import {
 
 import axios from "axios";
 // axios.defaults.baseURL = "http://localhost:5000";
+axios.defaults.baseURL = "https://getsetbuy.herokuapp.com/";
+
 axios.defaults.withCredentials = true;
 
 // add  to cart
