@@ -13,7 +13,7 @@ function Navbar() {
 
   const [keyword, setKeyword] = useState("");
 
-  const [navopen, setnavopen] = useState("close");
+  const [navopen, setnavopen] = useState(false);
 
   const navigate = useNavigate();
   const searchSubmitHandler = (e) => {
@@ -28,7 +28,12 @@ function Navbar() {
   return (
     <Nav>
       <div className="logo">Company</div>
-      <div className="togglenavbtn">
+      <div
+        className="togglenavbtn"
+        onClick={() => {
+          setnavopen(!navopen);
+        }}
+      >
         <i className="bx bx-menu"></i>
       </div>
       <div className="links">
@@ -136,17 +141,6 @@ const Nav = styled.nav`
     transition: 0.3s;
     padding: 1px 5px;
 
-    @media (max-width: 900px) {
-      flex-direction: column;
-      position: absolute;
-      left: 0px;
-      top: 80px;
-      background: #000000c2;
-      padding: 20px;
-      border: 1px solid #ffffff47;
-      border-radius: 10px;
-    }
-
     &:hover {
       background: #ffffff17;
       transition: 0.3s;
@@ -176,6 +170,17 @@ const Nav = styled.nav`
   .links ul {
     display: flex;
     align-items: center;
+
+    @media (max-width: 900px) {
+      flex-direction: column;
+      position: absolute;
+      left: 0px;
+      top: 80px;
+      background: #000000c2;
+      padding: 20px;
+      border: 1px solid #ffffff47;
+      border-radius: 10px;
+    }
   }
   .userprofileicon {
     border: 2px solid gray;
