@@ -9,12 +9,17 @@ import { getproductadmin } from "../../actions/productAction";
 import { getallorders } from "../../actions/orderaction";
 import "chart.js/auto";
 import { getalluser } from "../../actions/userAction";
+import Loader from "../layout/Loader/Loader";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
-  const { products } = useSelector((state) => state.products);
-  const { orders } = useSelector((state) => state.allorders);
-  const { users } = useSelector((state) => state.allusers);
+  const { loading: productloading, products } = useSelector(
+    (state) => state.products
+  );
+  const { loading: orderloading, orders } = useSelector(
+    (state) => state.allorders
+  );
+  const { loading, users } = useSelector((state) => state.allusers);
 
   let outOfStock = 0;
 
@@ -63,45 +68,49 @@ const Dashboard = () => {
   return (
     <div className="dashboard">
       <Sidebar />
-      <div className="dashboardContainer">
-        <Typography component="h3">Dashboard</Typography>
+      {loading && orderloading && productloading ? (
+        <Loader />
+      ) : (
+        <div className="dashboardContainer">
+          <Typography component="h3">Dashboard</Typography>
 
-        <div className="dashboardSummary">
-          <div className="summarybox1">
-            <p>
-              Total Amount <span>₹ {totalAmount}</span>
-            </p>
+          <div className="dashboardSummary">
+            <div className="summarybox1">
+              <p>
+                Total Amount <span>₹ {totalAmount}</span>
+              </p>
+            </div>
+            <div className="dashboardSummaryBox2">
+              <Link to="/admin/products">
+                <h3>
+                  <i className="bx bxl-product-hunt"></i> Product
+                </h3>
+                <p>{products && products.length}</p>
+              </Link>
+              <Link to="/allorders">
+                <h3>
+                  <i className="bx bxs-shopping-bag"></i> Orders
+                </h3>
+                <p>{orders && orders.length}</p>
+              </Link>
+              <Link to="/admin/users">
+                <h3>
+                  <i className="bx bxs-user"></i> Users
+                </h3>
+                <p>{users && users.length}</p>
+              </Link>
+            </div>
           </div>
-          <div className="dashboardSummaryBox2">
-            <Link to="/admin/products">
-              <h3>
-                <i className="bx bxl-product-hunt"></i> Product
-              </h3>
-              <p>{products && products.length}</p>
-            </Link>
-            <Link to="/allorders">
-              <h3>
-                <i className="bx bxs-shopping-bag"></i> Orders
-              </h3>
-              <p>{orders && orders.length}</p>
-            </Link>
-            <Link to="/admin/users">
-              <h3>
-                <i className="bx bxs-user"></i> Users
-              </h3>
-              <p>{users && users.length}</p>
-            </Link>
+
+          <div className="lineChart">
+            <Line data={lineState} />
+          </div>
+
+          <div className="doughnutChart">
+            <Doughnut data={doughnutState} />
           </div>
         </div>
-
-        <div className="lineChart">
-          <Line data={lineState} />
-        </div>
-
-        <div className="doughnutChart">
-          <Doughnut data={doughnutState} />
-        </div>
-      </div>
+      )}
     </div>
   );
 };
