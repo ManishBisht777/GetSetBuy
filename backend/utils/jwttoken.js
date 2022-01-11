@@ -11,6 +11,7 @@ const sendtoken = (user, statusCode, res) => {
     httpOnly: false,
     credentials: "include",
     sameSite: "None",
+    secure: "true",
   };
 
   res.status(statusCode).cookie("token", token, options).json({
