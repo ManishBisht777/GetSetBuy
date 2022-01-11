@@ -13,6 +13,8 @@ function Navbar() {
 
   const [keyword, setKeyword] = useState("");
 
+  const [navopen, setnavopen] = useState("close");
+
   const navigate = useNavigate();
   const searchSubmitHandler = (e) => {
     e.preventDefault();
@@ -26,6 +28,9 @@ function Navbar() {
   return (
     <Nav>
       <div className="logo">Company</div>
+      <div className="togglenavbtn">
+        <i className="bx bx-menu"></i>
+      </div>
       <div className="links">
         <ul>
           <li>
@@ -111,6 +116,15 @@ const Nav = styled.nav`
     letter-spacing: 1.5px;
   }
 
+  .togglenavbtn {
+    display: none;
+
+    @media (max-width: 900px) {
+      display: flex;
+      position: absolute;
+    }
+  }
+
   li {
     list-style: none;
     display: flex;
@@ -121,6 +135,17 @@ const Nav = styled.nav`
     border-radius: 5px;
     transition: 0.3s;
     padding: 1px 5px;
+
+    @media (max-width: 900px) {
+      flex-direction: column;
+      position: absolute;
+      left: 0px;
+      top: 80px;
+      background: #000000c2;
+      padding: 20px;
+      border: 1px solid #ffffff47;
+      border-radius: 10px;
+    }
 
     &:hover {
       background: #ffffff17;
