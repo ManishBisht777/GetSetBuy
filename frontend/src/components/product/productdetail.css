@@ -129,7 +129,7 @@
 }
 
 .review-box .all-reviews h3 {
-  font-size: 3rem;
+  font-size: 4vmax;
   color: #fff;
   z-index: 1;
   padding: 30px;
@@ -140,11 +140,11 @@
   content: "Reviews";
   position: absolute;
   width: 100%;
-  font-size: 7rem;
+  font-size: 7vmax;
   font-weight: bold;
   z-index: 0;
   left: 0;
-  top: -10px;
+  top: 10px;
   text-align: center;
   color: #6a6a6a33;
 }
