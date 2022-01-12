@@ -16,7 +16,7 @@
 }
 
 .dashboardContainer > h3 {
-  font-size: 3rem;
+  font-size: 4vmax;
   color: #fff;
   width: auto;
   text-align: center;
@@ -27,10 +27,10 @@
 }
 
 .dashboardContainer::before {
-  content: "Top Products";
+  content: "Dashboard";
   position: absolute;
   width: 100%;
-  font-size: 7rem;
+  font-size: 7vmax;
   font-weight: bold;
   z-index: 0;
   text-align: center;
@@ -119,6 +119,12 @@
     grid-template-columns: 1fr;
   }
 
+  .dashboardSummary {
+    flex-direction: column;
+  }
+  .dashboardSummary p {
+    align-items: center;
+  }
   .dashboardContainer {
     border-left: none;
   }

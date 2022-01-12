@@ -200,7 +200,13 @@ const Productdetails = () => {
                 </div>
               </div>
             ) : (
-              <p className="noReviews">No Reviews Yet</p>
+              <div className="noreview">
+                <h3>No reviews</h3>
+                <iframe
+                  title="noreview"
+                  src="https://gifer.com/embed/5rt"
+                ></iframe>
+              </div>
             )}
           </div>
         </>

@@ -1,11 +1,15 @@
+.product-detail {
+  background: url("../../images/home-background.png");
+  background-size: cover;
+  background-position: center;
+}
+
 .product-detail-box {
   overflow-x: hidden;
   width: 100%;
   height: 100%;
   padding-top: 80px;
-  background: url("../../images/home-background.png");
-  background-size: cover;
-  background-position: center;
+
   display: flex;
   min-height: 100vh;
   padding: 20px;
@@ -88,8 +92,7 @@
 }
 
 .product-detail-info .product-desc p {
-  width: 300px;
-  font-size: 2.5vmax;
+  font-size: 1.4vmax;
   margin: 10px;
   color: #5c606e;
 }
@@ -148,4 +151,7 @@
 .allreviews {
   display: flex;
   flex-wrap: wrap;
+}
+
+.noproductreview {
 }

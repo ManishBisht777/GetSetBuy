@@ -76,7 +76,7 @@ const Carousel = styled(Slider)`
 const Wrap = styled.div`
   cursor: pointer;
   img {
-    border: 4px solid transparent;
+    border: 1px solid transparent;
     width: 100%;
     height: 100%;
     border-radius: 4px;
@@ -84,7 +84,7 @@ const Wrap = styled.div`
       rgb(0 0 0 /73%) 0px 16px 10px -10px;
     transition-duration: 300ms;
     &:hover {
-      border: 4px solid rgba(249, 249, 249, 0.8);
+      border: 1px solid rgb(116 116 116 / 80%);
     }
   }
 `;

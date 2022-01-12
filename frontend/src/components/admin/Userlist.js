@@ -124,7 +124,7 @@ const Userlist = () => {
           <Loader />
         ) : (
           <>
-            <h1 id="productListHeading">ALL PRODUCTS</h1>
+            <h1 id="productListHeading">All Users</h1>
 
             <DataGrid
               rows={rows}

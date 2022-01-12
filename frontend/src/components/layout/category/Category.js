@@ -28,7 +28,7 @@ const Category = () => {
         </div>
         <div className="category-card">
           <div className="category-card-info">
-            <h2>SouthIndia</h2>
+            <h2>Fitness</h2>
             <p>
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nam,
               omnis? Atque dignissimos.
@@ -38,10 +38,10 @@ const Category = () => {
         </div>
         <div className="category-card">
           <div className="category-card-info">
-            <h2>West India</h2>
+            <h2>Clothing</h2>
             <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nam,
-              omnis? Atque dignissimos.
+              Explore your true style. We promise comfort. High Style
+              Exceptional Service.
             </p>
             <button className="view-now">Shop Now</button>
           </div>
