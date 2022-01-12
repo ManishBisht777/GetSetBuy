@@ -28,45 +28,54 @@ function Navbar() {
   return (
     <Nav>
       <div className="logo">Company</div>
-      <div
-        className="togglenavbtn"
-        onClick={() => {
-          setnavopen(!navopen);
-        }}
-      >
-        <i className="bx bx-menu"></i>
+      <div className="togglenavbtn">
+        <i
+          className="bx bx-menu"
+          onClick={() => {
+            setnavopen(!navopen);
+          }}
+        ></i>
+        {navopen ? (
+          <>
+            <ul>
+              <div className="logonav">Company</div>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/">About</Link>
+              </li>
+              <li>
+                <Link to={"/products"}>products</Link>
+              </li>
+              <li>
+                <Link to={"/cart"}>Cart</Link>
+              </li>
+              <li>
+                <Link to={"/cart"}>Cart</Link>
+              </li>
+            </ul>
+          </>
+        ) : (
+          ""
+        )}
       </div>
       <div className="links">
         <ul>
           <li>
-            <Link to="/">
-              {/* <i className="bx bxs-home-heart"></i> */}
-              Home
-            </Link>
+            <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/">
-              {/* <i className="bx bxs-book-add"></i> */}
-              About
-            </Link>
+            <Link to="/">About</Link>
           </li>
           <li>
-            <Link to={"/products"}>
-              {/* <i className="bx bxs-shopping-bags"></i> */}
-              products
-            </Link>
+            <Link to={"/products"}>products</Link>
           </li>
           <li>
-            <Link to={"/cart"}>
-              {/* <i className="bx bxs-cart"></i> */}
-              Cart
-            </Link>
+            <Link to={"/cart"}>Cart</Link>
           </li>
           <li>
-            <Link to={"/cart"}>
-              {/* <i className="bx bxs-cart"></i> */}
-              Cart
-            </Link>
+            <Link to={"/cart"}>Cart</Link>
           </li>
         </ul>
       </div>
@@ -103,6 +112,7 @@ const Nav = styled.nav`
   padding: 10px;
   align-items: center;
   height: 70px;
+  z-index: 100000;
   /* background: rgb(61, 66, 82); */
   /* background: url("./bgnav.jpg"); */
   background-size: cover;
@@ -119,14 +129,40 @@ const Nav = styled.nav`
     font-size: 2rem;
     color: #fff;
     letter-spacing: 1.5px;
+
+    @media (max-width: 900px) {
+      display: none;
+    }
   }
 
   .togglenavbtn {
     display: none;
+    position: absolute;
+    left: 20px;
+    top: 20px;
+
+    .logonav {
+      font-family: "Comforter", cursive;
+      font-size: 2rem;
+      color: #fff;
+      letter-spacing: 1.5px;
+    }
+
+    ul {
+      background: #13161ead;
+      border: 1px solid #80808094;
+      border-radius: 5px;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-top: 25px;
+    }
 
     @media (max-width: 900px) {
       display: flex;
-      position: absolute;
+      flex-direction: column;
     }
   }
 
@@ -172,6 +208,10 @@ const Nav = styled.nav`
     align-items: center;
 
     @media (max-width: 900px) {
+      display: none;
+    }
+
+    /* @media (max-width: 900px) {
       flex-direction: column;
       position: absolute;
       left: 0px;
@@ -180,11 +220,15 @@ const Nav = styled.nav`
       padding: 20px;
       border: 1px solid #ffffff47;
       border-radius: 10px;
-    }
+    } */
   }
   .userprofileicon {
     border: 2px solid gray;
     border-radius: 50%;
+
+    @media (max-width: 900px) {
+      margin-left: 10px;
+    }
   }
 `;
 
@@ -204,6 +248,10 @@ const Searchbar = styled.div`
   border-radius: 5px;
   padding: 10px;
   width: 250px;
+
+  @media (max-width: 900px) {
+    margin-left: 50px;
+  }
   i {
     font-size: 20px;
     color: #ababab;

@@ -42,18 +42,18 @@ html {
 }
 
 .product-container h3 {
-  font-size: 3rem;
+  font-size: 4vmax;
   color: #fff;
-  z-index: 1;
+  z-index: 0;
   padding: 10px 20px;
   margin: 30px;
 }
 .product-container::before {
-  content: "Top Products";
+  content: "Featured Products";
   position: absolute;
   width: 100%;
   height: 100%;
-  font-size: 7rem;
+  font-size: 7vmax;
   font-weight: bold;
   z-index: 0;
   text-align: center;

@@ -37,6 +37,9 @@ const Cart = () => {
       {cartitems.length === 0 ? (
         <div className="emptycart">
           <h3>no item in cart</h3>
+
+          <iframe title="EmptyCart" src="https://gifer.com/embed/5rt"></iframe>
+
           <Link to={"/products"}>Shop Now</Link>
         </div>
       ) : (

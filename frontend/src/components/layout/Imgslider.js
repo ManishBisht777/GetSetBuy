@@ -62,6 +62,16 @@ const Carousel = styled(Slider)`
     right: 3% !important;
     z-index: 1;
   }
+
+  @media (max-width: 900px) {
+    .slick-prev,
+    .slick-next {
+      top: 70%;
+      width: 10px;
+      height: 10px;
+      transform: translate(0, -70%);
+    }
+  }
 `;
 const Wrap = styled.div`
   cursor: pointer;
