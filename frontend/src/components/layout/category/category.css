@@ -68,7 +68,7 @@
   align-items: center;
 }
 .category-card:nth-child(2) .category-card-info {
-  background: url("../../../images/category3.png");
+  background: url("../../../images/category3.jpg");
   background-position: left;
   background-size: cover;
   background-color: rgb(0 0 0 / 44%);
@@ -94,7 +94,7 @@
 }
 
 .category-card:nth-child(3) .category-card-info {
-  background: url("../../../images/fitnes.png");
+  background: url("../../../images/fitnes.jpg");
   background-position: left;
   background-size: cover;
   background-color: rgb(0 0 0 / 44%);
