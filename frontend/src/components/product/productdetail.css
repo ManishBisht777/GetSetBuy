@@ -26,6 +26,10 @@
   object-fit: contain;
 }
 
+.product-image-slider > div {
+  z-index: 0;
+}
+
 .product-detail-info {
   width: 50%;
   min-height: 80vh;
@@ -131,7 +135,7 @@
 .review-box .all-reviews h3 {
   font-size: 4vmax;
   color: #fff;
-  z-index: 1;
+  z-index: 0;
   padding: 30px;
   text-align: center;
   position: relative;
@@ -152,6 +156,18 @@
 .allreviews {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+}
+
+.outofstock {
+  font: 400 1vmax "Roboto";
+  color: #dddddd;
+  padding: 5px 10px;
+  background: #1f222e;
+  border-radius: 2px;
+  border: 1px solid #80808063;
+  background: #d32b1a !important;
+  margin: 10px;
 }
 
 @media (max-width: 900px) {

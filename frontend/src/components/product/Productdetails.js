@@ -127,15 +127,20 @@ const Productdetails = () => {
                 </p>
               </div>
               <Rating {...options} />
-              <div className="inc-dec-quantity">
-                <button onClick={decquantity}>
-                  <i className="bx bx-minus"></i>
-                </button>
-                <input type="number" readOnly value={quantity} />
-                <button onClick={incquantity}>
-                  <i className="bx bx-plus"></i>
-                </button>
-              </div>
+              {product.stock ? (
+                <div className="inc-dec-quantity">
+                  <button onClick={decquantity}>
+                    <i className="bx bx-minus"></i>
+                  </button>
+                  <input type="number" readOnly value={quantity} />
+                  <button onClick={incquantity}>
+                    <i className="bx bx-plus"></i>
+                  </button>
+                </div>
+              ) : (
+                <h4 className="outofstock">Out Of stock</h4>
+              )}
+
               <div className="product-desc">
                 <h2>Description</h2>
                 <p>{product.description}</p>

@@ -72,7 +72,7 @@ const Cart = () => {
                   </button>
                 </div>
                 <p className="subtotal">
-                  <i class="bx bxs-dollar-circle"></i>
+                  <i className="bx bxs-dollar-circle"></i>
                   {item.price * item.quantity}
                 </p>
               </div>
@@ -88,7 +88,7 @@ const Cart = () => {
             </div>
             <div className="checkOutBtn">
               <button onClick={checkouthandler}>
-                <i class="bx bxs-badge-check"></i>Check Out
+                <i className="bx bxs-badge-check"></i>Check Out
               </button>
             </div>
           </div>

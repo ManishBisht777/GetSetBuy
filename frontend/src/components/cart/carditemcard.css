@@ -10,7 +10,7 @@
 
 .CartItemCard > div {
   display: flex;
-  margin: 0.3vmax 1vmax;
+  margin: 1.3vmax 0vmax;
   flex-direction: column;
 }
 
@@ -51,4 +51,11 @@
   border: 1px solid #464646;
   display: flex;
   align-items: center;
+}
+
+@media (max-width: 900px) {
+  .CartItemCard {
+    flex-direction: column;
+    align-items: center;
+  }
 }
