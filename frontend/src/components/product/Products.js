@@ -14,13 +14,12 @@ import Loader from "../layout/Loader/Loader";
 
 const Products = () => {
   const categories = [
-    "laptop",
-    "footwear",
-    "bottom",
-    "tops",
-    "attire",
-    "camera",
-    "smartPhones",
+    "Laptop",
+    "Footwear",
+    "Watch",
+    "Tops",
+    "Attire",
+    "SmartPhones",
   ];
 
   const dispatch = useDispatch();
@@ -35,7 +34,7 @@ const Products = () => {
   } = useSelector((state) => state.products);
 
   const [currentpage, setcurrentpage] = useState(1);
-  const [price, setprice] = useState([0, 25000]);
+  const [price, setprice] = useState([0, 200000]);
   const [category, setCategory] = useState("");
   const [ratings, setratings] = useState(0);
 

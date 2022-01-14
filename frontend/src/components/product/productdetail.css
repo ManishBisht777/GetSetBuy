@@ -97,9 +97,10 @@
 }
 
 .product-detail-info .product-desc p {
-  font-size: 1.4vmax;
+  font-size: 1vmax;
   margin: 10px;
   color: #5c606e;
+  text-align: justify;
 }
 
 .product-detail-info .product-button {

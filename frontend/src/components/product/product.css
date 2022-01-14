@@ -12,12 +12,13 @@
 }
 
 .page-item {
-  background-color: rgb(255, 255, 255);
+  background-color: #635183;
   list-style: none;
   border: 1px solid rgba(0, 0, 0, 0.178);
   padding: 1vmax 1.5vmax;
   transition: all 0.3s;
   cursor: pointer;
+  color: #fff;
 }
 .page-item:first-child {
   border-radius: 5px 0 0 5px;
@@ -29,12 +30,12 @@
 .page-link {
   text-decoration: none;
   font: 300 0.9vmax "Roboto";
-  color: rgb(80, 80, 80);
+  color: rgb(231 231 231);
   transition: all 0.3s;
 }
 
 .page-item:hover {
-  background-color: rgb(230, 230, 230);
+  background-color: rgb(213 188 235);
 }
 
 .page-item:hover .page-link {
@@ -42,7 +43,7 @@
 }
 
 .pageItemActive {
-  background-color: tomato;
+  background-color: #1a1335;
 }
 
 .pageLinkActive {

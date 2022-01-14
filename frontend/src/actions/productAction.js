@@ -34,11 +34,10 @@ import axios from "axios";
 // axios.defaults.baseURL = "http://localhost:5000";
 axios.defaults.baseURL = "https://getsetbuy.herokuapp.com/";
 
-
 axios.defaults.withCredentials = true;
 
 export const getproduct =
-  (keyword = "", currentpage = 1, price = [0, 2500], category, ratings = 0) =>
+  (keyword = "", currentpage = 1, price = [0, 200000], category, ratings = 0) =>
   async (dispatch) => {
     try {
       dispatch({ type: ALL_PRODUCT_REQUEST });
