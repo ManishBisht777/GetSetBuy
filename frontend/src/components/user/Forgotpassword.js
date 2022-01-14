@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { clearerror, forgotpassword } from "../../actions/userAction";
 import { useAlert } from "react-alert";
+import "./changepassword.css";
 
 const Forgotpassword = () => {
   const dispatch = useDispatch();
@@ -32,19 +33,23 @@ const Forgotpassword = () => {
   }, [alert, error, dispatch, message, navigate]);
 
   return (
-    <div>
-      <h3>forgot password</h3>
-      <div>
-        <form action="" onSubmit={change}>
-          <input
-            // todo replace placeholder={ value} to value={ value}
-            name="email"
-            type="text"
-            placeholder="email"
-            onChange={(e) => setemail(e.target.value)}
-          />
-          <input type="submit" value="email" />
-        </form>
+    <div className="updatePasswordContainer">
+      <div className="updatePasswordBox">
+        <h3 className="updatePasswordHeading">Forgot password</h3>
+        <div>
+          <form className="updatePasswordForm" action="" onSubmit={change}>
+            <div className="loginPassword">
+              <input
+                // todo replace placeholder={ value} to value={ value}
+                name="email"
+                type="text"
+                placeholder="email"
+                onChange={(e) => setemail(e.target.value)}
+              />
+            </div>
+            <input className="updatePasswordBtn" type="submit" value="email" />
+          </form>
+        </div>
       </div>
     </div>
   );

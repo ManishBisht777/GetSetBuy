@@ -86,13 +86,13 @@ function App() {
             <Route exact path="/auth" element={<LoginSignup />} />
             <Route exact path="/account" element={<Account />} />
             {/* <ProtectedRoute exact path="/account" element={<Account />} /> */}
-            <Route exact path="me/update" element={<Updateprofile />} />
-            <Route exact path="password/update" element={<Updatepassword />} />
-            <Route exact path="password/forgot" element={<Forgotpassword />} />
-            <Route exact path="password/forgot" element={<Forgotpassword />} />
+            <Route exact path="/me/update" element={<Updateprofile />} />
+            <Route exact path="/password/update" element={<Updatepassword />} />
+            <Route exact path="/password/forgot" element={<Forgotpassword />} />
+            <Route exact path="/password/forgot" element={<Forgotpassword />} />
             <Route
               exact
-              path="password/reset/:token"
+              path="/password/reset/:token"
               element={<Resetpassword />}
             />
             <Route exact path="/cart" element={<Cart />} />

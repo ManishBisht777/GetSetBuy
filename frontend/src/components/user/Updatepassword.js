@@ -53,7 +53,7 @@ const Updatepassword = () => {
         <Fragment>
           <div className="updatePasswordContainer">
             <div className="updatePasswordBox">
-              <h2 className="updatePasswordHeading">Update Profile</h2>
+              <h2 className="updatePasswordHeading">Update Password</h2>
 
               <form className="updatePasswordForm" onSubmit={change}>
                 <div className="loginPassword">

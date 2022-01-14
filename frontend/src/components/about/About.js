@@ -15,7 +15,7 @@ const About = () => {
           tenetur nesciunt, debitis impedit! Mollitia!
         </p>
         <a
-          href="https://github.com/ManishBisht777"
+          href="https://www.linkedin.com/in/manish-bisht-21b02b220/"
           class="hire-us"
           target="_blank"
           rel="noopener noreferrer"
