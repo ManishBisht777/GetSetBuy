@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Footer.css";
 
 function Footer() {
@@ -10,19 +11,16 @@ function Footer() {
             <h1>Category</h1>
             <ul>
               <li>
-                <a href="/home">Home</a>
+                <Link to="/">Home</Link>
               </li>
               <li>
-                <a href="/team">Team</a>
+                <Link to="/about">About</Link>
               </li>
               <li>
-                <a href="/projects">Projects</a>
+                <Link to="/products">All Products</Link>
               </li>
               <li>
-                <a href="/shop">Shop</a>
-              </li>
-              <li>
-                <a href="/ordres">Your Orders</a>
+                <Link to="/cart">Cart</Link>
               </li>
             </ul>
           </div>
@@ -67,7 +65,11 @@ function Footer() {
               </a>
             </li>
             <li>
-              <a href="/">
+              <a
+                href="https://github.com/ManishBisht777"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <ion-icon name="logo-github"></ion-icon>
               </a>
             </li>

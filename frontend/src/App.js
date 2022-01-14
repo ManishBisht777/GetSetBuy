@@ -35,6 +35,7 @@ import Updateorder from "./components/admin/Updateorder";
 import Userlist from "./components/admin/Userlist";
 import Updateuser from "./components/admin/Updateuser";
 import Productreviews from "./components/admin/Productreviews";
+import About from "./components/about/About";
 // import Notfound from "./components/layout/Notfound";
 // deploy
 axios.defaults.baseURL = "https://getsetbuy.herokuapp.com/";
@@ -77,6 +78,8 @@ function App() {
         <div className="box2">
           <Routes>
             <Route exact path="/" element={<Home />} />
+            <Route exact path="/about" element={<About />} />
+
             <Route exact path="/product/:id" element={<Productdetails />} />
             <Route exact path="/products" element={<Products />} />
             <Route exact path="/products/:keyword" element={<Products />} />

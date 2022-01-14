@@ -27,7 +27,7 @@ function Navbar() {
 
   return (
     <Nav>
-      <div className="logo">Company</div>
+      <div className="logo">GetsetBuy</div>
       <div className="togglenavbtn">
         <i
           className="bx bx-menu"
@@ -38,7 +38,7 @@ function Navbar() {
         {navopen ? (
           <>
             <ul>
-              <div className="logonav">Company</div>
+              <div className="logonav">GetsetBuy</div>
               <li>
                 <Link to="/">Home</Link>
               </li>
@@ -51,9 +51,9 @@ function Navbar() {
               <li>
                 <Link to={"/cart"}>Cart</Link>
               </li>
-              <li>
+              {/* <li>
                 <Link to={"/cart"}>Cart</Link>
-              </li>
+              </li> */}
             </ul>
           </>
         ) : (
@@ -66,7 +66,7 @@ function Navbar() {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/">About</Link>
+            <Link to="/about">About</Link>
           </li>
           <li>
             <Link to={"/products"}>products</Link>
@@ -74,9 +74,9 @@ function Navbar() {
           <li>
             <Link to={"/cart"}>Cart</Link>
           </li>
-          <li>
+          {/* <li>
             <Link to={"/cart"}>Cart</Link>
-          </li>
+          </li> */}
         </ul>
       </div>
       <Searchbar className="search">
