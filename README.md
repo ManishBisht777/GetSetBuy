@@ -1,7 +1,7 @@
 <h1 align="center">MERN stack Ecommerce Website</h1>
 
 
-<p align="center">Modern Ecommerce website using MERN stack using React, Nodejs, Express, Mongodb.</p>
+<p align="center">Modern Ecommerce website using React, Nodejs, Express, Mongodb.</p>
 <p align="center">Login using JWt, Bcryptjs for encryption and authentication, and Payment Integration Using Stripe.</p>
 <p align="center">Mongodb cloud for data storage and cloudinary for cloud operations.</p>
 
