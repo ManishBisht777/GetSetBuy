@@ -34,5 +34,15 @@
   </a>
 </h2
 
-<img src="https://res.cloudinary.com/drsm0ncyx/image/upload/v1642348423/GetsetBuy/Capture_xp2trr.png" >
+<p align="center">
+    <img src="https://res.cloudinary.com/drsm0ncyx/image/upload/v1642348423/GetsetBuy/Capture_xp2trr.png" >
+    <img src="https://res.cloudinary.com/drsm0ncyx/image/upload/v1642348420/GetsetBuy/1_tpdxxf.png">
+    <img src="https://res.cloudinary.com/drsm0ncyx/image/upload/v1642348422/GetsetBuy/2_gpquyn.png">
+    <img src="https://res.cloudinary.com/drsm0ncyx/image/upload/v1642348423/GetsetBuy/3_brhe0f.png">
+    <img src="https://res.cloudinary.com/drsm0ncyx/image/upload/v1642348420/GetsetBuy/4_m6mjrw.png">
+    <img src="https://res.cloudinary.com/drsm0ncyx/image/upload/v1642348421/GetsetBuy/5_odgbqd.png">
+    <img src="https://res.cloudinary.com/drsm0ncyx/image/upload/v1642348421/GetsetBuy/6_lutbyw.png">
+    <img src="https://res.cloudinary.com/drsm0ncyx/image/upload/v1642348422/GetsetBuy/7_ijm76e.png">
+    <img src="https://res.cloudinary.com/drsm0ncyx/image/upload/v1642348421/GetsetBuy/8_hrci4k.png">
+</p>
 
