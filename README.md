@@ -30,10 +30,13 @@
 
 <h2 align="center">
 <a href="https://getsetbuy.netlify.app/">
-    Live Link
+    Live Link 
   </a>
-</h2
+</h2>
 
+<h2 align="center">
+    Here's some Images of the UI Down Below here , you can also watch Whole site with the link given above 
+</h2>
 <p align="center">
     <img src="https://res.cloudinary.com/drsm0ncyx/image/upload/v1642348423/GetsetBuy/Capture_xp2trr.png" >
     <img src="https://res.cloudinary.com/drsm0ncyx/image/upload/v1642348420/GetsetBuy/1_tpdxxf.png">
