@@ -34,5 +34,5 @@
   </a>
 </h2
 
-<h1>Looks</h1>
+<img src="https://res.cloudinary.com/drsm0ncyx/image/upload/v1642348423/GetsetBuy/Capture_xp2trr.png" >
 
